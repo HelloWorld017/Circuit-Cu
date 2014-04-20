@@ -4,8 +4,9 @@ package com.He.W.onebone.circuit.cu;
 import android.widget.ImageView;
 
 public class Resister extends ElectricityBlocker{
-	public Resister(ImageView img, int x, int y, int locationId) {
-		super(img, x, y, locationId);
+	public Resister(ImageView img, int x, int y, int locationId, int blockRate) {
+		super(img, x, y, locationId, blockRate);
+		CircuitBoard.getInstance().getManager().addComponent(this);
 	}
 	
 	/*public Resister(MainActivity activity){

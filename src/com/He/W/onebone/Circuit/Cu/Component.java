@@ -1,30 +1,24 @@
 package com.He.W.onebone.circuit.cu;
 
-//import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 public class Component extends Focusable{
 	private ImageView img;
 	private float x, y;
-	//private Resources resource;
 	
 	public Component(ImageView img, int x, int y, int locationId){
 		this.x = x;
 		this.y = y;
 		this.img = img;
-		//this.resource = activity.getResources();
 	}
-	
-	/*public Component(MainActivity activity, int imageResourceId, int x, int y, int locationId){
-		this.activity = activity;
-		this.x = x;
-		this.y = y;
-		this.resource = activity.getResources();
-		this.img = resource.getDrawable(imageResourceId).;
-	}*/
 	
 	public void setComponentImage(ImageView img){
 		this.img = img;
+	}
+	
+	public void setComponentDrawable(Drawable drawable){
+		this.img.setImageDrawable(drawable);
 	}
 	
 	public ImageView getComponentImage(){

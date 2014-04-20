@@ -20,6 +20,10 @@ public class CircuitBoard extends ImageView{
 		return obj;
 	}
 	
+	public BoardComponentManager getManager(){
+		return manager;
+	}
+	
 	public void putComponent(Component component){
 		manager.addComponent(component);
 	}

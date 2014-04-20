@@ -4,7 +4,10 @@ import android.widget.ImageView;
 
 public class ElectricityBlocker extends Component{
 
-	public ElectricityBlocker(ImageView img, int x, int y, int locationId) {
+	private int blockElectricity;
+	
+	public ElectricityBlocker(ImageView img, int x, int y, int locationId, int blockElectricity) {
 		super(img, x, y, locationId);
+		this.blockElectricity = blockElectricity;
 	}
 }
