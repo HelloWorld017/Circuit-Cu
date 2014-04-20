@@ -9,7 +9,7 @@ public class Resister implements ElectricityBlocker{
 	
 	public Resister(MainActivity activity){
 		resource = activity.getResources();
-		img = resource.getDrawable(R.drawable.resister);
+		img = resource.getDrawable(R.drawable.resister); // TODO Insert image!!
 	}
 	
 	
