@@ -3,7 +3,6 @@ package com.He.W.onebone.circuit.cu;
 import java.util.LinkedList;
 
 import android.view.View;
-import android.widget.ImageView;
 
 public class BoardComponentManager {
 	private LinkedList<Component> componentList;
@@ -16,8 +15,41 @@ public class BoardComponentManager {
 		componentList.add(component);
 	}
 	
-	public void moveComponent(Component component, int x, int y){
-		
+	public void moveComponent(Component component, float x, float y){
+		component.moveTo(x, y);
+	}
+	
+	public Component findComponentByLocation(float x, float y){
+		for(Component c : componentList){
+			if(c.getX() == x && c.getY() == y){
+				return c;
+			}
+		}
+		return null;
+	}
+	
+	public Component findComponentByLocation(float x, float y, int errorRange){
+		for(Component c : componentList){
+			float targetX = c.getX();
+			float targetY = c.getY();
+			if(targetX - errorRange > x && targetX + errorRange < x){
+				if(targetY - errorRange > y && targetY + errorRange < y){
+					return c;
+				}
+			}
+		}
+		return null;
+	}
+	
+	public void removeComponent(Component component){
+		for(int o = 0; o < componentList.size(); o++){
+			Component c = componentList.get(o);
+			if(c.equals(component)){
+				component.getComponentImage().setVisibility(View.INVISIBLE);
+				componentList.remove(o);
+				return;
+			}
+		}
 	}
 	
 	/*public void addComponent(Component component, ImageView img, int x, int y, float rotation, int locationId){
