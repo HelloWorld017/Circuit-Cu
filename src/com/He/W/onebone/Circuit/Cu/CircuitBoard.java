@@ -3,6 +3,7 @@ package com.He.W.onebone.circuit.cu;
 import java.util.TreeMap;
 
 import android.content.res.Resources;
+import android.view.View;
 import android.widget.ImageView;
 
 public class CircuitBoard{
@@ -22,13 +23,11 @@ public class CircuitBoard{
 		return obj;
 	}
 	
-	
-	
 	/*public int getIdByLocation(int x, int y){
 		
 	}*/
 	
-	public boolean putComponent(ImageView img, int locationId){
+	public boolean putComponent(Component component){
 		/*if(boardImg == null){
 			return false;
 		}
@@ -37,10 +36,7 @@ public class CircuitBoard{
 		}
 		
 		return true;*/
-		if(boardImg == null){
-			return false;
-		}
-		
+		manager.addComponent(component);
 		return true;
 	}
 }

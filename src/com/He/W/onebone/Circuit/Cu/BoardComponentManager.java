@@ -6,19 +6,31 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class BoardComponentManager {
-	private LinkedList<Object[]> componentList;
+	private LinkedList<Component> componentList;
 	
 	public BoardComponentManager(){
-		componentList = new LinkedList<Object[]>();
+		componentList = new LinkedList<Component>();
 	}
 	
-	public void addComponent(Component component, ImageView img, int x, int y, float rotation, int locationId){
+	public void addComponent(Component component){
+		componentList.add(component);
+	}
+	
+	public void moveComponent(Component component, int x, int y){
+		
+	}
+	
+	/*public void addComponent(Component component, ImageView img, int x, int y, float rotation, int locationId){
 		componentList.add(new Object[]{
-			component, // [0] : Component instance (Component)
+		/*	component, // [0] : Component instance (Component)
 			x, y, // [1] : x (int), [2] : y (int)
 			img, // [3] : ImageView instance (ImageView)
 			rotation, // [4] : Rotation (float)
-			locationId // [5] : locationId (int)
+			locationId // [5] : locationId (int)*
+				component,
+				x, y,
+				rotation,
+				locationId
 		});
 	}
 	
@@ -82,5 +94,5 @@ public class BoardComponentManager {
 			}
 		}
 		return null;
-	}
+	}*/
 }

@@ -2,8 +2,8 @@ package com.He.W.onebone.circuit.cu;
 
 import java.util.HashMap;
 
-public class LevelReader{
-	public HashMap<String,Level> Levels = new HashMap<String,Level>();
+public class LevelHelper{
+	public HashMap<String,Level> levels = new HashMap<String,Level>();
 	
 	public static void readAllLevels(){
 		
