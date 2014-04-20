@@ -1,5 +1,5 @@
 package com.He.W.onebone.circuit.cu;
 
-public interface ElectricityBlocker {
+public interface ElectricityBlocker extends Component{
 	
 }
