@@ -1,16 +1,48 @@
 package com.He.W.onebone.circuit.cu;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-public class Component extends Focusable{
+public class Component{
 	private ImageView img;
 	private float x, y;
+	private int rotation;
 	
-	public Component(ImageView img, int x, int y, int locationId){
+	public Component(Context context, Drawable drawable, float x, float y, int rotation){
 		this.x = x;
 		this.y = y;
+		this.rotation = rotation;
+		this.img = new ImageView(context);
+		this.img.setImageDrawable(drawable);
+		this.img.setX(x);
+		this.img.setY(y);
+		CircuitBoard.getInstance().getManager().addComponent(this);
+	}
+	
+	public Component(Context context, int resourceId, float x, float y, int rotation){
+		this.x = x;
+		this.y = y;
+		this.rotation = rotation;
+		this.img = new ImageView(context);
+		this.img.setImageResource(resourceId);
+		this.img.setX(x);
+		this.img.setY(y);
+		CircuitBoard.getInstance().getManager().addComponent(this);
+	}
+	
+	public Component(ImageView img, float x, float y, int rotation){
+		this.x = x;
+		this.y = y;
+		this.rotation = rotation;
 		this.img = img;
+		this.img.setX(x);
+		this.img.setY(y);
+		CircuitBoard.getInstance().getManager().addComponent(this);
+	}
+	
+	public void setFocus(boolean focus){ // TODO Showing focus status
+		
 	}
 	
 	public void setComponentImage(ImageView img){
@@ -35,6 +67,10 @@ public class Component extends Focusable{
 	
 	public float getY(){
 		return y;
+	}
+	
+	public int getRotation(){
+		return rotation;
 	}
 	
 	public void moveTo(float x, float y){

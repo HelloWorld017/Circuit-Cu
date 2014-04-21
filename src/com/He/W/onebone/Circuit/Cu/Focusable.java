@@ -1,8 +1,4 @@
 package com.He.W.onebone.circuit.cu;
 
-public class Focusable{
-
-	public final void onFocus(boolean focus){
-		
-	}
+public interface Focusable{
 }

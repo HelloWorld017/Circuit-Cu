@@ -3,6 +3,7 @@ package com.He.W.onebone.circuit.cu;
 import java.util.TreeMap;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 public class CircuitBoard extends ImageView{
@@ -26,6 +27,14 @@ public class CircuitBoard extends ImageView{
 	
 	public void putComponent(Component component){
 		manager.addComponent(component);
+	}
+	
+	public Component makeComponent(Drawable drawable, float x, float y, int rotation){
+		return new Component(this.getContext(), drawable, x, y, rotation);
+	}
+	
+	public Component makeComponent(int resId, float x, float y, int rotation){
+		return new Component(this.getContext(), resId, x, y, rotation);
 	}
 }
 
