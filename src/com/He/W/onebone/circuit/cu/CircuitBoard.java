@@ -31,13 +31,13 @@ public class CircuitBoard extends ImageView{
 		
 	}
 	
-	public Component makeComponent(Drawable drawable, float x, float y, int rotation){
+	/*public Component makeComponent(Drawable drawable, float x, float y, int rotation){
 		return new Component(this.getContext(), drawable, x, y, rotation);
 	}
 	
 	public Component makeComponent(int resId, float x, float y, int rotation){
 		return new Component(this.getContext(), resId, x, y, rotation);
-	}
+	}*/
 }
 
 /*public class CircuitBoard{
