@@ -1,5 +1,7 @@
 package com.He.W.onebone.circuit.cu;
 
+import com.He.W.onebone.circuit.cu.component.*;
+
 import java.util.LinkedList;
 
 import android.view.View;
@@ -50,6 +52,10 @@ public class BoardComponentManager {
 				return;
 			}
 		}
+	}
+	
+	public void insertElectricityToComponent(Component component){ // TODO Inserting electricity to component
+		
 	}
 	
 	/*public void addComponent(Component component, ImageView img, int x, int y, float rotation, int locationId){

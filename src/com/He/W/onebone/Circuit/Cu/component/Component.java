@@ -1,4 +1,6 @@
-package com.He.W.onebone.circuit.cu;
+package com.He.W.onebone.circuit.cu.component;
+
+import com.He.W.onebone.circuit.cu.*;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -53,7 +55,7 @@ public class Component{
 		this.img.setImageDrawable(drawable);
 	}
 	
-	public ImageView getComponentImage(){
+	public final ImageView getComponentImage(){
 		return this.img;
 	}
 	
@@ -61,19 +63,19 @@ public class Component{
 		img.setVisibility(visibility);
 	}
 	
-	public float getX(){
+	public final float getX(){
 		return x;
 	}
 	
-	public float getY(){
+	public final float getY(){
 		return y;
 	}
 	
-	public int getRotation(){
+	public final int getRotation(){
 		return rotation;
 	}
 	
-	public void moveTo(float x, float y){
+	public final void moveTo(float x, float y){
 		this.img.setX(x);
 		this.img.setY(y);
 		this.x = x;

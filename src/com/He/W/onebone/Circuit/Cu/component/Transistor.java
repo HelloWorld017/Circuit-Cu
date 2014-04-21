@@ -1,4 +1,4 @@
-package com.He.W.onebone.circuit.cu;
+package com.He.W.onebone.circuit.cu.component;
 
 import android.widget.ImageView;
 

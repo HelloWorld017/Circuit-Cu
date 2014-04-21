@@ -1,5 +1,7 @@
 package com.He.W.onebone.circuit.cu;
 
+import com.He.W.onebone.circuit.cu.component.*;
+
 import android.widget.ImageView;
 
 public class ElectricityBlockable extends Component{
