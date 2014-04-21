@@ -41,11 +41,22 @@ public class LevelHelper{
 				br = new BufferedReader(isr);
 				String s;
 				// Generic is not allowed under java version 1.7
-				ArrayList<String> al = new ArrayList<String>();
-				for(;(s = br.readLine())!= null;){
+				ArrayList<String> al_mapdata = new ArrayList<String>();
+				/*al_mapdata index
+									0 = MapName
+									1 = Start Voltage or RPM*/
+				int msl = 0;
+				for(int i = 1;(s = br.readLine())!= null;i++){
+					
 					if(s == "[Map]"){
-						
+						msl = i;
 					}
+					if(i == msl + 1 && i != 1){
+						al_mapdata.add(0,s);
+					}else if(i == msl + 2 && i != 2){
+						al_mapdata.add(1,s);
+					}
+					//TODO: writing script
 					
 				}
 					
