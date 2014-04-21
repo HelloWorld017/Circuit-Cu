@@ -27,8 +27,8 @@ public class CircuitBoard extends ImageView{
 		return manager;
 	}
 	
-	public void putComponent(Component component){
-		manager.addComponent(component);
+	public void putComponentTo(Component component, int locationId){ // TODO Insert component putting
+		
 	}
 	
 	public Component makeComponent(Drawable drawable, float x, float y, int rotation){

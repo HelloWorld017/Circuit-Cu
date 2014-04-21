@@ -25,5 +25,7 @@ public class Wire {
 		return blockage;
 	}
 	
-	
+	public void releaseElectricity(){ // TODO Releasing electricity
+		
+	}
 }

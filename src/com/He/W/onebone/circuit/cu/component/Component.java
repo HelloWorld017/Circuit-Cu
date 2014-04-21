@@ -9,9 +9,9 @@ import android.widget.ImageView;
 public class Component{
 	private ImageView img;
 	private float x, y;
-	private int rotation;
+	private float rotation;
 	
-	public Component(Context context, Drawable drawable, float x, float y, int rotation){
+	public Component(Context context, Drawable drawable, float x, float y, float rotation){
 		this.x = x;
 		this.y = y;
 		this.rotation = rotation;
@@ -71,8 +71,13 @@ public class Component{
 		return y;
 	}
 	
-	public final int getRotation(){
+	public final float getRotation(){
 		return rotation;
+	}
+	
+	public void setRotation(float rotation){
+		this.img.setRotation(rotation);
+		this.rotation = rotation;
 	}
 	
 	public final void moveTo(float x, float y){
