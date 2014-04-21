@@ -6,7 +6,7 @@ import com.He.W.onebone.circuit.cu.*;
 import android.widget.ImageView;
 
 public class Resister extends ElectricityBlockable{
-	public Resister(ImageView img, int x, int y, int locationId, int blockRate, int errorRange) {
+	public Resister(ImageView img, float x, float y, int locationId, int blockRate, int errorRange) {
 		super(img, x, y, locationId, blockRate, errorRange);
 	}
 	
