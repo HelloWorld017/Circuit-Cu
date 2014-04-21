@@ -6,7 +6,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-public class Component{
+abstract public class Component{
 	private ImageView img;
 	private float x, y;
 	private float rotation;
@@ -86,4 +86,6 @@ public class Component{
 		this.x = x;
 		this.y = y;
 	}
+	
+	abstract public void electricityReleased();
 }

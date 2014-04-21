@@ -4,7 +4,7 @@ import com.He.W.onebone.circuit.cu.component.*;
 
 import android.widget.ImageView;
 
-public class ElectricityBlockable extends Component{
+public abstract class ElectricityBlockable extends Component{
 
 	private int blockElectricity, errorRange;
 	

@@ -10,7 +10,12 @@ public class Resister extends ElectricityBlockable{
 		super(img, x, y, locationId, blockRate, errorRange);
 	}
 	
-	public void addLine(ImageView lineImg, int lineId){ // TODO Inserting line which identifies the information of resister
+	public void addLine(int color, int lineId){ // TODO Inserting line which identifies the information of resister
+		
+	}
+
+	@Override
+	public void electricityReleased() {
 		
 	}
 	
