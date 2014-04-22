@@ -6,19 +6,14 @@ import android.widget.ImageView;
 
 public abstract class ElectricityBlockable extends Component{
 
-	private int blockElectricity, errorRange;
+	private int blockElectricity;
 	
-	public ElectricityBlockable(ImageView img, float x, float y, int rotation, int blockElectricity, int errorRange) {
+	public ElectricityBlockable(ImageView img, float x, float y, int rotation, int blockElectricity) {
 		super(img, x, y, rotation);
 		this.blockElectricity = blockElectricity;
-		this.errorRange = errorRange;
 	}
 	
 	public int getBlockingElectricity(){
 		return blockElectricity;
-	}
-	
-	public int getErrorRange(){
-		return errorRange;
 	}
 }

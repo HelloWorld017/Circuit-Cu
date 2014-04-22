@@ -6,12 +6,19 @@ import com.He.W.onebone.circuit.cu.*;
 import android.widget.ImageView;
 
 public class Resister extends ElectricityBlockable{
-	public Resister(ImageView img, float x, float y, int locationId, int blockRate, int errorRange) {
-		super(img, x, y, locationId, blockRate, errorRange);
+	private int errorRange;
+	
+	public Resister(ImageView img, float x, float y, int locationId, int blockage, int errorRange) {
+		super(img, x, y, locationId, blockage);
+		this.errorRange = errorRange;
 	}
 	
 	public void addLine(int color, int lineId){ // TODO Inserting line which identifies the information of resister
 		
+	}
+	
+	public int getErrorRange(){
+		return errorRange;
 	}
 
 	@Override
