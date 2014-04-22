@@ -11,10 +11,17 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int alphares=0x7f020000;
+        public static final int cchdpi=0x7f020001;
+        public static final int geerbutton=0x7f020002;
+        public static final int geerbutton_focused=0x7f020003;
+        public static final int geerbutton_pressed=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int selector=0x7f020006;
     }
     public static final class id {
-        public static final int menu_settings=0x7f070000;
+        public static final int imageButton1=0x7f070000;
+        public static final int menu_settings=0x7f070001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
