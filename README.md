@@ -11,4 +11,13 @@ CC-BY-NC-ND
 image source
 
 gear image - ciker.com
+
 light bulb image - simpleicon.com
+
+==========
+
+font source
+
+Mixed these fonts
+
+NanumGothicLight, SonySketchEF, Ubuntu-C
