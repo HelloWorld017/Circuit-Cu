@@ -6,7 +6,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
-public class Wire {
+abstract public class Wire {
 	private ImageView img;
 	private double blockage;
 	private BoardComponentManager manager;
@@ -28,4 +28,6 @@ public class Wire {
 	public void releaseElectricity(){ // TODO Releasing electricity
 		
 	}
+	
+	abstract public void electricityReleased();
 }

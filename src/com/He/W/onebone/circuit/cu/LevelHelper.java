@@ -202,8 +202,7 @@ public class LevelHelper{
 									
 									al_componentdata.add(5,Integer.valueOf(set2[1]));
 									
-								}else if(set2[0].equals("Cog")){
-									
+								}else if(set2[0].equals("Cog")){									
 									al_componentdata.add(6,Integer.valueOf(set2[1]));
 									
 								}else{

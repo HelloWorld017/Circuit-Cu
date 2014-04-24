@@ -10,4 +10,9 @@ public class GoldWire extends Wire{
 		super(context, drawable, x, y, rotation, 1);
 	}
 
+	@Override
+	public void electricityReleased() {
+		
+	}
+
 }

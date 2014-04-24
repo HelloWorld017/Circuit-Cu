@@ -1,6 +1,5 @@
 package com.He.W.onebone.circuit.cu;
 
-
 public class MainActivity extends android.app.Activity {
 	private static MainActivity obj;
 	

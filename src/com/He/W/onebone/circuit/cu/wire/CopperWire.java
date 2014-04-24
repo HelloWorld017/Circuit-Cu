@@ -9,5 +9,10 @@ public class CopperWire extends Wire{
 			int rotation) {
 		super(context, drawable, x, y, rotation, 2);
 	}
+
+	@Override
+	public void electricityReleased() {
+		
+	}
 	
 }
