@@ -48,6 +48,7 @@ public class BoardComponentManager {
 			Component c = componentList.get(o);
 			if(c.equals(component)){
 				component.getComponentImage().setVisibility(View.INVISIBLE);
+				CircuitBoard.getInstance().removeComponent(component);
 				componentList.remove(o);
 				return;
 			}

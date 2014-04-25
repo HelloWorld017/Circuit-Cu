@@ -27,6 +27,10 @@ public class CircuitBoard extends ImageView{
 		return manager;
 	}
 	
+	public void removeComponent(Component component){
+		
+	}
+	
 	public void putComponentTo(Component component, int locationId){ // TODO Insert component putting
 		
 	}
