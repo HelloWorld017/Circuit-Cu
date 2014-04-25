@@ -72,7 +72,13 @@ public class LevelHelper{
 				 * 					6 = Cog
 				 */
 				//Refresh
-				
+				al_itemdata.add(0, 0);
+				al_itemdata.add(1, 0);
+				al_itemdata.add(2, 0);
+				al_itemdata.add(3, 0);
+				al_itemdata.add(4, 0);
+				al_itemdata.add(5, 0);
+				al_itemdata.add(6, 0);
 				ArrayList<int[]> al_componentdata = new ArrayList<int[]>();
 				/*					al_componentdata argument(int[]) index
 				 * 					arg[0] = Type : 
