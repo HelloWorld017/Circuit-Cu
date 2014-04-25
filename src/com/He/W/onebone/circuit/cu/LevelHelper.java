@@ -32,8 +32,7 @@ public class LevelHelper{
 	
 	public static Level readLevels(String mapFileName){
 		//TODO:return Level
-		decode(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + mapFileName + ".cc"));
-		return null;
+		return decode(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + mapFileName + ".cc"));
 	}
 	
 	public static Level decode(File f){
