@@ -10,7 +10,7 @@ public class Level{
 	public Level(String mapName,String Author,String mapType, int start, int end, Component[] mapComponent, Component[] items){
 		
 	}
-	public Level(ArrayList mapData, ArrayList itemData, ArrayList componentData){
+	public Level(ArrayList<String> MapData, ArrayList<Integer> ItemData, ArrayList<int[]> ComponentData, int SuccessTime){
 		
 	}
 }

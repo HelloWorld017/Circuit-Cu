@@ -3,8 +3,12 @@ package com.He.W.onebone.circuit.cu;
 //About Files
 import android.content.Context;
 import android.os.Environment;
+
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
@@ -32,7 +36,7 @@ public class LevelHelper{
 	
 	public static Level readLevels(String mapFileName){
 		//TODO:return Level
-		return decode(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + mapFileName + ".cc"));
+		return decode(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "CircuitCu/" + mapFileName + ".cc"));
 	}
 	
 	public static Level decode(File f){
@@ -87,6 +91,7 @@ public class LevelHelper{
 				 * 					arg[1] = X coordinate
 				 * 					arg[2] = Y coordinate
 				 */
+				int it_successdata = 0;
 				ArrayList<String> Fullmap = new ArrayList<String>();
 				int msl = -1; //Mapdata Start Line
 				int mel = -1; //Mapdata End Line
@@ -94,6 +99,8 @@ public class LevelHelper{
 				int iel = -1; //Itemdata End Line
 				int csl = -1; //Componentdata Start Line
 				int cel = -1; //Componentdata End Line
+				int ssl = -1; //Successdata Start Line
+				int sel = -1; //Successdata End Line
 				for(int i = 1;(s = br.readLine())!= null;i++){
 					
 					//Setting variables
@@ -109,6 +116,10 @@ public class LevelHelper{
 						csl = i;
 					}else if(s == "[/Component]"){
 						cel = i;
+					}else if(s == "[SuccessData]"){
+						ssl = i;
+					}else if(s == "[/SuccessData]"){
+						sel = i;
 					}
 
 					Fullmap.add(i,s);
@@ -198,7 +209,7 @@ public class LevelHelper{
 									
 								}catch(NumberFormatException e){
 									
-									Toast.makeText(ctxt, "Broken Level : Component's coord is not Integer: ", Toast.LENGTH_LONG).show();
+									Toast.makeText(ctxt, "Broken Level : Component's coord is not Integer", Toast.LENGTH_LONG).show();
 									br.close();
 									isr.close();
 									fis.close();
@@ -207,13 +218,25 @@ public class LevelHelper{
 								al_componentdata.add(a - csl - 1, Argset);
 								
 							}
+							if(ssl != -1 && sel != -1){
+								if(ssl < a && sel < a){
+									try{
+										it_successdata = Integer.parseInt(Fullmap.get(a));
+									}catch(NumberFormatException e){
+										Toast.makeText(ctxt, "Broken Level : SuccessData is not Integer", Toast.LENGTH_LONG).show();
+										br.close();
+										isr.close();
+										fis.close();
+										return null;
+									}
+								}
+							}
 							
 						}
-						//TODO: Make null to new level
 						br.close();
 						isr.close();
 						fis.close();
-						return null;
+						return new Level(al_mapdata, al_itemdata, al_componentdata, it_successdata);
 					}
 				
 			//Error Handling
@@ -238,7 +261,22 @@ public class LevelHelper{
 		
 	}
 	
-	public static void writeSuccessData(int time, String levelName){
-		
+	public static boolean writeSuccessData(int time, String MapFileName){
+		BufferedWriter bw = null;
+			try {
+					FileWriter fw = new FileWriter(Environment.getExternalStorageDirectory().getAbsoluteFile()+ "CircuitCu/" + MapFileName + ".cc", true );
+					bw = new BufferedWriter(fw);
+					bw.append("[SuccessData]" + "\n" + String.valueOf(time) + "\n" + "[/SucceessData]");
+					bw.close();
+					fw.close();
+				return true;
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				Toast.makeText(ctxt, "Cannot Find File!", Toast.LENGTH_LONG).show();
+				return false;
+			} catch (IOException e) {
+				Toast.makeText(ctxt, e.getStackTrace().toString(), Toast.LENGTH_LONG).show();
+				return false;
+			}
 	}
 }
