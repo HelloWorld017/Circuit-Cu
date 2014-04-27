@@ -1,4 +1,4 @@
-package com.He.W.onebone.circuit.cu;
+package com.He.W.onebone.circuit.cu.activity;
 
 public class LevelSelector extends android.app.Activity{
 	@Override

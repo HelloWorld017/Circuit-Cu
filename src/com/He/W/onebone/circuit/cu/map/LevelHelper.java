@@ -1,9 +1,10 @@
-package com.He.W.onebone.circuit.cu;
+package com.He.W.onebone.circuit.cu.map;
+
+//About Constructor
+import android.content.Context;
 
 //About Files
-import android.content.Context;
 import android.os.Environment;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +20,6 @@ import java.util.ArrayList;
 //About Debugging
 import android.util.Log;
 import android.widget.Toast;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -51,6 +51,7 @@ public class LevelHelper{
 				br = new BufferedReader(isr);
 				String s;
 				// Generic is not allowed under java version 1.7
+				//INDEX LIBRORUM PROHIBITORUM
 				ArrayList<String> al_mapdata = new ArrayList<String>();
 				/*					al_mapdata index
 				*					0 = MapName
@@ -67,7 +68,7 @@ public class LevelHelper{
 				al_mapdata.add(4, "Mixed");
 				ArrayList<Integer> al_itemdata = new ArrayList<Integer>();
 				/*					al_itemdata index
-				 * 					0 = wire
+				 * 					0 = Wire
 				 * 					1 = Electricity Blocker
 				 * 					2 = Resister
 				 * 					3 = Transistor
@@ -91,7 +92,7 @@ public class LevelHelper{
 				 * 					arg[1] = X coordinate
 				 * 					arg[2] = Y coordinate
 				 */
-				int it_successdata = 0;
+				int it_successdata = -1;
 				ArrayList<String> Fullmap = new ArrayList<String>();
 				int msl = -1; //Mapdata Start Line
 				int mel = -1; //Mapdata End Line
@@ -163,6 +164,7 @@ public class LevelHelper{
 									
 								}else if(set[0].equals("ElectricityBlocker")){
 									
+									//this item is not useless because player(s) must use all items.
 									al_itemdata.set(1,Integer.parseInt(set[1]));
 									
 								}else if(set[0].equals("Resister")){

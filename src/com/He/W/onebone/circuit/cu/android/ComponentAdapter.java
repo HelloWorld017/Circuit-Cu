@@ -60,6 +60,7 @@ public class ComponentAdapter extends BaseAdapter {
 		t2.setText(counts[arg0]);
 		switch(al_items.get(arg0)){
 		case COMPONENT_RESISTER:t.setText("Resister");break;
+		case COMPONENT_ELECTRICITYBLOCKER:t.setText("Electricity Blocker");break;
 		case COMPONENT_TRANSISTOR:t.setText("Transistor");break;
 		case COMPONENT_WIRETOCOG:t.setText("Wire to Cog");break;
 		case COMPONENT_COGTOWIRE:t.setText("Cog to Wire");break;

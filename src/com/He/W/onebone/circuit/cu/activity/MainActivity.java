@@ -1,4 +1,7 @@
-package com.He.W.onebone.circuit.cu;
+package com.He.W.onebone.circuit.cu.activity;
+
+import com.He.W.onebone.circuit.cu.R;
+import com.He.W.onebone.circuit.cu.R.layout;
 
 public class MainActivity extends android.app.Activity {
 	private static MainActivity obj;
