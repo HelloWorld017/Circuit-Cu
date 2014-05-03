@@ -1,7 +1,7 @@
 Project Circuit-CU
 a circuit game on android
 
-![Alt Text] (https://dl.dropboxusercontent.com/s/nl6rzir8lw1yiei/Line2.png?dl=1&token_hash=AAEVXMCqy_vThxa8rCTB-VG7yFMA68agPnXBwSBaFqETpQ)
+==========
 ![Alt Text](https://photos-2.dropbox.com/t/0/AAASMaPgWdWNB6IueYJEhZlxQi8kAsosFf3PRRb61lWmog/12/189603184/png/1024x768/3/1398160800/0/2/ccicon.png/sRhjjLiiSwnYV4gFTzrYVL2kP8gUYigGoxZHU2ZiVhk)
 ==========
 by He.W and onebone
@@ -10,19 +10,22 @@ CC-BY-NC-ND
 
 ==========
 
-image source
+Image source
 
-gear image - ciker.com
+Gear image - ciker.com
 
-light bulb image - simpleicon.com
+Light bulb image - simpleicon.com
 
 ==========
 
-font source
+Font source
 
 Mixed these fonts
-
 NanumGothicLight, SonySketchEF, Ubuntu-C
+
+NanumGothicLight - Copyright ?? 2011 NHN Corporation. All rights reserved. Font designed by Sandoll Communications Inc.  
+Ubuntu-C - Copyright 2011 Canonical Ltd.  Licensed under the Ubuntu Font Licence 1.0 
+SonySketchEF - copyright (C) 2008 diezil tweeks. All rights reserved..
 
 ==========
 Game Objective :
