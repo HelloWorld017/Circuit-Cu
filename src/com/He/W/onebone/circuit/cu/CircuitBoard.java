@@ -6,17 +6,27 @@ import java.util.TreeMap;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.widget.ImageView;
 
 public class CircuitBoard extends ImageView{
 	private static CircuitBoard obj;
 	private BoardComponentManager manager;
+	private int id = 0;
+	private TreeMap<Integer, Component> componentList;
 	
-	public CircuitBoard(Context context) {
+	private CircuitBoard(Context context) {
 		super(context);
 		obj = this;
-		manager = new BoardComponentManager();
-		this.setImageResource(R.drawable.circuit_board); // TODO Insert image!!
+		manager = new BoardComponentManager(this);
+		setImageResource(R.drawable.circuit_board); // TODO Insert image!!
+	}
+	
+	public CircuitBoard makeBoard(Context context){
+		if(obj instanceof CircuitBoard){
+			return null;
+		}
+		return new CircuitBoard(context);
 	}
 	
 	public static CircuitBoard getInstance(){
@@ -31,8 +41,13 @@ public class CircuitBoard extends ImageView{
 		
 	}
 	
-	public void putComponentTo(Component component, int locationId){ // TODO Insert component putting
-		
+	public int putComponentTo(Component component, int locationId){ // TODO Insert component putting
+		ImageView img = component.getComponentImage();
+		img.setTag(id);
+		img.setVisibility(View.VISIBLE);
+		componentList.put(id, component);
+		manager.addComponent(component);
+		return id++;
 	}
 	
 	/*public Component makeComponent(Drawable drawable, float x, float y, int rotation){

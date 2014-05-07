@@ -2,27 +2,37 @@ package com.He.W.onebone.circuit.cu;
 
 import com.He.W.onebone.circuit.cu.component.*;
 
-import java.util.LinkedList;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TreeMap;
 
 import android.view.View;
 
 public class BoardComponentManager {
-	private LinkedList<Component> componentList;
+	private TreeMap<Integer, Component> componentList; // <component_id, object>
+	private CircuitBoard board;
+	private int id = 0;
 	
-	public BoardComponentManager(){
-		componentList = new LinkedList<Component>();
+	public BoardComponentManager(CircuitBoard board){
+		this.board = board;
+		componentList = new TreeMap<Integer, Component>();
 	}
 	
-	public void addComponent(Component component){
-		componentList.add(component);
+	public int addComponent(Component component){
+		componentList.put(id, component);
+		return id++;
 	}
 	
-	public void moveComponent(Component component, float x, float y){
-		component.moveTo(x, y);
+	public BoardComponentManager moveComponent(int id, float x, float y){
+		componentList.get(id).moveTo(x, y);
+		return this;
 	}
 	
 	public Component findComponentByLocation(float x, float y){
-		for(Component c : componentList){
+		Set<Integer> key = componentList.descendingKeySet();
+		Iterator<Integer> iterator = key.iterator();
+		while(iterator.hasNext()){
+			Component c = componentList.get(iterator.next());
 			if(c.getX() == x && c.getY() == y){
 				return c;
 			}
@@ -31,7 +41,10 @@ public class BoardComponentManager {
 	}
 	
 	public Component findComponentByLocation(float x, float y, int errorRange){
-		for(Component c : componentList){
+		Set<Integer> key = componentList.descendingKeySet();
+		Iterator<Integer> iterator = key.iterator();
+		while(iterator.hasNext()){
+			Component c = componentList.get(iterator.next());
 			float targetX = c.getX();
 			float targetY = c.getY();
 			if(targetX - errorRange > x && targetX + errorRange < x){
@@ -43,16 +56,34 @@ public class BoardComponentManager {
 		return null;
 	}
 	
-	public void removeComponent(Component component){
-		for(int o = 0; o < componentList.size(); o++){
-			Component c = componentList.get(o);
+	public boolean removeComponent(Component component){
+		Set<Integer> key = componentList.descendingKeySet();
+		Iterator<Integer> iterator = key.iterator();
+		while(iterator.hasNext()){
+			int next = iterator.next();
+			Component c = componentList.get(next);
 			if(c.equals(component)){
 				component.getComponentImage().setVisibility(View.INVISIBLE);
 				CircuitBoard.getInstance().removeComponent(component);
-				componentList.remove(o);
-				return;
+				componentList.remove(next);
+				return true;
 			}
 		}
+		return false;
+	}
+	
+	public boolean removeComponent(int id){
+		if(componentList.containsKey(id)){
+			Component c = componentList.get(id);
+			c.getComponentImage().setVisibility(View.INVISIBLE);
+			CircuitBoard.getInstance().removeComponent(c);
+			componentList.remove(id);
+		}
+		return false;
+	}
+	
+	public CircuitBoard getBoard(){
+		return board;
 	}
 	
 	public void insertElectricityToComponent(Component component){ // TODO Inserting electricity to component

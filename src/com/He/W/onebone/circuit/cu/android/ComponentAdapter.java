@@ -19,19 +19,19 @@ public class ComponentAdapter extends BaseAdapter {
 	private ArrayList<EnumComponentType> al_items;
 	private Integer[] counts;
 	private Drawable[] drawables;
-	private Context ctxt;
+	private Context ctx;
 
 
-	public ComponentAdapter(Context ctxt_actv, ArrayList<EnumComponentType> al_data,Integer[] ari_cts, Drawable[] ard_dbs){
-		ctxt = ctxt_actv;
+	public ComponentAdapter(Context ctx, ArrayList<EnumComponentType> al_data,Integer[] ari_cts, Drawable[] ard_dbs){
+		this.ctx = ctx;
 		al_items = al_data;
 		counts = ari_cts;
 		drawables = ard_dbs;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public ComponentAdapter(Context ctxt_actv, ArrayList<Integer> al_itemdt){
-		ctxt = ctxt_actv;
+	public ComponentAdapter(Context ctx, ArrayList<Integer> al_itemdt){
+		this.ctx = ctx;
 		ArrayList<EnumComponentType> alect = new ArrayList<EnumComponentType>();
 		alect.add(0, EnumComponentType.COMPONENT_WIRE);
 		alect.add(1, EnumComponentType.COMPONENT_ELECTRICITYBLOCKER);
@@ -47,35 +47,32 @@ public class ComponentAdapter extends BaseAdapter {
 		for(int a = 0; a < al_items.size();a++){
 			switch(al_items.get(a)){
 			//TODO Insert Image!
-			case COMPONENT_WIRE:draw[0] = draw[a] = ctxt.getResources().getDrawable(R.drawable.wire);break;
-			case COMPONENT_ELECTRICITYBLOCKER:draw[0] = draw[a] = ctxt.getResources().getDrawable(R.drawable.electricityblocker);break;
-			case COMPONENT_RESISTER:draw[0] = draw[a] = ctxt.getResources().getDrawable(R.drawable.resister);break;
-			case COMPONENT_TRANSISTOR:draw[0] = draw[a] = ctxt.getResources().getDrawable(R.drawable.transistor);break;
-			case COMPONENT_WIRETOCOG:draw[0] = draw[a] = ctxt.getResources().getDrawable(R.drawable.wiretocog);break;
-			case COMPONENT_COGTOWIRE:draw[0] = draw[a] = ctxt.getResources().getDrawable(R.drawable.cogtowire);break;
-			case COMPONENT_COG:draw[0] = draw[a] = ctxt.getResources().getDrawable(R.drawable.cog);break;
+			case COMPONENT_WIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.wire);break;
+			case COMPONENT_ELECTRICITYBLOCKER:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.electricityblocker);break;
+			case COMPONENT_RESISTER:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.resister);break;
+			case COMPONENT_TRANSISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.transistor);break;
+			case COMPONENT_WIRETOCOG:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.wiretocog);break;
+			case COMPONENT_COGTOWIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.cogtowire);break;
+			case COMPONENT_COG:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.cog);break;
 			}
 		}
 		drawables = draw;
 		
 		
 	}
-	//Wen you use this, please use overscrollmode OVER_SCROLL_IF_CONTENT_SCROLLS
+	// When you use this, use overscrollmode OVER_SCROLL_IF_CONTENT_SCROLLS
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return al_items.size();
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
 		return al_items.get(arg0);
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
 		return arg0;
 	}
 	

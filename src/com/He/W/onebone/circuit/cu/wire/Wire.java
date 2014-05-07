@@ -21,6 +21,11 @@ abstract public class Wire {
 		this.manager = CircuitBoard.getInstance().getManager();
 	}
 	
+	public void setLocation(float x, float y){
+		this.img.setX(x);
+		this.img.setY(y);
+	}
+	
 	public double getBlockage(){
 		return blockage;
 	}
