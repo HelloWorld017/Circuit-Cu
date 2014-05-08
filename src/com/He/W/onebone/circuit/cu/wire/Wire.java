@@ -34,5 +34,9 @@ abstract public class Wire {
 		
 	}
 	
+	public BoardComponentManager getManager(){
+		return manager;
+	}
+	
 	abstract public void electricityReleased();
 }

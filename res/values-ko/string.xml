@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Circuit Cu</string>
+    <string name="menu_settings">세팅</string>
+    <string name="component_transistor">트랜지스터</string>
+    <string name="component_resistor">저항</string>
+    <string name="component_copper_wire">구리선</string>
+	<string name="component_gold_wire">금선</string>
+	<string name="component_cog">톱니</string>
+	<string name="component_unknown">오류 : 알려지지 않은 부품</string>
+</resources>

@@ -103,7 +103,6 @@ public class ComponentAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
-		// TODO Auto-generated method stub
 		if(arg1 == null){
 			arg1 = li.inflate(R.layout.custom_list_view, arg2, false);
 		}
@@ -113,14 +112,14 @@ public class ComponentAdapter extends BaseAdapter {
 		t.setCompoundDrawables(drawables[arg0], null, null, null);
 		t2.setText(counts[arg0]);
 		switch(al_items.get(arg0)){
-		case COMPONENT_RESISTER:t.setText("Resister");break;
-		case COMPONENT_ELECTRICITYBLOCKER:t.setText("Electricity Blocker");break;
-		case COMPONENT_TRANSISTOR:t.setText("Transistor");break;
+		case COMPONENT_RESISTER:t.setText(R.string.component_resistor);break;
+	//	case COMPONENT_ELECTRICITYBLOCKER:t.setText("Electricity Blocker");break; This is not component!!
+		case COMPONENT_TRANSISTOR:t.setText(R.string.component_transistor);break;
 		case COMPONENT_WIRETOCOG:t.setText("Wire to Cog");break;
 		case COMPONENT_COGTOWIRE:t.setText("Cog to Wire");break;
-		case COMPONENT_COG:t.setText("Cog");break;
-		case COMPONENT_WIRE:t.setText("Wire");break;
-		default:t.setText("UNKNOWN COMPONENT");break;
+		case COMPONENT_COG:t.setText(R.string.component_cog);break;
+	//	case COMPONENT_WIRE:t.setText("Wire");break; This is not component!!
+		default:t.setText(R.string.component_unknown);break;
 		}
 
 		

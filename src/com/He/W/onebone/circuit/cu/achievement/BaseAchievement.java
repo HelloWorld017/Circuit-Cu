@@ -1,11 +1,10 @@
 package com.He.W.onebone.circuit.cu.achievement;
 
 abstract public class BaseAchievement {
-	private int achievementId;
-	private String message, title;
+	private String message, title, achievementId;
 	private boolean success;
 	
-	public BaseAchievement(int achievementId, String title, String message){
+	public BaseAchievement(String achievementId, String title, String message){
 		int result = AchievementManager.addAchievement(achievementId, this);
 		if(result == 1){
 			this.achievementId = achievementId;
@@ -25,7 +24,7 @@ abstract public class BaseAchievement {
 		return message;
 	}
 	
-	public final int getAchievementId(){
+	public final String getAchievementId(){
 		return achievementId;
 	}
 	
