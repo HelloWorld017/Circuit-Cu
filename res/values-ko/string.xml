@@ -8,4 +8,6 @@
 	<string name="component_gold_wire">금선</string>
 	<string name="component_cog">톱니</string>
 	<string name="component_unknown">오류 : 알려지지 않은 부품</string>
+	
+	<string name="achievement_granted">도전과제 %1을 달성하였습니다</string>
 </resources>

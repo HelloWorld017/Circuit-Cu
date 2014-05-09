@@ -35,7 +35,7 @@ public class ComponentAdapter extends BaseAdapter {
 		ArrayList<EnumComponentType> alect = new ArrayList<EnumComponentType>();
 		alect.add(0, EnumComponentType.COMPONENT_WIRE);
 		alect.add(1, EnumComponentType.COMPONENT_ELECTRICITYBLOCKER);
-		alect.add(2, EnumComponentType.COMPONENT_RESISTER);
+		alect.add(2, EnumComponentType.COMPONENT_RESISTOR);
 		alect.add(3, EnumComponentType.COMPONENT_TRANSISTOR);
 		alect.add(4, EnumComponentType.COMPONENT_WIRETOCOG);
 		alect.add(5, EnumComponentType.COMPONENT_COGTOWIRE);
@@ -49,7 +49,7 @@ public class ComponentAdapter extends BaseAdapter {
 			//TODO Insert Image!
 			case COMPONENT_WIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.wire);break;
 			case COMPONENT_ELECTRICITYBLOCKER:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.electricityblocker);break;
-			case COMPONENT_RESISTER:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.resister);break;
+			case COMPONENT_RESISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.resister);break;
 			case COMPONENT_TRANSISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.transistor);break;
 			case COMPONENT_WIRETOCOG:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.wiretocog);break;
 			case COMPONENT_COGTOWIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.cogtowire);break;

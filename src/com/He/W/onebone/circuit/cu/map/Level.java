@@ -49,7 +49,7 @@ public class Level{
 		switch(e){
 		case COMPONENT_WIRE:return al_itemdata.get(0);
 		case COMPONENT_ELECTRICITYBLOCKER:return al_itemdata.get(1);
-		case COMPONENT_RESISTER:return al_itemdata.get(2);
+		case COMPONENT_RESISTOR:return al_itemdata.get(2);
 		case COMPONENT_TRANSISTOR:return al_itemdata.get(3);
 		case COMPONENT_WIRETOCOG:return al_itemdata.get(4);
 		case COMPONENT_COGTOWIRE:return al_itemdata.get(5);

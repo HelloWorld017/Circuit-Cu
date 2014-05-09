@@ -5,10 +5,15 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeMap;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.activity.MainActivity;
+
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class AchievementManager {
 	private static TreeMap<String, BaseAchievement> achievements;
@@ -19,19 +24,19 @@ public class AchievementManager {
 		grantedAchievements = new LinkedList<String>();
 	}
 	
-	public static int addAchievement(String achievementId, BaseAchievement achievement){
+	public static int addAchievement(BaseAchievement achievement){
 		if(achievements == null){
 			achievements = new TreeMap<String, BaseAchievement>();
 		}
 		
-		if(achievements.containsKey(achievementId)){
+		if(achievements.containsKey(achievement.getAchievementId())){
 			return 0;
 		}
-		achievements.put(achievementId, achievement);
+		achievements.put(achievement.getAchievementId(), achievement);
 		return 1;
 	}
 	
-	public static boolean grantAchievement(String achievementId){
+	public static boolean grantAchievement(BaseAchievement achievement){
 		if(grantedAchievements == null){
 			grantedAchievements = new LinkedList<String>();
 		}
@@ -39,11 +44,31 @@ public class AchievementManager {
 			achievements = new TreeMap<String, BaseAchievement>();
 		}
 		
-		if(achievements.containsKey(achievementId)){
-			if(grantedAchievements.contains(achievementId)){
+		if(achievements.containsKey(achievement.getAchievementId())){
+			if(grantedAchievements.contains(achievement.getAchievementId())){
 				return false;
 			}
-			grantedAchievements.add(achievementId);
+			grantedAchievements.add(achievement.getAchievementId());
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public static boolean grantAchievement(BaseAchievement achievement, Activity ctx){
+		if(grantedAchievements == null){
+			grantedAchievements = new LinkedList<String>();
+		}
+		if(achievements == null){
+			achievements = new TreeMap<String, BaseAchievement>();
+		}
+		
+		if(achievements.containsKey(achievement.getAchievementId())){
+			if(grantedAchievements.contains(achievement.getAchievementId())){
+				return false;
+			}
+			grantedAchievements.add(achievement.getAchievementId());
+			Crouton.makeText(ctx, ctx.getResources().getString(R.string.achievement_granted).replace("%1", achievement.getTitle()), Style.INFO).show();
 			return true;
 		}else{
 			return false;
@@ -60,6 +85,22 @@ public class AchievementManager {
 		
 		if(grantedAchievements.contains(achievementId)){
 			grantedAchievements.removeFirstOccurrence(achievementId);
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public static boolean cancelAchievement(BaseAchievement achievement){
+		if(grantedAchievements == null){
+			grantedAchievements = new LinkedList<String>();
+		}
+		if(achievements == null){
+			achievements = new TreeMap<String, BaseAchievement>();
+		}
+		
+		if(grantedAchievements.contains(achievement.getAchievementId())){
+			grantedAchievements.removeFirstOccurrence(achievement.getAchievementId());
 			return true;
 		}else{
 			return false;

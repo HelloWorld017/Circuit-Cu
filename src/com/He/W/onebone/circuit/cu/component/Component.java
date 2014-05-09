@@ -8,13 +8,13 @@ import android.widget.ImageView;
 
 abstract public class Component extends ImageView{
 	private float x, y;
-	private float rotation;
+	private float electrified;
 	
 	public Component(Context context, Drawable drawable, float x, float y, float rotation){
 		super(context);
 		this.x = x;
 		this.y = y;
-		this.rotation = rotation;
+		this.setRotation(rotation);
 		setImageDrawable(drawable);
 		setX(x);
 		setY(y);
@@ -25,7 +25,7 @@ abstract public class Component extends ImageView{
 		super(context);
 		this.x = x;
 		this.y = y;
-		this.rotation = rotation;
+		this.setRotation(rotation);
 		setImageResource(resourceId);
 		setX(x);
 		setY(y);
@@ -56,13 +56,12 @@ abstract public class Component extends ImageView{
 		return y;
 	}
 	
-	public final float getRotation(){
-		return rotation;
-	}
-	
 	public void setRotation(float rotation){
 		setRotation(rotation);
-		this.rotation = rotation;
+	}
+	
+	public final int getRotationId(){
+		return (int)Math.ceil((getRotation() / 90));
 	}
 	
 	public final void moveTo(float x, float y){
@@ -70,6 +69,18 @@ abstract public class Component extends ImageView{
 		setY(y);
 		this.x = x;
 		this.y = y;
+	}
+	
+	public final float getElectrified(){
+		return electrified;
+	}
+	
+	public final void setElectrified(float electrified){
+		this.electrified = electrified;
+	}
+	
+	public final void addElectrified(float amount){
+		this.electrified += amount;
 	}
 	
 	abstract public void electricityReleased();

@@ -1,19 +1,19 @@
 package com.He.W.onebone.circuit.cu.achievement;
 
+import com.He.W.onebone.circuit.cu.exception.AchievementCreateException;
+
 abstract public class BaseAchievement {
 	private String message, title, achievementId;
-	private boolean success;
 	
-	public BaseAchievement(String achievementId, String title, String message){
-		int result = AchievementManager.addAchievement(achievementId, this);
+	public BaseAchievement(String achievementId, String title, String message) throws AchievementCreateException{
+		int result = AchievementManager.addAchievement(this);
 		if(result == 1){
 			this.achievementId = achievementId;
 			this.message = message;
 			this.title = title;
-			success = true;
 			return;
 		}
-		success = false;
+		throw new AchievementCreateException();
 	}
 	
 	public final String getTitle(){
@@ -26,9 +26,5 @@ abstract public class BaseAchievement {
 	
 	public final String getAchievementId(){
 		return achievementId;
-	}
-	
-	public final boolean isSuccessfullyCreated(){
-		return success;
 	}
 }

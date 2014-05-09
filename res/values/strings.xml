@@ -9,4 +9,6 @@
 	<string name="component_gold_wire">Gold Wire</string>
 	<string name="component_cog">Cog</string>
 	<string name="component_unknown">Unknown Component</string>
+	
+	<string name="achievement_granted">You have achieved achievement %1</string>
 </resources>
