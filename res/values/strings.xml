@@ -8,7 +8,9 @@
 	<string name="component_copper_wire">Copper Wire</string>
 	<string name="component_gold_wire">Gold Wire</string>
 	<string name="component_cog">Cog</string>
-	<string name="component_unknown">Unknown Component</string>
+	<string name="component_cog_to_wire">wire &gt; cog converter</string><string name="component_wire_to_cog">wire &gt; cog converter</string><string name="component_unknown">Unknown Component</string>
 	
 	<string name="achievement_granted">You have achieved achievement %1</string>
+	
+	
 </resources>

@@ -54,7 +54,18 @@ public class Level{
 		case COMPONENT_WIRETOCOG:return al_itemdata.get(4);
 		case COMPONENT_COGTOWIRE:return al_itemdata.get(5);
 		case COMPONENT_COG:return al_itemdata.get(6);
+		case COMPONENT_GOLD_WIRE:return al_itemdata.get(7);
 		default: return -1;
 		}
+	}
+	public float getXCoord(int Index){
+		return 0F;
+		
+	}
+	public float getYCoord(int Index){
+		return 0F;
+	}
+	public Integer[] getAllIndexWithComponentType(EnumComponentType CT){
+		return null;
 	}
 }
