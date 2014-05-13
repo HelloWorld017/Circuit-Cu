@@ -7,7 +7,9 @@
     <string name="component_copper_wire">구리선</string>
 	<string name="component_gold_wire">금선</string>
 	<string name="component_cog">톱니</string>
-	<string name="component_cog_to_wire">톱니 &gt; 전선 변환</string><string name="component_wire_to_cog">전선 &gt; 톱니 변환</string><string name="component_unknown">오류 : 알려지지 않은 부품</string>
+	<string name="component_cog_to_wire">톱니 &gt; 전선 변환</string>
+	<string name="component_wire_to_cog">전선 &gt; 톱니 변환</string>
+	<string name="component_unknown">오류 : 알려지지 않은 부품</string>
 	
 	<string name="achievement_granted">도전과제 %1을 달성하였습니다</string>
 	

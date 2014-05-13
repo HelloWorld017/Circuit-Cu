@@ -21,16 +21,16 @@ public class ComponentAdapter extends BaseAdapter {
 	private Drawable[] drawables;
 	private Context ctx;
 
-
 	public ComponentAdapter(Context ctx, ArrayList<EnumComponentType> al_data,Integer[] ari_cts, Drawable[] ard_dbs){
 		this.ctx = ctx;
 		al_items = al_data;
 		counts = ari_cts;
 		drawables = ard_dbs;
+
 	}
 	
 	@SuppressWarnings("unchecked")
-	public ComponentAdapter(Context ctx, ArrayList<Integer> al_itemdt){
+	public ComponentAdapter(Context ctx, ArrayList<Integer> al_itemdt, int resid){
 		this.ctx = ctx;
 		ArrayList<EnumComponentType> alect = new ArrayList<EnumComponentType>();
 		alect.add(0, EnumComponentType.COMPONENT_COPPER_WIRE);
@@ -66,9 +66,8 @@ public class ComponentAdapter extends BaseAdapter {
 		}
 		drawables = draw;
 		
-		
 	}
-	// When you use this, use overscrollmode OVER_SCROLL_IF_CONTENT_SCROLLS
+	// When you make a listview, use overscrollmode OVER_SCROLL_IF_CONTENT_SCROLLS
 	@Override
 	public int getCount() {
 		return al_items.size();
@@ -83,7 +82,50 @@ public class ComponentAdapter extends BaseAdapter {
 	public long getItemId(int arg0) {
 		return arg0;
 	}
+	public void addItemToInventory(EnumComponentType AddingItem, int AddingCount){
+		int index = al_items.indexOf(AddingItem);
+		if(index == -1){
+			index = al_items.size();
+			al_items.add(index, AddingItem);
+			counts[index] = AddingCount;
+		}else{
+			counts[index] += AddingCount;
+		}
+		update();
+		
+	}
 	
+	@SuppressWarnings("unchecked")
+	public int useItem(EnumComponentType usedItem, int usedCount){
+		int index = al_items.indexOf(usedItem);
+		int firstValue = counts[index];
+		if(index != -1){
+			counts[index] -= usedCount;
+			
+			if(counts[index] < 0){
+				counts[index] = 0;
+				Object[] object = adjust(counts, al_items);
+				al_items = (ArrayList<EnumComponentType>)object[1];
+				counts = (Integer[])((ArrayList<Integer>)object[0]).toArray();
+				update();
+				return firstValue;
+			}
+			Object[] object = adjust(counts, al_items);
+			al_items = (ArrayList<EnumComponentType>)object[1];
+			counts = (Integer[])((ArrayList<Integer>)object[0]).toArray();
+			update();
+			return usedCount;
+		}else{
+			return 0;
+		}
+		
+		
+	}
+	
+	//TODO I don't know this will work correctly. If Stackoverflow Exception occurs, check this part. OR this may be useless.
+	public void update(){
+		this.notifyDataSetChanged();
+	}
 	
 	public Object[] adjust(Integer[] ct, ArrayList<EnumComponentType> alect){
 		int a = 0;
@@ -106,6 +148,7 @@ public class ComponentAdapter extends BaseAdapter {
 		Object[] obj = new Object[2];
 		obj[0] = temp;
 		obj[1] = alect_temp;
+		update();
 		return obj;
 	}
 
@@ -120,15 +163,15 @@ public class ComponentAdapter extends BaseAdapter {
 		t.setCompoundDrawables(drawables[arg0], null, null, null);
 		t2.setText(counts[arg0]);
 		switch(al_items.get(arg0)){
-		case COMPONENT_RESISTOR:t.setText(ctx.getString(R.string.component_resistor));break;
+		case COMPONENT_RESISTOR:t.setText(R.string.component_resistor);break;
 	//	case COMPONENT_ELECTRICITYBLOCKER:t.setText("Electricity Blocker");break; This is not component!!
-		case COMPONENT_TRANSISTOR:t.setText(ctx.getString(R.string.component_transistor));break;
-		case COMPONENT_WIRETOCOG:t.setText(ctx.getString(R.string.component_wire_to_cog));break;
-		case COMPONENT_COGTOWIRE:t.setText(ctx.getString(R.string.component_cog_to_wire));break;
-		case COMPONENT_COG:t.setText(ctx.getString(R.string.component_cog));break;
-		case COMPONENT_COPPER_WIRE:t.setText(ctx.getString(R.string.component_copper_wire));break;
-		case COMPONENT_GOLD_WIRE:t.setText(ctx.getString(R.string.component_gold_wire));break;
-		default:t.setText(ctx.getString(R.string.component_unknown));break;
+		case COMPONENT_TRANSISTOR:t.setText(R.string.component_transistor);break;
+		case COMPONENT_WIRETOCOG:t.setText(R.string.component_wire_to_cog);break;
+		case COMPONENT_COGTOWIRE:t.setText(R.string.component_cog_to_wire);break;
+		case COMPONENT_COG:t.setText(R.string.component_cog);break;
+		case COMPONENT_COPPER_WIRE:t.setText(R.string.component_copper_wire);break;
+		case COMPONENT_GOLD_WIRE:t.setText(R.string.component_gold_wire);break;
+		default:t.setText(R.string.component_unknown);break;
 		}
 
 		
