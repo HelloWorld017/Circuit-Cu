@@ -41,6 +41,8 @@ public class ComponentAdapter extends BaseAdapter {
 		alect.add(5, EnumComponentType.COMPONENT_COGTOWIRE);
 		alect.add(6, EnumComponentType.COMPONENT_COG);
 		alect.add(7, EnumComponentType.COMPONENT_GOLD_WIRE);
+		alect.add(8, EnumComponentType.COMPONENT_SWIFT);
+		alect.add(9, EnumComponentType.COMPONENT_UNSWIFTABLEOBSTACLE);
 		Object[] object = adjust((Integer[]) al_itemdt.toArray(), alect);
 		al_items = (ArrayList<EnumComponentType>)object[1];
 		counts = (Integer[])((ArrayList<Integer>)object[0]).toArray();
@@ -56,6 +58,8 @@ public class ComponentAdapter extends BaseAdapter {
 			case COMPONENT_COGTOWIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.cogtowire);break;
 			case COMPONENT_COG:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.cog);break;
 			case COMPONENT_COPPER_WIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.copper_wire);break;
+			case COMPONENT_SWIFT:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.swift);break;
+			case COMPONENT_UNSWIFTABLEOBSTACLE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.unswiftable_obstacle);break;
 			default:break;
 			break;
 			}

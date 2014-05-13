@@ -55,6 +55,8 @@ public class Level{
 		case COMPONENT_COGTOWIRE:return al_itemdata.get(5);
 		case COMPONENT_COG:return al_itemdata.get(6);
 		case COMPONENT_GOLD_WIRE:return al_itemdata.get(7);
+		case COMPONENT_SWIFT:return al_itemdata.get(8);
+		case COMPONENT_UNSWIFTABLEOBSTACLE:return al_itemdata.get(9);
 		default: return -1;
 		}
 	}

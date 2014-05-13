@@ -76,6 +76,8 @@ public class LevelHelper{
 				 * 					5 = CogToWire
 				 * 					6 = Cog
 				 * 					7 = GoldWire
+				 * 					8 = Swift
+				 * 					9 = UnswiftableObstacle
 				 */
 				//Refresh
 				al_itemdata.add(0, 0);
@@ -85,7 +87,9 @@ public class LevelHelper{
 				al_itemdata.add(4, 0);
 				al_itemdata.add(5, 0);
 				al_itemdata.add(6, 0);
-				al_itemdata.add(7,0);
+				al_itemdata.add(7, 0);
+				al_itemdata.add(8, 0);
+				al_itemdata.add(9, 0);
 				ArrayList<int[]> al_componentdata = new ArrayList<int[]>();
 				/*					al_componentdata argument(int[]) index
 				 * 					arg[0] = Type : 
@@ -177,11 +181,11 @@ public class LevelHelper{
 									
 									al_itemdata.set(3,Integer.parseInt(set[1]));
 									
-								}else if(set[0].equals("Wiretocog")){
+								}else if(set[0].equals("WiretoCog")){
 									
 									al_itemdata.set(4,Integer.parseInt(set[1]));
 									
-								}else if(set[0].equals("Cogtowire")){
+								}else if(set[0].equals("CogtoWire")){
 									
 									al_itemdata.set(5,Integer.parseInt(set[1]));
 									
@@ -190,7 +194,17 @@ public class LevelHelper{
 									al_itemdata.set(6,Integer.parseInt(set[1]));
 									
 								}else if(set[0].equals("GoldWire")){
+									
 									al_itemdata.set(7,Integer.parseInt(set[1]));
+									
+								}else if(set[0].equals("Swift")){
+									
+									al_itemdata.set(8, Integer.parseInt(set[1]));
+									
+								}else if(set[0].equals("UnswiftableObstacle")){
+
+									al_itemdata.set(9, Integer.parseInt(set[1]));
+									
 								}else{
 								
 									
@@ -208,7 +222,7 @@ public class LevelHelper{
 								int[] Argset = new int[2];
 								try{
 									
-									String arg1 = set3[0].replace("CopperWire", "0").replace("ElectricityBlocker", "1").replace("Resister", "2").replace("Transistor", "3").replace("Wiretocog", "4").replace("Cogtowire", "5").replace("Cog","6").replace("GoldWire","7");
+									String arg1 = set3[0].replace("CopperWire", "0").replace("ElectricityBlocker", "1").replace("Resister", "2").replace("Transistor", "3").replace("WiretoCog", "4").replace("CogtoWire", "5").replace("Cog","6").replace("GoldWire","7").replace("Swift", "8").replace("UnswiftableObstacle", "9");
 									Argset[0] = Integer.parseInt(arg1);
 									Argset[1] = Integer.parseInt(set3[1]);
 									Argset[2] = Integer.parseInt(set3[2]);
