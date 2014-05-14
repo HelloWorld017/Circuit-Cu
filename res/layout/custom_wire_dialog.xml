@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:ignore="HardcodedText" >
+
+    <TextView
+        android:id="@+id/WireSelectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Wire Select"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/ConnectWithText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/WireSelectText"
+        android:text="Connect with" />
+
+    <Button
+        android:id="@+id/UpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ConnectWithText"
+       	android:layout_alignRight="@+id/WireImage"
+        android:text="Up" />
+
+    <Button
+        android:id="@+id/LeftButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/UpButton"
+        android:layout_alignRight="@+id/WireImage"
+        android:text="Left" />
+
+    <Button
+        android:id="@+id/RightButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/WireImage"
+        android:layout_below="@+id/LeftButton"
+        android:text="Right" />
+
+    <Button
+        android:id="@+id/DownButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/RightButton"
+        android:layout_alignRight="@+id/WireImage"
+        android:text="Down" />
+
+    <ImageView
+        android:id="@+id/WireImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/UpButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/UpButton"
+        android:layout_alignBottom="@+id/DownButton"/>
+
+</RelativeLayout>
