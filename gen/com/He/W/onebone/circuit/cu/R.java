@@ -20,21 +20,20 @@ public final class R {
         public static final int selector=0x7f020006;
     }
     public static final class id {
-        public static final int ConnectWithText=0x7f07000a;
-        public static final int DownButton=0x7f07000f;
-        public static final int LeftButton=0x7f07000d;
+        public static final int DownToggleButton=0x7f07000e;
+        public static final int LeftToggleButton=0x7f07000c;
         public static final int RegistorDropDownList=0x7f070005;
         public static final int RegistorImage=0x7f070004;
         public static final int RegistorSelectText=0x7f070003;
-        public static final int RightButton=0x7f07000e;
+        public static final int RightToggleButton=0x7f07000d;
         public static final int TrangistorDropDownList=0x7f070008;
         public static final int TrangistorImage=0x7f070007;
         public static final int TrangistorSelectText=0x7f070006;
-        public static final int UpButton=0x7f07000b;
-        public static final int WireImage=0x7f07000c;
+        public static final int UpToggleButton=0x7f07000a;
+        public static final int WireImage=0x7f07000b;
         public static final int WireSelectText=0x7f070009;
         public static final int imageButton1=0x7f070000;
-        public static final int menu_settings=0x7f070010;
+        public static final int menu_settings=0x7f07000f;
         public static final int textView1=0x7f070001;
         public static final int textView2=0x7f070002;
     }
@@ -60,7 +59,17 @@ public final class R {
         public static final int component_transistor=0x7f040002;
         public static final int component_unknown=0x7f040009;
         public static final int component_wire_to_cog=0x7f040008;
-        public static final int hello_world=0x7f04000b;
+        public static final int layout_connected_with_downside=0x7f04000e;
+        public static final int layout_connected_with_leftside=0x7f04000b;
+        public static final int layout_connected_with_rightside=0x7f04000c;
+        public static final int layout_connected_with_upside=0x7f04000d;
+        public static final int layout_not_connected_with_downside=0x7f040012;
+        public static final int layout_not_connected_with_leftside=0x7f04000f;
+        public static final int layout_not_connected_with_rightside=0x7f040010;
+        public static final int layout_not_connected_with_upside=0x7f040011;
+        public static final int layout_resistor_dialog=0x7f040015;
+        public static final int layout_transistor_dialog=0x7f040014;
+        public static final int layout_wire_dialog=0x7f040013;
         public static final int menu_settings=0x7f040001;
     }
     public static final class style {

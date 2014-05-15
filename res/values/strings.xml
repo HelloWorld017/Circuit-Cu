@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Circuit Cu</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
 	<string name="component_transistor">Transistor</string>
 	<string name="component_resistor">Resistor</string>
@@ -12,6 +11,17 @@
 	<string name="component_wire_to_cog">wire &gt; cog converter</string>
 	<string name="component_unknown">Unknown Component</string>
 	<string name="achievement_granted">You have achieved achievement %1</string>
+	<string name="layout_connected_with_leftside">Connected with leftside wire</string>
+	<string name="layout_connected_with_rightside">Connected with rightside wire</string>
+	<string name="layout_connected_with_upside">Connected with upside wire</string>
+	<string name="layout_connected_with_downside">Connected with downside wire</string>
+	<string name="layout_not_connected_with_leftside">Not connected with leftside wire</string>
+	<string name="layout_not_connected_with_rightside">Not connected with rightside wire</string>
+	<string name="layout_not_connected_with_upside">Not connected with upside wire</string>
+	<string name="layout_not_connected_with_downside">Not connected with downside wire</string>
+	<string name="layout_wire_dialog">Wire Configure</string>
+	<string name="layout_transistor_dialog">Transistor Configure</string>
+	<string name="layout_resistor_dialog">Resistor Configure</string>
 	
 	
 </resources>

@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:ignore="HardcodedText" >
+    android:orientation="horizontal" >
 
     <TextView
         android:id="@+id/TrangistorSelectText"
@@ -12,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Trangistor Select"
+        android:text="@string/layout_transistor_dialog"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ImageView

@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:ignore="HardcodedText" >
+    android:orientation="horizontal" >
 
     <TextView
         android:id="@+id/WireSelectText"
@@ -12,60 +11,57 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Wire Select"
+        android:text="@string/layout_wire_dialog"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/ConnectWithText"
+
+    <ToggleButton
+        android:id="@+id/UpToggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/WireSelectText"
-        android:text="Connect with" />
-
-    <Button
-        android:id="@+id/UpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/ConnectWithText"
        	android:layout_alignRight="@+id/WireImage"
-        android:text="Up" />
+        android:textOn="@string/layout_connected_with_upside"
+		android:textOff="@string/layout_not_connected_with_upside" />
 
-    <Button
-        android:id="@+id/LeftButton"
+    <ToggleButton
+        android:id="@+id/LeftToggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/UpButton"
+        android:layout_below="@+id/UpToggleButton"
         android:layout_alignRight="@+id/WireImage"
-        android:text="Left" />
+        android:textOn="@string/layout_connected_with_leftside"
+        android:textOff="@string/layout_not_connected_with_leftside" />
 
-    <Button
-        android:id="@+id/RightButton"
+    <ToggleButton
+        android:id="@+id/RightToggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/WireImage"
-        android:layout_below="@+id/LeftButton"
-        android:text="Right" />
+        android:layout_below="@+id/LeftToggleButton"
+        android:textOn="@string/layout_connected_with_rightside"
+        android:textOff="@string/layout_not_connected_with_rightside" />
 
-    <Button
-        android:id="@+id/DownButton"
+    <ToggleButton
+        android:id="@+id/DownToggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/RightButton"
+        android:layout_below="@+id/RightToggleButton"
         android:layout_alignRight="@+id/WireImage"
-        android:text="Down" />
+        android:textOn="@string/layout_connected_with_downside"
+        android:textOff="@string/layout_not_connected_with_downside" />
 
     <ImageView
         android:id="@+id/WireImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/UpButton"
+        android:layout_above="@+id/UpToggleButton"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/UpButton"
-        android:layout_alignBottom="@+id/DownButton"/>
+        android:layout_alignTop="@+id/UpToggleButton"
+        android:layout_alignBottom="@+id/DownToggleButton"/>
 
 </RelativeLayout>

@@ -10,8 +10,17 @@
 	<string name="component_cog_to_wire">톱니 &gt; 전선 변환</string>
 	<string name="component_wire_to_cog">전선 &gt; 톱니 변환</string>
 	<string name="component_unknown">오류 : 알려지지 않은 부품</string>
-	
 	<string name="achievement_granted">도전과제 %1을 달성하였습니다</string>
-	
+	<string name="layout_connected_with_leftside">왼쪽 전선과 연결됨</string>
+	<string name="layout_connected_with_rightside">오른쪽 전선과 연결됨</string>
+	<string name="layout_connected_with_upside">위쪽 전선과 연결됨</string>
+	<string name="layout_connected_with_downside">아래쪽 전선과 연결됨</string>
+	<string name="layout_not_connected_with_leftside">왼쪽 전선과 연결되지 않음</string>
+	<string name="layout_not_connected_with_rightside">오른쪽 전선과 연결되지 않음</string>
+	<string name="layout_not_connected_with_upside">위쪽 전선과 연결되지 않음</string>
+	<string name="layout_not_connected_with_downside">아래쪽 전선과 연결되지 않음</string>
+	<string name="layout_wire_dialog">전선 설정</string>
+	<string name="layout_transistor_dialog">트랜지스터 설정</string>
+	<string name="layout_resistor_dialog">저항 설정</string>
 	
 </resources>
