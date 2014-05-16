@@ -1,7 +1,7 @@
 package com.He.W.onebone.circuit.cu.activity;
 
 import com.He.W.onebone.circuit.cu.R;
-import com.He.W.onebone.circuit.cu.R.layout;
+import com.He.W.onebone.circuit.cu.map.Level;
 
 public class MainActivity extends android.app.Activity {
 	private static MainActivity obj;
@@ -21,6 +21,10 @@ public class MainActivity extends android.app.Activity {
 	
 	public static MainActivity getInstance(){
 		return obj;
+	}
+	
+	public void startGame(Level level){
+		
 	}
 	
 	/*@Override
