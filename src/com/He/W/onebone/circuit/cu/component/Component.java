@@ -11,6 +11,8 @@ abstract public class Component extends ImageView{
 	private float x, y;
 	private float electrified;
 	private boolean isFocused;
+	private CircuitBoard board;
+	private BoardComponentManager manager;
 	
 	public Component(Context context, Drawable drawable, float x, float y, float rotation){
 		super(context);
@@ -20,7 +22,9 @@ abstract public class Component extends ImageView{
 		setImageDrawable(drawable);
 		setX(x);
 		setY(y);
-		CircuitBoard.getInstance().getManager().addComponent(this);
+		this.board = CircuitBoard.getInstance();
+		this.manager = board.getManager();
+		manager.addComponent(this);
 		
 		this.setOnClickListener(new View.OnClickListener(){
 			@Override
@@ -38,15 +42,18 @@ abstract public class Component extends ImageView{
 		setImageResource(resourceId);
 		setX(x);
 		setY(y);
-		CircuitBoard.getInstance().getManager().addComponent(this);
+		this.board = CircuitBoard.getInstance();
+		this.manager = board.getManager();
+		manager.addComponent(this);
 	}
 	
 	public void setFocused(boolean focus){ // TODO Showing focus status
 		if(focus){
-			CircuitBoard.getInstance().notifyComponentFocused(this.id);
+			board.notifyComponentFocused(manager.getComponentId(this));
 		}else{
-			CircuitBoard.getInstance().notifyComponentUnfocused();
+			board.notifyComponentUnfocused();
 		}
+		
 		isFocused = focus;
 	}
 	

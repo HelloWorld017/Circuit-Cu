@@ -64,6 +64,8 @@ public class CircuitBoard extends ImageView{
 	}
 	
 	public void notifyComponentFocused(int id){
+		Component focusedCmt = manager.getComponentById(id);
+		focusedCmt.setFocused(false);
 		focused = id;
 	}
 	

@@ -87,6 +87,17 @@ public class BoardComponentManager {
 		return componentList;
 	}
 	
+	public int getComponentId(Component component){
+		Iterator<Integer> key = componentList.keySet().iterator();
+		while(key.hasNext()){
+			int next = key.next();
+			if(componentList.get(next).equals(component)){
+				return next;
+			}
+		}
+		return -1;
+	}
+	
 	/*public void addComponent(Component component, ImageView img, int x, int y, float rotation, int locationId){
 		componentList.add(new Object[]{
 		/*	component, // [0] : Component instance (Component)

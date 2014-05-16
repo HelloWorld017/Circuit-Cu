@@ -23,10 +23,6 @@ public class MainActivity extends android.app.Activity {
 		return obj;
 	}
 	
-	public void startGame(Level level){
-		
-	}
-	
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
