@@ -4,11 +4,13 @@ import com.He.W.onebone.circuit.cu.*;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 import android.widget.ImageView;
 
 abstract public class Component extends ImageView{
 	private float x, y;
 	private float electrified;
+	private boolean isFocused;
 	
 	public Component(Context context, Drawable drawable, float x, float y, float rotation){
 		super(context);
@@ -19,6 +21,13 @@ abstract public class Component extends ImageView{
 		setX(x);
 		setY(y);
 		CircuitBoard.getInstance().getManager().addComponent(this);
+		
+		this.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v) {
+				setFocused(true);
+			}
+		});
 	}
 	
 	public Component(Context context, int resourceId, float x, float y, int rotation){
@@ -32,8 +41,17 @@ abstract public class Component extends ImageView{
 		CircuitBoard.getInstance().getManager().addComponent(this);
 	}
 	
-	public void setFocus(boolean focus){ // TODO Showing focus status
-		
+	public void setFocused(boolean focus){ // TODO Showing focus status
+		if(focus){
+			CircuitBoard.getInstance().notifyComponentFocused(this.id);
+		}else{
+			CircuitBoard.getInstance().notifyComponentUnfocused();
+		}
+		isFocused = focus;
+	}
+	
+	public boolean isFocused(){
+		return isFocused;
 	}
 	
 	public void setComponentDrawable(Drawable drawable){

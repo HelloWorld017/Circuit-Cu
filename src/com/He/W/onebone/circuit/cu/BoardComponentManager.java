@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
 
-import android.view.View;
-
 public class BoardComponentManager {
 	private TreeMap<Integer, Component> componentList; // <component_id, object>
 	private CircuitBoard board;
@@ -21,6 +19,10 @@ public class BoardComponentManager {
 	public int addComponent(Component component){
 		componentList.put(id, component);
 		return id++;
+	}
+	
+	public Component getComponentById(int id){
+		return componentList.get(id);
 	}
 	
 	public BoardComponentManager moveComponent(int id, float x, float y){
@@ -63,8 +65,6 @@ public class BoardComponentManager {
 			int next = iterator.next();
 			Component c = componentList.get(next);
 			if(c.equals(component)){
-				component.getComponentImage().setVisibility(View.INVISIBLE);
-				CircuitBoard.getInstance().removeComponent(component);
 				componentList.remove(next);
 				return true;
 			}
@@ -74,9 +74,6 @@ public class BoardComponentManager {
 	
 	public boolean removeComponent(int id){
 		if(componentList.containsKey(id)){
-			Component c = componentList.get(id);
-			c.getComponentImage().setVisibility(View.INVISIBLE);
-			CircuitBoard.getInstance().removeComponent(c);
 			componentList.remove(id);
 		}
 		return false;
@@ -86,8 +83,8 @@ public class BoardComponentManager {
 		return board;
 	}
 	
-	public void insertElectricityToComponent(Component component){ // TODO Inserting electricity to component
-		
+	public TreeMap<Integer, Component> getAll(){
+		return componentList;
 	}
 	
 	/*public void addComponent(Component component, ImageView img, int x, int y, float rotation, int locationId){

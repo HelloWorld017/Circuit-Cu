@@ -59,6 +59,7 @@ public final class R {
         public static final int component_transistor=0x7f040002;
         public static final int component_unknown=0x7f040009;
         public static final int component_wire_to_cog=0x7f040008;
+        public static final int hello_world=0x7f040016;
         public static final int layout_connected_with_downside=0x7f04000e;
         public static final int layout_connected_with_leftside=0x7f04000b;
         public static final int layout_connected_with_rightside=0x7f04000c;

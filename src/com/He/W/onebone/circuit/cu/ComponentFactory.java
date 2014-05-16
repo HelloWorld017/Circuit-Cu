@@ -4,9 +4,6 @@ import com.He.W.onebone.circuit.cu.component.*;
 
 public class ComponentFactory {
 	
-	/*public static final int COMPONENT_RESISTER = 0x00;
-	public static final int COMPONENT_TRANSISTOR = 0x01; */
-	
 	public static Component makeComponent(EnumComponentType type, Object... extArgs){
 		switch(type){
 		case COMPONENT_RESISTOR:

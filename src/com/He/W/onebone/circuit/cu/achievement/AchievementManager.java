@@ -16,17 +16,17 @@ import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class AchievementManager {
-	private static TreeMap<String, BaseAchievement> achievements;
+	private static TreeMap<String, Achievement> achievements;
 	private static LinkedList<String> grantedAchievements;
 	
 	public static void clearSeq(){
-		achievements = new TreeMap<String, BaseAchievement>();
+		achievements = new TreeMap<String, Achievement>();
 		grantedAchievements = new LinkedList<String>();
 	}
 	
-	public static int addAchievement(BaseAchievement achievement){
+	public static int addAchievement(Achievement achievement){
 		if(achievements == null){
-			achievements = new TreeMap<String, BaseAchievement>();
+			achievements = new TreeMap<String, Achievement>();
 		}
 		
 		if(achievements.containsKey(achievement.getAchievementId())){
@@ -36,12 +36,12 @@ public class AchievementManager {
 		return 1;
 	}
 	
-	public static boolean grantAchievement(BaseAchievement achievement){
+	public static boolean grantAchievement(Achievement achievement){
 		if(grantedAchievements == null){
 			grantedAchievements = new LinkedList<String>();
 		}
 		if(achievements == null){
-			achievements = new TreeMap<String, BaseAchievement>();
+			achievements = new TreeMap<String, Achievement>();
 		}
 		
 		if(achievements.containsKey(achievement.getAchievementId())){
@@ -55,12 +55,12 @@ public class AchievementManager {
 		}
 	}
 	
-	public static boolean grantAchievement(BaseAchievement achievement, Activity ctx){
+	public static boolean grantAchievement(Achievement achievement, Activity ctx){
 		if(grantedAchievements == null){
 			grantedAchievements = new LinkedList<String>();
 		}
 		if(achievements == null){
-			achievements = new TreeMap<String, BaseAchievement>();
+			achievements = new TreeMap<String, Achievement>();
 		}
 		
 		if(achievements.containsKey(achievement.getAchievementId())){
@@ -80,7 +80,7 @@ public class AchievementManager {
 			grantedAchievements = new LinkedList<String>();
 		}
 		if(achievements == null){
-			achievements = new TreeMap<String, BaseAchievement>();
+			achievements = new TreeMap<String, Achievement>();
 		}
 		
 		if(grantedAchievements.contains(achievementId)){
@@ -91,12 +91,12 @@ public class AchievementManager {
 		}
 	}
 	
-	public static boolean cancelAchievement(BaseAchievement achievement){
+	public static boolean cancelAchievement(Achievement achievement){
 		if(grantedAchievements == null){
 			grantedAchievements = new LinkedList<String>();
 		}
 		if(achievements == null){
-			achievements = new TreeMap<String, BaseAchievement>();
+			achievements = new TreeMap<String, Achievement>();
 		}
 		
 		if(grantedAchievements.contains(achievement.getAchievementId())){

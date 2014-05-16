@@ -82,6 +82,7 @@ public class ComponentAdapter extends BaseAdapter {
 	public long getItemId(int arg0) {
 		return arg0;
 	}
+	
 	public void addItemToInventory(EnumComponentType AddingItem, int AddingCount){
 		int index = al_items.indexOf(AddingItem);
 		if(index == -1){
@@ -91,7 +92,7 @@ public class ComponentAdapter extends BaseAdapter {
 		}else{
 			counts[index] += AddingCount;
 		}
-		update();
+		this.notifyDataSetChanged();
 		
 	}
 	
@@ -107,25 +108,24 @@ public class ComponentAdapter extends BaseAdapter {
 				Object[] object = adjust(counts, al_items);
 				al_items = (ArrayList<EnumComponentType>)object[1];
 				counts = (Integer[])((ArrayList<Integer>)object[0]).toArray();
-				update();
+				this.notifyDataSetChanged();
 				return firstValue;
 			}
 			Object[] object = adjust(counts, al_items);
 			al_items = (ArrayList<EnumComponentType>)object[1];
 			counts = (Integer[])((ArrayList<Integer>)object[0]).toArray();
-			update();
+			this.notifyDataSetChanged();
 			return usedCount;
 		}else{
 			return 0;
 		}
 		
-		
 	}
 	
-	//TODO I don't know this will work correctly. If Stackoverflow Exception occurs, check this part. OR this may be useless.
-	public void update(){
+	// I don't know if this works correctly. If Stackoverflow Exception occurs, check this part. OR this may be useless.
+	/*public void update(){
 		this.notifyDataSetChanged();
-	}
+	}*/ // Adapter.notifyDataSetChanged() is public method, this method is useless
 	
 	public Object[] adjust(Integer[] ct, ArrayList<EnumComponentType> alect){
 		int a = 0;
@@ -148,7 +148,8 @@ public class ComponentAdapter extends BaseAdapter {
 		Object[] obj = new Object[2];
 		obj[0] = temp;
 		obj[1] = alect_temp;
-		update();
+		//update();
+		this.notifyDataSetChanged();
 		return obj;
 	}
 

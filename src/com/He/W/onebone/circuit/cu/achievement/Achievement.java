@@ -2,10 +2,10 @@ package com.He.W.onebone.circuit.cu.achievement;
 
 import com.He.W.onebone.circuit.cu.exception.AchievementCreateException;
 
-abstract public class BaseAchievement {
+abstract public class Achievement {
 	private String message, title, achievementId;
 	
-	public BaseAchievement(String achievementId, String title, String message) throws AchievementCreateException{
+	public Achievement(String achievementId, String title, String message) throws AchievementCreateException{
 		int result = AchievementManager.addAchievement(this);
 		if(result == 1){
 			this.achievementId = achievementId;

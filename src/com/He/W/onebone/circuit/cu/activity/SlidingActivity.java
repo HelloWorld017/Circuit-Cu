@@ -7,6 +7,8 @@ public class SlidingActivity extends android.app.Activity{
 	
 	public void openSlideMenu(View view){
 		// TODO Menu opening animation
+		slideMenu = view;
+		// It is okay to do with PopupMenu?
 	}
 	
 	public void closeSlideMenu(){
