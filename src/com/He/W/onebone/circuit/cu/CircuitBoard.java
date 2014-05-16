@@ -108,4 +108,14 @@ public class CircuitBoard extends ImageView{
 	public boolean addConnectedComponent(int id, int connectedLocationId){
 		return connectedComponent.get(id).add(connectedLocationId);
 	}
+	
+	public void electricityPassedOn(int id){ // TODO electricity passed
+		LinkedList<Integer> list = connectedComponent.get(id);
+		for(int cmtId:list){
+			if(manager.getComponentById(cmtId).getElectrified() > 0){
+				continue;
+			}
+			electricityPassedOn(id);
+		}
+	}
 }
