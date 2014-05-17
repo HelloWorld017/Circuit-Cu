@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <resources>
+    <string-array name="messages">
+        <item>Circuiting Excitement!</item>
+        <item>Welcome to Circuit-Cu!</item>
+        <item>Pzzzz....... BOOM!!!!</item>
+        <item>Ring ring ring ring RING RING</item>
+        <item>Dokdo is Korean territory.</item>
+        <item>Whoa! I hate bug and I hate bugs!</item>
+        <item>Airplane on the airplane!</item>
+        <item>THIS SENTENCE IS FALSE!!!</item>
+        <item>Exterminate!</item>
+        <item>Nyang Passu!</item>
+        <item>한국 안녕하세요!</item>
+        <item>日本こんにちは！</item>
+    </string-array>
+</resources>
