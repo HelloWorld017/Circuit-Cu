@@ -2,8 +2,12 @@ package com.He.W.onebone.circuit.cu.activity;
 
 import java.util.Random;
 
+import android.graphics.Typeface;
+import android.widget.TextView;
+
 import com.He.W.onebone.circuit.cu.R;
-import com.He.W.onebone.circuit.cu.map.Level;
+import com.He.W.onebone.circuit.cu.settings.EnumSettings;
+import com.He.W.onebone.circuit.cu.settings.Setting;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Configuration.Builder;
@@ -18,6 +22,21 @@ public class MainActivity extends android.app.Activity {
 	protected void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
+		/*
+		 * 폰트 설정표
+		 * 안드 2.2 이하 한글 아님 ubuntu
+		 * 안드 2.2 이하 한글 Segoe UI(= Tahoma, 맑은 고딕)
+		 * 안드 2.2 이상 HMNUS......
+		 * 였으나 API 14 이상이므로 사용할 필요 없음.
+		 * 그냥 설정에서 변경하는것으로 결.정
+		 */
+		Typeface f = Typeface.createFromAsset(getAssets(), "font/HMNUS.ttf");
+		switch(Setting.readSettings(EnumSettings.fonttype)){
+		case 1: f = Typeface.createFromAsset(getAssets(), "font/Ubuntu.ttf");
+		case 2: f = Typeface.createFromAsset(getAssets(), "font/SegoeUI.ttf");
+		}
+		
 		obj = this;
 		Random r = new Random();
 		int ri  = r.nextInt(10);
@@ -35,9 +54,9 @@ public class MainActivity extends android.app.Activity {
 		case 9:s = this.getString(R.string.ba);break;
 		case 10:s = this.getString(R.string.bb);break;
 		}
-		
-		
+
 		Crouton.makeText(this, s, Style.INFO).setConfiguration(new Builder().setDuration(Configuration.DURATION_SHORT).build()).show();
+		
 	}
 	
 	@Override

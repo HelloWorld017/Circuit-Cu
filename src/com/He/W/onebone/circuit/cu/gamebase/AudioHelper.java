@@ -26,8 +26,19 @@ public class AudioHelper {
 		}
 	}
 	
-	public static void playBGM(File f){
-		
+	public static void playBGM(Context ctxt, File f){
+		if(!f.exists()){
+			Toast.makeText(ctxt, "File not exists!", Toast.LENGTH_LONG).show();
+		}else{
+			MediaPlayer mp = new MediaPlayer();
+			try{
+				mp.setDataSource(f.getAbsolutePath());
+				mp.prepare();
+				mp.start();
+			}catch(Exception e){
+				Toast.makeText(ctxt, e.getStackTrace().toString(), Toast.LENGTH_LONG).show();
+			}
+		}
 	}
 	
 	public static void playBGM(Context ctxt, int resid){
