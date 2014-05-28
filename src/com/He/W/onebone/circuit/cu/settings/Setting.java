@@ -23,7 +23,9 @@ public class Setting {
 		readAllSettings(ctxt);
 	}
 	public void writeSettings(EnumSettings es, int value){
+		
 	}
+	
 	public int readSettings(EnumSettings es){
 		
 		return flags.get(es);

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Integer-array name must be EnumSetting's name -->
+    <integer-array name="fonttype">
+        <!-- first argument is Setting id -->
+        <item>0</item>
+        <!-- Second argument is need restart -->
+        <item>1</item>
+        <!-- Third argument is visibility -->
+        <item>1</item>
+    </integer-array>
+    <string name="fonttype">Change font.</string><integer-array name="resistor_always_same">
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+    <string name="resistor_always_same">Stripe on resistor is always same. Recommended on a device that has broken resistor image, small display or bad specification.</string>
+    
+    
+</resources>
