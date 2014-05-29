@@ -9,6 +9,4 @@ public class FirstStartingHelper {
 	public static void writeScript(EnumScript es){
 		
 	}
-	
-	
 }

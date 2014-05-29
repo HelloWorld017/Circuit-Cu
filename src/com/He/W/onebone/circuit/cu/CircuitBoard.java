@@ -17,7 +17,7 @@ import android.widget.ImageView;
 public class CircuitBoard extends ImageView{
 	private static CircuitBoard obj;
 	private BoardComponentManager manager;
-	private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
+//	private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
 	private int focused = -1;
 	
 	private CircuitBoard(Context context) {
@@ -108,12 +108,14 @@ public class CircuitBoard extends ImageView{
 		return manager.addComponent(component);
 	}
 	
-	public boolean addConnectedComponent(int id, int connectedLocationId){
-		return connectedComponent.get(id).add(connectedLocationId);
+	public boolean addConnectedComponent(int id, int targetId){
+	//	return connectedComponent.get(id).add(connectedLocationId);
+		return manager.getComponentById(id).addConnectedComponent(targetId);
 	}
 	
 	public void electricityPassedOn(int id){ // TODO electricity passed
-		LinkedList<Integer> list = connectedComponent.get(id);
+		Component component = manager.getComponentById(id);
+		LinkedList<Integer> list = component.getConnected();
 		for(int cmtId:list){
 			if(manager.getComponentById(cmtId).getElectrified() > 0){
 				continue;
@@ -123,7 +125,9 @@ public class CircuitBoard extends ImageView{
 	}
 	
 	public void electricityUnreleasedTo(int id){
-		LinkedList<Integer> list = connectedComponent.get(id);
+		//LinkedList<Integer> list = connectedComponent.get(id);
+		Component component = manager.getComponentById(id);
+		LinkedList<Integer> list = component.getConnected();
 		for(int cmtId:list){
 			Component cmt = manager.getComponentById(cmtId);
 			if(cmt.getElectrified() > 0){ // If the component has electricity

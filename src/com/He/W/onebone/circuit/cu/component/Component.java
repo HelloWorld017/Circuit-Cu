@@ -1,5 +1,7 @@
 package com.He.W.onebone.circuit.cu.component;
 
+import java.util.LinkedList;
+
 import com.He.W.onebone.circuit.cu.*;
 
 import android.content.Context;
@@ -13,6 +15,7 @@ abstract public class Component extends ImageView{
 	private boolean isFocused;
 	private CircuitBoard board;
 	private BoardComponentManager manager;
+	private LinkedList<Integer> connected;
 	
 	public Component(Context context, Drawable drawable, float x, float y, float rotation){
 		super(context);
@@ -22,7 +25,10 @@ abstract public class Component extends ImageView{
 		setImageDrawable(drawable);
 		setX(x);
 		setY(y);
+		
+		this.connected = new LinkedList<Integer>();
 		this.board = CircuitBoard.getInstance();
+		this.electrified = 0;
 		this.manager = board.getManager();
 		manager.addComponent(this);
 		
@@ -53,7 +59,6 @@ abstract public class Component extends ImageView{
 		}else{
 			board.notifyComponentUnfocused();
 		}
-		
 		isFocused = focus;
 	}
 	
@@ -120,6 +125,26 @@ abstract public class Component extends ImageView{
 			this.electricityUnreleased();
 		}
 		return true;
+	}
+	
+	public final boolean addConnectedComponent(int id){
+		return this.connected.add(id);
+	}
+	
+	public final boolean addConnectedComponent(Component component){
+		return this.connected.add(CircuitBoard.getInstance().getManager().getComponentId(component));
+	}
+	
+	public final int removeConnectedComponent(int id){
+		return this.connected.remove(id);
+	}
+	
+	public final int removeConnectedComponent(Component component){
+		return this.connected.remove(CircuitBoard.getInstance().getManager().getComponentId(component));
+	}
+	
+	public final LinkedList<Integer> getConnected(){
+		return this.connected;
 	}
 	
 	abstract public void electricityReleased();
