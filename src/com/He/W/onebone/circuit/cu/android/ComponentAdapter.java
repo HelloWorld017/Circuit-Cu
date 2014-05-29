@@ -52,7 +52,7 @@ public class ComponentAdapter extends BaseAdapter {
 			//TODO Insert Image!
 			case COMPONENT_GOLD_WIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.gold_wire);break;
 			case COMPONENT_ELECTRICITYBLOCKER:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.electricityblocker);break;
-			case COMPONENT_RESISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.resister);break;
+			case COMPONENT_RESISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.resistor);break;
 			case COMPONENT_TRANSISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.transistor);break;
 			case COMPONENT_WIRETOCOG:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.wiretocog);break;
 			case COMPONENT_COGTOWIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.cogtowire);break;
