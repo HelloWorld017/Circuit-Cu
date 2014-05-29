@@ -100,13 +100,28 @@ abstract public class Component extends ImageView{
 		return electrified;
 	}
 	
-	public final void setElectrified(float electrified){
+	public final boolean setElectrified(float electrified){
+		if(electrified < 0){
+			return false;
+		}
 		this.electrified = electrified;
+		if(this.electrified == 0){
+			this.electricityUnreleased();
+		}
+		return true;
 	}
 	
-	public final void addElectrified(float amount){
+	public final boolean addElectrified(float amount){
+		if(this.electrified - amount < 0){
+			return false;
+		}
 		this.electrified += amount;
+		if(this.electrified == 0){
+			this.electricityUnreleased();
+		}
+		return true;
 	}
 	
 	abstract public void electricityReleased();
+	abstract public void electricityUnreleased();
 }

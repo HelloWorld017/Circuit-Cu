@@ -1,5 +1,5 @@
 package com.He.W.onebone.circuit.cu.component;
-		
+
 import com.He.W.onebone.circuit.cu.*;
 
 import android.graphics.Canvas;
@@ -32,7 +32,7 @@ public class Resistor extends ElectricityBlockable{
 		public static final float NONE = 20;
 	}
 	
-	public static class number{
+	/*public static class number{
 		public static final int BLACK = 0;
 		public static final int BROWN = 1;
 		public static final int RED = 2;
@@ -43,9 +43,13 @@ public class Resistor extends ElectricityBlockable{
 		public static final int PURPLE = 7;
 		public static final int GRAY = 8;
 		public static final int WHITE = 9;
+	}*/
+	
+	public static enum number{
+		BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, GRAY, WHITE
 	}
 	
-	public void addLine(int color, int lineId){ // TODO Inserting line which identifies the information of resister
+	public void drawLine(int color, int lineId){ // TODO Inserting line which identifies the information of resister
 		Canvas canvas = new Canvas();
 		Paint paint = new Paint();
 		
@@ -57,7 +61,12 @@ public class Resistor extends ElectricityBlockable{
 
 	@Override
 	public void electricityReleased() {
-		
+		this.addBlockElectricity(1);
+	}
+
+	@Override
+	public void electricityUnreleased() {
+		this.addBlockElectricity(-1);
 	}
 	
 	/*public Resister(MainActivity activity){

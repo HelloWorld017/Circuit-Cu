@@ -52,6 +52,9 @@ public class CircuitBoard extends ImageView{
 	}
 	
 	public static void destroyBoard(){
+		if(obj != null){
+			obj.setVisibility(View.INVISIBLE);
+		}
 		obj = null;
 	}
 	
@@ -115,7 +118,18 @@ public class CircuitBoard extends ImageView{
 			if(manager.getComponentById(cmtId).getElectrified() > 0){
 				continue;
 			}
-			electricityPassedOn(id);
+			electricityPassedOn(cmtId);
+		}
+	}
+	
+	public void electricityUnreleasedTo(int id){
+		LinkedList<Integer> list = connectedComponent.get(id);
+		for(int cmtId:list){
+			Component cmt = manager.getComponentById(cmtId);
+			if(cmt.getElectrified() > 0){ // If the component has electricity
+				cmt.setElectrified(0); // Block its electricity
+				electricityUnreleasedTo(cmtId);
+			}
 		}
 	}
 }

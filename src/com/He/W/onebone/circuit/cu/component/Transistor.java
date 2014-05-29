@@ -14,4 +14,9 @@ public class Transistor extends Component{
 	public void electricityReleased() {
 		
 	}
+
+	@Override
+	public void electricityUnreleased() {
+		
+	}
 }

@@ -7,9 +7,9 @@ import android.graphics.drawable.Drawable;
 
 public abstract class ElectricityBlockable extends Component{
 
-	private int blockElectricity;
+	private float blockElectricity;
 	
-	public ElectricityBlockable(Context ctx, Drawable drawable, float x, float y, int rotation, int blockElectricity) {
+	public ElectricityBlockable(Context ctx, Drawable drawable, float x, float y, int rotation, float blockElectricity) {
 		super(ctx, drawable, x, y, rotation);
 		this.blockElectricity = blockElectricity;
 	}
@@ -19,7 +19,17 @@ public abstract class ElectricityBlockable extends Component{
 		this.blockElectricity = blockElectricity;
 	}
 	
-	public int getBlockingElectricity(){
+	public float getBlockingElectricity(){
 		return blockElectricity;
+	}
+	
+	public ElectricityBlockable addBlockElectricity(float value){
+		blockElectricity += value;
+		return this;
+	}
+	
+	public ElectricityBlockable setBlockElectricity(float value){
+		blockElectricity = value;
+		return this;
 	}
 }

@@ -10,6 +10,12 @@ public class LightBulb extends ElectricityBlockable{
 
 	@Override
 	public void electricityReleased() {
+		this.setImageResource(R.drawable.glowing_light_bulb);
+		this.addBlockElectricity(1);
+	}
+
+	@Override
+	public void electricityUnreleased() {
 		
 	}
 	
