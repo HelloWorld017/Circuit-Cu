@@ -10,7 +10,6 @@ package com.He.W.onebone.circuit.cu;
 public final class R {
     public static final class array {
         /**  Integer-array name must be EnumSetting's name 
- Last argument is tip 
  string-array name must be EnumSetting's name 
          */
         public static final int fonttype=0x7f040000;

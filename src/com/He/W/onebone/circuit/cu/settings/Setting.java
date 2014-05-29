@@ -12,25 +12,34 @@ import android.os.Environment;
 import android.widget.Toast;
 
 public class Setting {
-	private Object[] prefix;
-	private HashMap<EnumSettings, Integer> flags = new HashMap<EnumSettings, Integer>();
+	private static Object[] prefix;
+	
+	private static HashMap<EnumSettings, Integer> flags;
 	/*
 	 * 프리픽스는 일종의 저장공간 같은 곳
 	 * prefix id
 	 * 0 : Typeface
 	 */
-	public Setting(Context ctxt){
+	/*public Setting(Context ctxt){
 		readAllSettings(ctxt);
+		flags = new HashMap<EnumSettings, Integer>();
+	}*/
+	
+	public static void initSettings(Context ctx){
+		readAllSettings(ctx);
+		prefix = new Object[1];
+		flags = new HashMap<EnumSettings, Integer>();
 	}
-	public void writeSettings(EnumSettings es, int value){
+	
+	public static void writeSettings(EnumSettings es, int value){
 		
 	}
 	
-	public int readSettings(EnumSettings es){
-		
+	public static int readSettings(EnumSettings es){
 		return flags.get(es);
 	}
-	public boolean readAllSettings(Context ctxt){
+	
+	public static boolean readAllSettings(Context ctxt){
 		BufferedReader br;
 		InputStreamReader isr;
 		FileInputStream fis;
@@ -41,7 +50,7 @@ public class Setting {
 			fis = new FileInputStream(f);
 			isr = new InputStreamReader(fis, "UTF-8");
 			br = new BufferedReader(isr);
-			for(int i = 1;(s = br.readLine())!= null;i++){
+			for(;(s = br.readLine())!= null;){
 				String[] settinglist = s.split(",");
 				try{
 				EnumSettings es = EnumSettings.valueOf(settinglist[0].toLowerCase(Locale.ENGLISH));
@@ -60,11 +69,13 @@ public class Setting {
 		}
 		return true;
 	}
-	public Object getPrefix(int id) {
+	
+	public static Object getPrefix(int id) {
 		return prefix[id];
 	}
-	public void setPrefix(int id, Object obj) {
-		this.prefix[id] = obj;
+	
+	public static void setPrefix(int id, Object obj) {
+		prefix[id] = obj;
 	}
 	
 	
