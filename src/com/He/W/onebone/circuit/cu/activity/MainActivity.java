@@ -3,9 +3,11 @@ package com.He.W.onebone.circuit.cu.activity;
 import java.util.Random;
 
 import android.graphics.Typeface;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.He.W.onebone.circuit.cu.R;
+import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
@@ -17,12 +19,13 @@ import de.keyboardsurfer.android.widget.crouton.Style;
 public class MainActivity extends android.app.Activity {
 	private static MainActivity obj;
 	
-	
 	@Override @Deprecated
 	protected void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		Setting.initSettings(this);
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
+		Button b = (Button)findViewById(R.id.GeerButtonStart);
 		/*
 		 * 폰트 설정표
 		 * 안드 2.2 이하 한글 아님 ubuntu
@@ -36,6 +39,8 @@ public class MainActivity extends android.app.Activity {
 		case 1: f = Typeface.createFromAsset(getAssets(), "font/Ubuntu.ttf");
 		case 2: f = Typeface.createFromAsset(getAssets(), "font/SegoeUI.ttf");
 		}
+		b.setTypeface(f);
+		tv.setTypeface(f);
 		
 		obj = this;
 		Random r = new Random();
@@ -61,7 +66,7 @@ public class MainActivity extends android.app.Activity {
 	
 	@Override
 	protected void onDestroy(){
-		
+		AudioHelper.stopMusic();
 	}
 	
 	public static MainActivity getInstance(){

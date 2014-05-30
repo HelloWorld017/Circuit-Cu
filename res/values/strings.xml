@@ -25,5 +25,8 @@
 	<string name="layout_wire_dialog">Wire Configure</string>
 	<string name="layout_transistor_dialog">Transistor Configure</string>
 	<string name="layout_resistor_dialog">Resistor Configure</string>
+	<string name="layout_geerbutton_play">PLAY!</string>
+	<string name="layout_geerbutton_edit">EDIT!</string>
+	<string name="layout_geerbutton_tutorial">How to play</string>
 
 </resources>

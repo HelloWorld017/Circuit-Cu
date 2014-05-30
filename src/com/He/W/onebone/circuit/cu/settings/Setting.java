@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class Setting {
 	private static Object[] prefix;
-	
+	private static Context ctxt;
 	private static HashMap<EnumSettings, Integer> flags;
 	/*
 	 * 프리픽스는 일종의 저장공간 같은 곳
@@ -26,6 +26,7 @@ public class Setting {
 	}*/
 	
 	public static void initSettings(Context ctx){
+		ctxt = ctx;
 		readAllSettings(ctx);
 		prefix = new Object[1];
 		flags = new HashMap<EnumSettings, Integer>();
@@ -34,7 +35,9 @@ public class Setting {
 	public static void writeSettings(EnumSettings es, int value){
 		
 	}
-	
+	public static Context getContext(){
+		return ctxt;
+	}
 	public static int readSettings(EnumSettings es){
 		return flags.get(es);
 	}
