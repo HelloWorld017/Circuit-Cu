@@ -21,24 +21,12 @@ public final class R {
     public static final class drawable {
         public static final int alphares=0x7f020000;
         public static final int cchdpi=0x7f020001;
-        public static final int circuit_board=0x7f020002;
-        public static final int cog=0x7f020003;
-        public static final int cogtowire=0x7f020004;
-        public static final int copper_wire=0x7f020005;
-        public static final int geerbutton=0x7f020006;
-        public static final int geerbutton_focused=0x7f020007;
-        public static final int geerbutton_pressed=0x7f020008;
-        public static final int glowing_light_bulb=0x7f020009;
-        public static final int gold_wire=0x7f02000a;
-        public static final int ic_launcher=0x7f02000b;
-        public static final int light_bulb=0x7f02000c;
-        public static final int resistor=0x7f02000d;
-        public static final int selector=0x7f02000e;
-        public static final int swift=0x7f02000f;
-        public static final int transistor=0x7f020010;
-        public static final int unswiftable_obstacle=0x7f020011;
-        public static final int wallsave=0x7f020012;
-        public static final int wiretocog=0x7f020013;
+        public static final int geerbutton=0x7f020002;
+        public static final int geerbutton_focused=0x7f020003;
+        public static final int geerbutton_pressed=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int selector=0x7f020006;
+        public static final int wallsave=0x7f020007;
     }
     public static final class id {
         public static final int DownToggleButton=0x7f080016;
@@ -109,7 +97,7 @@ public final class R {
         public static final int layout_wire_dialog=0x7f050015;
         public static final int menu_settings=0x7f050003;
         public static final int resistor_always_same=0x7f050001;
-        public static final int title_activity_tutorial=0x7f050028;
+        public static final int title_activity_tutorial=0x7f05001c;
     }
     public static final class style {
         /** 

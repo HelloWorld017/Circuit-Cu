@@ -27,7 +27,9 @@ public class Setting {
 	
 	public static void initSettings(Context ctx){
 		ctxt = ctx;
-		readAllSettings(ctx);
+		if(!readAllSettings(ctx)){
+			System.exit(0);
+		}
 		prefix = new Object[1];
 		flags = new HashMap<EnumSettings, Integer>();
 	}
@@ -48,6 +50,9 @@ public class Setting {
 		FileInputStream fis;
 		String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "CircuitCu/Settings.cc";
 		File f = new File(path);
+		if(!f.exists()){
+			return false;
+		}
 		String s = "";
 		try {
 			fis = new FileInputStream(f);
