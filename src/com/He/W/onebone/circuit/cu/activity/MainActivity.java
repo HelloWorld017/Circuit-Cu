@@ -4,6 +4,7 @@ import java.util.Random;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.AudioManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ public class MainActivity extends android.app.Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		Setting.initSettings(this);
+		
+		setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
 		Button startBtn = (Button)findViewById(R.id.GeerButtonStart);
 		startBtn.setOnClickListener(new View.OnClickListener(){
