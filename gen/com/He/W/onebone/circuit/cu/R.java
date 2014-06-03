@@ -41,36 +41,44 @@ public final class R {
         public static final int wiretocog=0x7f020013;
     }
     public static final class id {
-        public static final int DownToggleButton=0x7f080011;
+        public static final int DownToggleButton=0x7f080016;
         public static final int GeerButtonEdit=0x7f080002;
-        public static final int GeerButtonHTP=0x7f080003;
-        public static final int GeerButtonStart=0x7f080001;
-        public static final int LeftToggleButton=0x7f08000f;
-        public static final int RegistorDropDownList=0x7f080008;
-        public static final int RegistorImage=0x7f080007;
-        public static final int RegistorSelectText=0x7f080006;
-        public static final int RightToggleButton=0x7f080010;
-        public static final int TrangistorDropDownList=0x7f08000b;
-        public static final int TrangistorImage=0x7f08000a;
-        public static final int TrangistorSelectText=0x7f080009;
-        public static final int UpToggleButton=0x7f08000d;
-        public static final int WireImage=0x7f08000e;
-        public static final int WireSelectText=0x7f08000c;
-        public static final int menu_settings=0x7f080012;
+        public static final int GeerButtonHTP=0x7f080001;
+        public static final int GeerButtonStart=0x7f080003;
+        public static final int LeftToggleButton=0x7f080014;
+        public static final int RegistorDropDownList=0x7f08000d;
+        public static final int RegistorImage=0x7f08000c;
+        public static final int RegistorSelectText=0x7f08000b;
+        public static final int RightToggleButton=0x7f080015;
+        public static final int TrangistorDropDownList=0x7f080010;
+        public static final int TrangistorImage=0x7f08000f;
+        public static final int TrangistorSelectText=0x7f08000e;
+        public static final int UpToggleButton=0x7f080012;
+        public static final int WireImage=0x7f080013;
+        public static final int WireSelectText=0x7f080011;
+        public static final int button1=0x7f08000a;
+        public static final int listView1=0x7f080017;
+        public static final int menu_settings=0x7f080018;
         public static final int textCircuitCU=0x7f080000;
         public static final int textView1=0x7f080004;
         public static final int textView2=0x7f080005;
+        public static final int textView3=0x7f080006;
+        public static final int textView4=0x7f080007;
+        public static final int textView5=0x7f080008;
+        public static final int textView6=0x7f080009;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int custom_list_view=0x7f030001;
-        public static final int custom_resistor_dialog=0x7f030002;
-        public static final int custom_transistor_dialog=0x7f030003;
-        public static final int custom_wire_dialog=0x7f030004;
-        public static final int level_selector=0x7f030005;
+        public static final int activity_tutorial=0x7f030001;
+        public static final int custom_list_view=0x7f030002;
+        public static final int custom_resistor_dialog=0x7f030003;
+        public static final int custom_transistor_dialog=0x7f030004;
+        public static final int custom_wire_dialog=0x7f030005;
+        public static final int level_selector=0x7f030006;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;
+        public static final int activity_tutorial=0x7f070001;
     }
     public static final class string {
         public static final int achievement_granted=0x7f05000c;
@@ -101,6 +109,7 @@ public final class R {
         public static final int layout_wire_dialog=0x7f050015;
         public static final int menu_settings=0x7f050003;
         public static final int resistor_always_same=0x7f050001;
+        public static final int title_activity_tutorial=0x7f050028;
     }
     public static final class style {
         /** 
