@@ -41,7 +41,10 @@ public class Setting {
 		return ctxt;
 	}
 	public static int readSettings(EnumSettings es){
-		return flags.get(es);
+		if(flags.containsKey(es)){
+			return flags.get(es);
+		}
+		return 0;
 	}
 	
 	public static boolean readAllSettings(Context ctxt){
@@ -73,7 +76,7 @@ public class Setting {
 			}
 			br.readLine();
 		}catch(Exception e){
-
+			
 		}
 		return true;
 	}

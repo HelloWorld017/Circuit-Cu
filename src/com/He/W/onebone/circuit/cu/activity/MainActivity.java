@@ -13,11 +13,6 @@ import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
-import de.keyboardsurfer.android.widget.crouton.Configuration;
-import de.keyboardsurfer.android.widget.crouton.Configuration.Builder;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-
 public class MainActivity extends android.app.Activity {
 	private static MainActivity obj;
 	
@@ -56,7 +51,8 @@ public class MainActivity extends android.app.Activity {
 		String[] strArr = getResources().getStringArray(R.array.messages);
 		Random r = new Random();
 		String str = strArr[r.nextInt(strArr.length - 1)];
-		Crouton.makeText(this, str, Style.INFO).setConfiguration(new Builder().setDuration(Configuration.DURATION_SHORT).build()).show();
+		//Crouton.makeText(this, str, Style.INFO).setConfiguration(new Builder().setDuration(Configuration.DURATION_SHORT).build()).show();
+		((TextView)findViewById(R.id.message_textview)).setText(str);
 	}
 	
 	@Override
