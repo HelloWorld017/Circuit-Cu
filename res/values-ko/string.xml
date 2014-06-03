@@ -22,5 +22,16 @@
 	<string name="layout_wire_dialog">전선 설정</string>
 	<string name="layout_transistor_dialog">트랜지스터 설정</string>
 	<string name="layout_resistor_dialog">저항 설정</string>
+    <string name="layout_author">제작자:</string>
+    <string name="layout_map_name">맵 이름:</string>
+    <string name="layout_time_record">걸린 시간:</string>
+	<string name="tutorial_a">Circuit Cu에 오신것을 환영합니다!</string>
+	<string name="tutorial_b">게임을 배우기 위해서 오셨다고요?</string>
+	<string name="tutorial_c">이 게임은 매우 쉬워요.</string>
+	<string name="tutorial_d">그냥 모든 아이템을 배치해서 요구 전류만 맞춰주면 되요.</string>
+	<string name="tutorial_e">아이템을 배치하는 것은 배치하고 싶은 아이템을 선택하고,</string>
+	<string name="tutorial_f">놓을 자리를 누르면 끝나요!</string>
+	<string name="tutorial_g">이제 배울것은 끝났어요!</string>
+	<string name="tutorial_h">나머지는 하면서!</string>
 	
 </resources>

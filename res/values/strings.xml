@@ -27,6 +27,18 @@
     <string name="layout_geerbutton_play">PLAY!</string>
     <string name="layout_geerbutton_edit">EDIT!</string>
     <string name="layout_geerbutton_tutorial">How to play</string>
+    <string name="layout_to_main_menu">Main Menu</string>
+    <string name="layout_author">Author:</string>
+    <string name="layout_map_name">Map Name:</string>
+    <string name="layout_time_record">Time Record:</string>
     <string name="title_activity_tutorial">Tutorial</string>
-
+    <string name="tutorial_a">Welcome to Circuit Cu!</string>
+	<string name="tutorial_b">Do you want to learn this game?</string>
+	<string name="tutorial_c">This game is extremely easy.</string>
+	<string name="tutorial_d">Just place all components and adjust required voltage.</string>
+	<string name="tutorial_e">If you want to place a component, just touch the component and</string>
+	<string name="tutorial_f">touch the place where you want to place the component.</string>
+	<string name="tutorial_g">You have just learned this game.</string>
+	<string name="tutorial_h">You will learn left things during playing this game.</string>
+	
 </resources>

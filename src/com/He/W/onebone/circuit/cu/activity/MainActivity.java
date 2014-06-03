@@ -14,6 +14,8 @@ import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
+import de.keyboardsurfer.android.widget.crouton.*;
+
 public class MainActivity extends android.app.Activity {
 	private static MainActivity obj;
 	
@@ -35,6 +37,8 @@ public class MainActivity extends android.app.Activity {
 				startActivity(intent);
 			}
 		});
+		Button editBtn = (Button)findViewById(R.id.GeerButtonEdit);
+		Button htpBtn = (Button)findViewById(R.id.GeerButtonHTP);
 		/*
 		 * 폰트 설정표
 		 * 안드 2.2 이하 한글 아님 ubuntu
@@ -49,19 +53,35 @@ public class MainActivity extends android.app.Activity {
 		case 2: f = Typeface.createFromAsset(getAssets(), "font/SegoeUI.ttf");
 		}
 		startBtn.setTypeface(f);
+		editBtn.setTypeface(f);
+		htpBtn.setTypeface(f);
 		tv.setTypeface(f);
 		
 		obj = this;
 		String[] strArr = getResources().getStringArray(R.array.messages);
 		Random r = new Random();
 		String str = strArr[r.nextInt(strArr.length - 1)];
-		//Crouton.makeText(this, str, Style.INFO).setConfiguration(new Builder().setDuration(Configuration.DURATION_SHORT).build()).show();
+		final Crouton crt =  Crouton.makeText(this, str, Style.INFO).setConfiguration(new Configuration.Builder().setDuration(Configuration.DURATION_SHORT).build());
+		crt.setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				crt.hide();
+				
+			}
+			
+		});
+		crt.show();
 		((TextView)findViewById(R.id.message_textview)).setText(str);
+		Setting.setPrefix(0,f);
 	}
 	
 	@Override
 	protected void onDestroy(){
 		AudioHelper.stopMusic();
+		Crouton.cancelAllCroutons();
+		Crouton.clearCroutonsForActivity(this);
 	}
 	
 	@Override
