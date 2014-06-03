@@ -29,6 +29,9 @@ public class MainActivity extends android.app.Activity {
 		
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
 		Button startBtn = (Button)findViewById(R.id.GeerButtonStart);
+	
+		Button editBtn = (Button)findViewById(R.id.GeerButtonEdit);
+		Button htpBtn = (Button)findViewById(R.id.GeerButtonHTP);
 		startBtn.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -37,8 +40,16 @@ public class MainActivity extends android.app.Activity {
 				startActivity(intent);
 			}
 		});
-		Button editBtn = (Button)findViewById(R.id.GeerButtonEdit);
-		Button htpBtn = (Button)findViewById(R.id.GeerButtonHTP);
+		htpBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this, Tutorial.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				startActivity(intent);
+			}
+		});
 		/*
 		 * 폰트 설정표
 		 * 안드 2.2 이하 한글 아님 ubuntu
@@ -79,6 +90,7 @@ public class MainActivity extends android.app.Activity {
 	
 	@Override
 	protected void onDestroy(){
+		super.onDestroy();
 		AudioHelper.stopMusic();
 		Crouton.cancelAllCroutons();
 		Crouton.clearCroutonsForActivity(this);
@@ -86,6 +98,7 @@ public class MainActivity extends android.app.Activity {
 	
 	@Override
 	public void onPause(){
+		super.onPause();
 		AudioHelper.stopMusic();
 	}
 	
