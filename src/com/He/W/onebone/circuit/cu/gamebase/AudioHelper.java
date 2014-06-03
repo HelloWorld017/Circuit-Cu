@@ -20,10 +20,13 @@ public class AudioHelper {
 	private static int effect_4 = 0;
 	
 	public static void stopMusic(){
+		if(mp!=null){
+			mp.stop();
+			mp.release();
+			mp.reset();
+			mp = null;
+		}
 		
-		mp.stop();
-		mp.release();
-		mp.reset();
 		
 	}
 	public static void playBGM(Context ctxt, String bgm,boolean isRepeating){

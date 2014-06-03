@@ -28,7 +28,7 @@ public class Setting {
 	public static void initSettings(Context ctx){
 		ctxt = ctx;
 		if(!readAllSettings(ctx)){
-			System.exit(0);
+			FirstStartingHelper.writeScript(EnumScript.setting);
 		}
 		prefix = new Object[1];
 		flags = new HashMap<EnumSettings, Integer>();
