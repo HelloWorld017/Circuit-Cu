@@ -51,7 +51,7 @@ public class ComponentAdapter extends BaseAdapter {
 			switch(al_items.get(a)){
 			//TODO Insert Image!
 			case COMPONENT_GOLD_WIRE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.gold_wire);break;
-			case COMPONENT_ELECTRICITYBLOCKER:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.electricityblocker);break;
+		//	case COMPONENT_ELECTRICITYBLOCKER:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.electricityblocker);break; This is an abstract class!!
 			case COMPONENT_RESISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.resistor);break;
 			case COMPONENT_TRANSISTOR:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.transistor);break;
 			case COMPONENT_WIRETOCOG:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.wiretocog);break;
@@ -61,7 +61,7 @@ public class ComponentAdapter extends BaseAdapter {
 			case COMPONENT_SWIFT:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.swift);break;
 			case COMPONENT_UNSWIFTABLEOBSTACLE:draw[0] = draw[a] = ctx.getResources().getDrawable(R.drawable.unswiftable_obstacle);break;
 			default:break;
-			break;
+		//	break;
 			}
 		}
 		drawables = draw;

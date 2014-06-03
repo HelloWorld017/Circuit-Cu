@@ -2,7 +2,9 @@ package com.He.W.onebone.circuit.cu.activity;
 
 import java.util.Random;
 
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -25,7 +27,15 @@ public class MainActivity extends android.app.Activity {
 		setContentView(R.layout.activity_main);
 		Setting.initSettings(this);
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
-		Button b = (Button)findViewById(R.id.GeerButtonStart);
+		Button startBtn = (Button)findViewById(R.id.GeerButtonStart);
+		startBtn.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent intent = new Intent(MainActivity.this, LevelSelector.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				startActivity(intent);
+			}
+		});
 		/*
 		 * 폰트 설정표
 		 * 안드 2.2 이하 한글 아님 ubuntu
@@ -39,29 +49,14 @@ public class MainActivity extends android.app.Activity {
 		case 1: f = Typeface.createFromAsset(getAssets(), "font/Ubuntu.ttf");
 		case 2: f = Typeface.createFromAsset(getAssets(), "font/SegoeUI.ttf");
 		}
-		b.setTypeface(f);
+		startBtn.setTypeface(f);
 		tv.setTypeface(f);
 		
 		obj = this;
+		String[] strArr = getResources().getStringArray(R.array.messages);
 		Random r = new Random();
-		int ri  = r.nextInt(10);
-		String s = null;
-		switch(ri){
-		case 0:s = this.getString(R.string.a);break;
-		case 1:s = this.getString(R.string.b);break;
-		case 2:s = this.getString(R.string.c);break;
-		case 3:s = this.getString(R.string.d);break;
-		case 4:s = this.getString(R.string.e);break;
-		case 5:s = this.getString(R.string.f);break;
-		case 6:s = this.getString(R.string.g);break;
-		case 7:s = this.getString(R.string.h);break;
-		case 8:s = this.getString(R.string.i);break;
-		case 9:s = this.getString(R.string.ba);break;
-		case 10:s = this.getString(R.string.bb);break;
-		}
-
-		Crouton.makeText(this, s, Style.INFO).setConfiguration(new Builder().setDuration(Configuration.DURATION_SHORT).build()).show();
-		
+		String str = strArr[r.nextInt(strArr.length - 1)];
+		Crouton.makeText(this, str, Style.INFO).setConfiguration(new Builder().setDuration(Configuration.DURATION_SHORT).build()).show();
 	}
 	
 	@Override
@@ -69,15 +64,12 @@ public class MainActivity extends android.app.Activity {
 		AudioHelper.stopMusic();
 	}
 	
+	@Override
+	public void onPause(){
+		AudioHelper.stopMusic();
+	}
+	
 	public static MainActivity getInstance(){
 		return obj;
 	}
-	
-	/*@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}*/
-
 }

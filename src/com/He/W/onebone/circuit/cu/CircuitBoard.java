@@ -17,7 +17,7 @@ import android.widget.ImageView;
 public class CircuitBoard extends ImageView{
 	private static CircuitBoard obj;
 	private BoardComponentManager manager;
-//	private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
+	private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
 	private int focused = -1;
 	
 	private CircuitBoard(Context context) {
