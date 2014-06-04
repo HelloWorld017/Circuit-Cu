@@ -121,7 +121,7 @@ public class ComponentAdapter extends BaseAdapter {
 		}
 		
 	}
-	
+	//TODO if bug occures
 	// I don't know if this works correctly. If Stackoverflow Exception occurs, check this part. OR this may be useless.
 	/*public void update(){
 		this.notifyDataSetChanged();

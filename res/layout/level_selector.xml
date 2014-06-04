@@ -1,43 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallsave" >
+    android:background="@drawable/wallsave"
+    tools:ignore="ContentDescription" >
 
     <ListView
         android:id="@+id/listView1"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/star10" >
+
     </ListView>
 
-    <TextView
-        android:id="@+id/textView1"
+    <ImageView
+        android:id="@+id/star2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:text="@string/layout_author"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_alignTop="@+id/star1"
+        android:layout_toRightOf="@+id/star1"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star2"
+        android:layout_toRightOf="@+id/star2"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star3"
+        android:layout_toRightOf="@+id/star3"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star4"
+        android:layout_toRightOf="@+id/star4"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star5"
+        android:layout_toRightOf="@+id/star5"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star6"
+        android:layout_toRightOf="@+id/star6"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star7"
+        android:layout_toRightOf="@+id/star7"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star8"
+        android:layout_toRightOf="@+id/star8"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/star9"
+        android:layout_toRightOf="@+id/star9"
+        android:src="@drawable/star" />
+
+    <ImageView
+        android:id="@+id/star1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvTimeRecord"
+        android:src="@drawable/star" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvTimeRecord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignRight="@+id/star10"
+        android:layout_below="@+id/tvAuthor"
+        android:gravity="right"
         android:text="@string/layout_time_record"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvMapName"
+        android:layout_toLeftOf="@+id/listView1"
+        android:text="@string/layout_author"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvMapName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="214dp"
+        android:layout_alignRight="@+id/tvAuthor"
+        android:layout_marginTop="47dp"
         android:text="@string/layout_map_name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 

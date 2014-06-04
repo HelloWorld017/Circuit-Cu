@@ -6,7 +6,7 @@
     tools:context=".Tutorial" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tutorial1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,51 +16,51 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tutorial2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/tutorial1"
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_b" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tutorial3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/tutorial2"
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_c"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tutorial4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/tutorial3"
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_d"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tutorial5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/tutorial4"
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_e"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tutorial6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/tutorial5"
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_f"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/GearButtonMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -69,19 +69,19 @@
         android:text="@string/layout_to_main_menu" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tutorial7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/tutorial6"
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_g"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/tutorial8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView7"
+        android:layout_below="@+id/tutorial7"
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_h"
         android:textAppearance="?android:attr/textAppearanceMedium" />
