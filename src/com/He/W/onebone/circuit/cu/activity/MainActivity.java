@@ -3,6 +3,7 @@ package com.He.W.onebone.circuit.cu.activity;
 import java.util.Random;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.view.View;
@@ -28,10 +29,22 @@ public class MainActivity extends android.app.Activity {
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
+		TextView tv2 = (TextView)findViewById(R.id.message_textview);
 		Button startBtn = (Button)findViewById(R.id.GeerButtonStart);
 	
 		Button editBtn = (Button)findViewById(R.id.GeerButtonEdit);
 		Button htpBtn = (Button)findViewById(R.id.GeerButtonHTP);
+		Button prefBtn = (Button)findViewById(R.id.BtnPref);
+		prefBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(MainActivity.this, PreferenceActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				startActivity(intent);
+			}
+		});
 		startBtn.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -60,13 +73,15 @@ public class MainActivity extends android.app.Activity {
 		 */
 		Typeface f = Typeface.createFromAsset(getAssets(), "font/HMNUS.ttf");
 		switch(Setting.readSettings(EnumSettings.fonttype)){
-		case 1: f = Typeface.createFromAsset(getAssets(), "font/Ubuntu.ttf");
-		case 2: f = Typeface.createFromAsset(getAssets(), "font/SegoeUI.ttf");
+		case 1: f = Typeface.createFromAsset(getAssets(), "font/Ubuntu.ttf");break;
+		case 2: f = Typeface.createFromAsset(getAssets(), "font/SegoeUI.ttf");break;
 		}
 		startBtn.setTypeface(f);
 		editBtn.setTypeface(f);
 		htpBtn.setTypeface(f);
 		tv.setTypeface(f);
+		tv2.setTypeface(f);
+		tv2.setTextColor(Color.CYAN);
 		
 		obj = this;
 		String[] strArr = getResources().getStringArray(R.array.messages);
@@ -84,7 +99,7 @@ public class MainActivity extends android.app.Activity {
 			
 		});
 		crt.show();
-		((TextView)findViewById(R.id.message_textview)).setText(str);
+		tv2.setText(str);
 		Setting.setPrefix(0,f);
 	}
 	

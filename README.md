@@ -14,7 +14,11 @@ Image source
 
 Gear image - ciker.com
 
-Light bulb image - simpleicon.com
+spanner image - game-icons.net - by Lorc - CC_BY_3.0
+
+Light bulb image - simpleicon.com - no more using
+
+Background Circuit image - wallsave.com
 
 ==========
 

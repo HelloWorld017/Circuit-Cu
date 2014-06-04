@@ -9,12 +9,22 @@
         <!-- Third argument is visibility -->
         <item>1</item>
     </integer-array>
-    <string name="fonttype">Change font.</string><integer-array name="resistor_always_same">
+    <string name="fonttype">Change font.</string>
+    <string-array name="fonttype_str">
+        <item >Look&amp;Feel</item>
+        <item >Font Type</item>
+    </string-array>
+    <integer-array name="resistor_always_same">
         <item>1</item>
         <item>0</item>
         <item>1</item>
     </integer-array>
     <string name="resistor_always_same">Stripe on resistor is always same. Recommended on a device that has broken resistor image, small display or bad specification.</string>
+    
+    <string-array name="resistor_always_same_str">
+        <item >Look&amp;Feel</item>
+        <item >Resistor always same</item>
+    </string-array>
     
     
 </resources>

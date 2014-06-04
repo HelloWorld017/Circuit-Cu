@@ -33,6 +33,11 @@
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name="com.He.W.onebone.circuit.cu.activity.PreferenceActivity"
+            android:label="@string/title_activity_preference"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
 </manifest>

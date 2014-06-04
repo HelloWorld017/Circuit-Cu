@@ -7,8 +7,10 @@ import com.He.W.onebone.circuit.cu.settings.Setting;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -37,6 +39,17 @@ public class Tutorial extends Activity {
 		tutorial6.setTypeface(tf);
 		tutorial7.setTypeface(tf);
 		tutorial8.setTypeface(tf);
+		mainmenu.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent it = new Intent(Tutorial.this, MainActivity.class);
+				it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				startActivity(it);
+				
+			}
+		});
 		
 	}
 

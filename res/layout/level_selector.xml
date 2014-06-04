@@ -119,9 +119,8 @@
         android:id="@+id/tvMapName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/tvAuthor"
-        android:layout_marginTop="47dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/star8"
         android:text="@string/layout_map_name"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
