@@ -8,8 +8,8 @@ import android.os.Environment;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
@@ -30,12 +30,24 @@ public class LevelHelper{
 	public LevelHelper(Context c){
 		ctxt = c;
 	}
-	public static void readAllLevels(){
-		
+	public static ArrayList<String>  readAllLevels(){
+		File ccpfolder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "CircuitCu/");
+		File[] fs = ccpfolder.listFiles(new FilenameFilter(){
+
+			@Override
+			public boolean accept(File arg0, String arg1) {
+				return arg1.endsWith(".cc");
+			}
+			
+		});
+		ArrayList<String> maps = new ArrayList<String>();
+		for(int a = 0; a < fs.length;a++){
+			maps.add(fs[a].getName().replace(".cc", ""));
+		}
+		return maps;
 	}
 	
 	public static Level readLevels(String mapFileName){
-		//TODO:return Level
 		return decode(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "CircuitCu/" + mapFileName + ".cc"));
 	}
 	
@@ -59,6 +71,7 @@ public class LevelHelper{
 				*					2 = Start Voltage or RPM
 				*					3 = End Voltage or RPM
 				*					4 = MapType (Wire or Cogs or Mixed) 
+				*					5 = Difficulty(0 - 10)
 				*/
 				//Refresh
 				al_mapdata.add(0, "");
@@ -152,7 +165,7 @@ public class LevelHelper{
 								
 								//error check
 								try{
-									int test = Integer.parseInt(set[1]);
+									Integer.parseInt(set[1]);
 								}catch(NumberFormatException e){
 									Toast.makeText(ctxt, "Broken Level : item amount is not number", Toast.LENGTH_LONG).show();
 									br.close();

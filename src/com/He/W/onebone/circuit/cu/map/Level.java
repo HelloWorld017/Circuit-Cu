@@ -24,6 +24,10 @@ public class Level{
 		return al_mapdata.get(1);
 	}
 	
+	public int getDifficulty(){
+		return Integer.parseInt(al_mapdata.get(5));
+	}
+	
 	public int getStart(){
 		return Integer.parseInt(al_mapdata.get(2));
 	}
@@ -61,6 +65,7 @@ public class Level{
 		}
 	}
 	public float getXCoord(int Index){
+		//TODO Write Script
 		return 0F;
 		
 	}
