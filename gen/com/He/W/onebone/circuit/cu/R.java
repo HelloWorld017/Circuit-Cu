@@ -50,35 +50,40 @@ public final class R {
     }
     public static final class id {
         public static final int BtnPref=0x7f080004;
-        public static final int DownToggleButton=0x7f08001d;
+        public static final int DownToggleButton=0x7f080020;
         public static final int GearButtonMainMenu=0x7f08000d;
         public static final int GeerButtonEdit=0x7f080002;
         public static final int GeerButtonHTP=0x7f080001;
         public static final int GeerButtonStart=0x7f080003;
-        public static final int LeftToggleButton=0x7f08001b;
+        public static final int LeftToggleButton=0x7f08001e;
         public static final int RegistorDropDownList=0x7f080014;
         public static final int RegistorImage=0x7f080013;
         public static final int RegistorSelectText=0x7f080012;
-        public static final int RightToggleButton=0x7f08001c;
-        public static final int TrangistorDropDownList=0x7f080017;
-        public static final int TrangistorImage=0x7f080016;
-        public static final int TrangistorSelectText=0x7f080015;
-        public static final int UpToggleButton=0x7f080019;
-        public static final int WireImage=0x7f08001a;
-        public static final int WireSelectText=0x7f080018;
+        public static final int RightToggleButton=0x7f08001f;
+        public static final int TrangistorDropDownList=0x7f08001a;
+        public static final int TrangistorImage=0x7f080019;
+        public static final int TrangistorSelectText=0x7f080018;
+        public static final int UpToggleButton=0x7f08001c;
+        public static final int WireImage=0x7f08001d;
+        public static final int WireSelectText=0x7f08001b;
+        public static final int btnModify=0x7f080016;
+        public static final int button1=0x7f08002e;
+        public static final int button2=0x7f08002f;
+        public static final int lblSettingDesc=0x7f080017;
+        public static final int lblSettingName=0x7f080015;
         public static final int listView1=0x7f080006;
-        public static final int menu_settings=0x7f08002b;
+        public static final int menu_settings=0x7f080030;
         public static final int message_textview=0x7f080005;
-        public static final int star1=0x7f080020;
-        public static final int star10=0x7f08001e;
-        public static final int star2=0x7f08001f;
-        public static final int star3=0x7f080021;
-        public static final int star4=0x7f080022;
-        public static final int star5=0x7f080023;
-        public static final int star6=0x7f080024;
-        public static final int star7=0x7f080025;
-        public static final int star8=0x7f080026;
-        public static final int star9=0x7f080027;
+        public static final int star1=0x7f080023;
+        public static final int star10=0x7f080021;
+        public static final int star2=0x7f080022;
+        public static final int star3=0x7f080024;
+        public static final int star4=0x7f080025;
+        public static final int star5=0x7f080026;
+        public static final int star6=0x7f080027;
+        public static final int star7=0x7f080028;
+        public static final int star8=0x7f080029;
+        public static final int star9=0x7f08002a;
         public static final int textCircuitCU=0x7f080000;
         public static final int textView1=0x7f080010;
         public static final int textView2=0x7f080011;
@@ -90,9 +95,9 @@ public final class R {
         public static final int tutorial6=0x7f08000c;
         public static final int tutorial7=0x7f08000e;
         public static final int tutorial8=0x7f08000f;
-        public static final int tvAuthor=0x7f080029;
-        public static final int tvMapName=0x7f08002a;
-        public static final int tvTimeRecord=0x7f080028;
+        public static final int tvAuthor=0x7f08002c;
+        public static final int tvMapName=0x7f08002d;
+        public static final int tvTimeRecord=0x7f08002b;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -100,10 +105,11 @@ public final class R {
         public static final int activity_tutorial=0x7f030002;
         public static final int custom_list_view=0x7f030003;
         public static final int custom_resistor_dialog=0x7f030004;
-        public static final int custom_setting_list_view=0x7f030005;
-        public static final int custom_transistor_dialog=0x7f030006;
-        public static final int custom_wire_dialog=0x7f030007;
-        public static final int level_selector=0x7f030008;
+        public static final int custom_setting_dialog=0x7f030005;
+        public static final int custom_setting_list_view=0x7f030006;
+        public static final int custom_transistor_dialog=0x7f030007;
+        public static final int custom_wire_dialog=0x7f030008;
+        public static final int level_selector=0x7f030009;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;
@@ -132,6 +138,7 @@ public final class R {
         public static final int layout_geerbutton_play=0x7f050024;
         public static final int layout_geerbutton_tutorial=0x7f050026;
         public static final int layout_map_name=0x7f050019;
+        public static final int layout_modify_value=0x7f050028;
         public static final int layout_not_connected_with_downside=0x7f050014;
         public static final int layout_not_connected_with_leftside=0x7f050011;
         public static final int layout_not_connected_with_rightside=0x7f050012;
@@ -143,8 +150,8 @@ public final class R {
         public static final int layout_wire_dialog=0x7f050015;
         public static final int menu_settings=0x7f050003;
         public static final int resistor_always_same=0x7f050001;
-        public static final int title_activity_preference=0x7f050029;
-        public static final int title_activity_tutorial=0x7f050028;
+        public static final int title_activity_preference=0x7f05002a;
+        public static final int title_activity_tutorial=0x7f050029;
         public static final int tutorial_a=0x7f05001b;
         public static final int tutorial_b=0x7f05001c;
         public static final int tutorial_c=0x7f05001d;

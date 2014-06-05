@@ -31,6 +31,7 @@
     <string name="layout_author">Author:</string>
     <string name="layout_map_name">Map Name:</string>
     <string name="layout_time_record">Time Record:</string>
+    <string name="layout_modify_value">Modify</string>
     <string name="title_activity_tutorial">Tutorial</string>
     <string name="tutorial_a">Welcome to Circuit Cu!</string>
     <string name="tutorial_b">Do you want to learn this game?</string>

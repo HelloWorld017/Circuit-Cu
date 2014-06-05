@@ -2,16 +2,22 @@ package com.He.W.onebone.circuit.cu.android;
 
 import java.util.ArrayList;
 
+import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.SettingSpefHelper;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class SettingAdapter extends BaseAdapter {
 	ArrayList<Object[]> database;
+	private LayoutInflater li;
 	
 	public SettingAdapter(Context ctx){
 		database = new ArrayList<Object[]>();
@@ -62,8 +68,22 @@ public class SettingAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
-		// TODO Auto-generated method stub
-		return null;
+		if(arg1 == null){
+			arg1 = li.inflate(R.layout.custom_list_view, arg2, false);
+		}
+		TextView SettingName = (TextView) arg1.findViewById(R.id.lblSettingName);
+		TextView SettingDesc = (TextView) arg1.findViewById(R.id.lblSettingDesc);
+		Button Modify = (Button) arg1.findViewById(R.id.btnModify);
+		SettingName.setText(String.valueOf(database.get(arg0)[7]));
+		SettingDesc.setText(String.valueOf(database.get(arg0)[3]));
+		Modify.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				return false;
+			}
+		});
+		return arg1;
 	}
 
 }
