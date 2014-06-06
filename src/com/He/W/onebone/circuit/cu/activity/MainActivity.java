@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.AudioManager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -116,7 +117,26 @@ public class MainActivity extends android.app.Activity {
 		super.onPause();
 		AudioHelper.stopMusic();
 	}
-	
+	@Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { 
+        	final Crouton crt =  Crouton.makeText(this, "Do you want to exit game? Click here to exit.", Style.ALERT).setConfiguration(new Configuration.Builder().setDuration(Configuration.DURATION_LONG).build());
+    		crt.setOnClickListener(new View.OnClickListener(){
+
+    			@Override
+    			public void onClick(View v) {
+    				// TODO Auto-generated method stub
+    				crt.hide();
+       				System.exit(1);
+    			}
+    			
+    		});
+    		crt.show();
+    		return false;
+
+        }
+        return true;
+    }
 	public static MainActivity getInstance(){
 		return obj;
 	}

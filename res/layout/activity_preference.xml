@@ -6,11 +6,22 @@
     tools:context=".PreferenceActivity" >
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/lstSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btnSettingToMainMenu"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" >
+
     </ListView>
+
+    <Button
+        android:id="@+id/btnSettingToMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/special_selector_geer_button"
+        android:text="@string/layout_to_main_menu" />
 
 </RelativeLayout>

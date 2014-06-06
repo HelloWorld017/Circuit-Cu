@@ -11,8 +11,14 @@
     </integer-array>
     <string name="fonttype">Change font.</string>
     <string-array name="fonttype_str">
-        <item >Look&amp;Feel</item>
+        <item >Look &amp; Feel</item>
         <item >Font Type</item>
+    </string-array>
+    <string-array name="fonttype_values">
+        <item>3</item>
+        <item>HMNUS</item>
+        <item>Ubuntu</item>
+        <item>Tahoma (Segoe UI)</item>
     </string-array>
     <integer-array name="resistor_always_same">
         <item>1</item>
@@ -22,8 +28,13 @@
     <string name="resistor_always_same">Stripe on resistor is always same. Recommended on a device that has broken resistor image, small display or bad specification.</string>
     
     <string-array name="resistor_always_same_str">
-        <item >Look&amp;Feel</item>
+        <item >Look &amp; Feel</item>
         <item >Resistor always same</item>
+    </string-array>
+    <string-array name="resistor_always_same_values">
+        <item>2</item>
+        <item>true</item>
+        <item>false</item>
     </string-array>
     
     

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
        <!-- string-array name must be EnumSetting's name -->
     <integer-array name="fonttype">
         <!-- first argument is Setting id -->
@@ -8,7 +9,23 @@
         <item>1</item>
         <!-- Third argument is visibility -->
         <item>1</item>
-    </integer-array><string name="fonttype">폰트를 변경합니다.</string>
+    </integer-array>
+    
+    <string name="fonttype">폰트를 변경합니다.</string>
+    	<string-array name="fonttype_str">
+        <item >Look &amp; Feel</item>
+        <item >폰트 변경</item>
+    </string-array>
+    
+    	
+    <string-array name="fonttype_values">
+        <item>3</item> <!--  has 3 values -->
+        <item>HMNUS</item>
+        <item>Ubuntu (한글이 깨질 수 있음.)</item>
+        <item>Tahoma (맑은 고딕)</item>
+    </string-array>
+    
+    	
     <integer-array name="resistor_always_same">
         <item>1</item>
         <item>0</item>
@@ -16,4 +33,16 @@
     </integer-array>
     
     <string name="resistor_always_same">저항의 줄이 언제나 같습니다. 저항이 깨져보이거나 화면이 작거나 성능이 좋지 않는 디바이스에서의 설정을 추천합니다.</string>
+	
+	<string-array name="resistor_always_same_str">
+        <item >Look &amp; Feel</item>
+        <item >똑같은 저항</item>
+    </string-array>
+    
+	    <string-array name="resistor_always_same_values">
+        <item>2</item>
+        <item>네</item>
+        <item>아니오</item>
+    </string-array>
+    
 </resources>

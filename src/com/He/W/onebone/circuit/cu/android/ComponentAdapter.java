@@ -26,12 +26,14 @@ public class ComponentAdapter extends BaseAdapter {
 		al_items = al_data;
 		counts = ari_cts;
 		drawables = ard_dbs;
+		li = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 	}
 	
 	@SuppressWarnings("unchecked")
 	public ComponentAdapter(Context ctx, ArrayList<Integer> al_itemdt, int resid){
 		this.ctx = ctx;
+		li = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		ArrayList<EnumComponentType> alect = new ArrayList<EnumComponentType>();
 		alect.add(0, EnumComponentType.COMPONENT_COPPER_WIRE);
 		alect.add(1, EnumComponentType.COMPONENT_ELECTRICITYBLOCKER);
