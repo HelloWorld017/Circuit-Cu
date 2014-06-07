@@ -127,7 +127,7 @@ public class MainActivity extends android.app.Activity {
     			public void onClick(View v) {
     				// TODO Auto-generated method stub
     				crt.hide();
-       				System.exit(1);
+       				System.exit(0);
     			}
     			
     		});

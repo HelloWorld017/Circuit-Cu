@@ -10,6 +10,7 @@ import com.He.W.onebone.circuit.cu.settings.SettingSpefHelper;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -41,11 +42,13 @@ public class SettingDialog extends Dialog{
 		int a;
 		if(namae != null){
 			a = ssh.getValueAmount(namae);
+			Log.d("PrL2bug", "namae is not null data : " + a + ", " +namae.name());
 		}else{
+			Log.d("PrL2bug", "namae is null");
 			a = 0;
 		}
-		for(int b = 0; b < a;b++){
-			values.add(b,ssh.getValueAvailable(namae, b));
+		for(int b = 1; b < a + 1;b++){
+			values.add(ssh.getValueAvailable(namae, b));
 		}
 		ArrayAdapter<String> sa = new ArrayAdapter<String>(ctxt, android.R.layout.simple_spinner_item, values );
 		sa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -85,11 +85,12 @@ public class SettingAdapter extends BaseAdapter {
 		if(arg1 == null){
 			arg1 = li.inflate(R.layout.custom_setting_list_view, arg2, false);
 		}
+
 		TextView SettingName = (TextView) arg1.findViewById(R.id.lblSettingName);
 		TextView SettingDesc = (TextView) arg1.findViewById(R.id.lblSettingDesc);
 		Button Modify = (Button) arg1.findViewById(R.id.btnModify);
 		SettingName.setText(String.valueOf(database.get(arg0)[7]));
-		SettingDesc.setText(String.valueOf(database.get(arg0)[3]));
+		SettingDesc.setText(String.valueOf(database.get(arg0)[2]));
 		Modify.setOnTouchListener(new View.OnTouchListener() {
 			
 			@Override
