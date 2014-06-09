@@ -46,6 +46,7 @@ public class Tutorial extends Activity {
 				// TODO Auto-generated method stub
 				Intent it = new Intent(Tutorial.this, MainActivity.class);
 				it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+				it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(it);
 				
 			}

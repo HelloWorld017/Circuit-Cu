@@ -1,9 +1,12 @@
 package com.He.W.onebone.circuit.cu.settings;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -28,14 +31,51 @@ public class Setting {
 	public static void initSettings(Context ctx){
 		ctxt = ctx;
 		if(!readAllSettings(ctx)){
-			FirstStartingHelper.writeScript(EnumScript.setting);
+			FirstStartingHelper.writeScript(EnumScript.setting, FirstStartingHelper.SettingPath);
 		}
 		prefix = new Object[1];
 		flags = new HashMap<EnumSettings, Integer>();
 	}
 	
 	public static void writeSettings(EnumSettings es, int value){
-		
+		try {
+			BufferedReader br;
+			InputStreamReader isr;
+			FileInputStream fis;
+			String path = FirstStartingHelper.SettingPath;
+			File f = new File(path);
+			String s = "";
+			fis = new FileInputStream(f);
+			isr = new InputStreamReader(fis, "UTF-8");
+			br = new BufferedReader(isr);
+			for(int aa = 0;(s = br.readLine())!= null;aa++){
+				String[] settinglist = s.split(",");
+				try{
+				EnumSettings v = EnumSettings.valueOf(settinglist[0]);
+				if(v.equals(es)){
+					BufferedWriter bw;
+					OutputStreamWriter osw;
+					FileOutputStream fos;
+					fos = new FileOutputStream(f);
+					osw = new OutputStreamWriter(fos, "UTF-8");
+					bw = new BufferedWriter(osw);
+					//TODO write script
+				}
+				}catch(Exception e){
+					Toast.makeText(ctxt, e.getStackTrace().toString(), Toast.LENGTH_LONG).show();
+					return;
+				}
+				
+				br.close();
+				isr.close();
+				fis.close();
+			}
+			br.close();
+			isr.close();
+			fis.close();
+		}catch(Exception e){
+			
+		}
 	}
 	public static Context getContext(){
 		return ctxt;
@@ -51,9 +91,11 @@ public class Setting {
 		BufferedReader br;
 		InputStreamReader isr;
 		FileInputStream fis;
-		String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "CircuitCu/Settings.cc";
+		String path = FirstStartingHelper.SettingPath;
 		File f = new File(path);
 		if(!f.exists()){
+			Toast.makeText(ctxt, "Error occurred during starting Circuit CU! : Setting not exists", Toast.LENGTH_LONG);
+			System.exit(0);
 			return false;
 		}
 		String s = "";
@@ -74,7 +116,9 @@ public class Setting {
 					return false;
 				}
 			}
-			br.readLine();
+			br.close();
+			isr.close();
+			fis.close();
 		}catch(Exception e){
 			
 		}

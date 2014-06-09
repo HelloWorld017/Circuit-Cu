@@ -300,11 +300,12 @@ public class LevelHelper{
 					FileWriter fw = new FileWriter(Environment.getExternalStorageDirectory().getAbsoluteFile()+ "CircuitCu/" + MapFileName + ".cc", true );
 					bw = new BufferedWriter(fw);
 					bw.append("[SuccessData]" + "\n" + String.valueOf(time) + "\n" + "[/SucceessData]");
+					bw.flush();
 					bw.close();
 					fw.close();
 				return true;
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+				// TODO If map file only has Success Data, check this part. Append can delete things, I think.
 				Toast.makeText(ctxt, "Cannot Find File!", Toast.LENGTH_LONG).show();
 				return false;
 			} catch (IOException e) {

@@ -22,7 +22,6 @@ public class SettingAdapter extends BaseAdapter {
 	ArrayList<Object[]> database;
 	private LayoutInflater li;
 	private Context ctxt;
-	private int a0;
 	
 	public SettingAdapter(Context ctx){
 		li = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -79,9 +78,8 @@ public class SettingAdapter extends BaseAdapter {
 
 
 	@Override
-	public View getView(int arg0, View arg1, ViewGroup arg2) {
+	public View getView(final int arg0, View arg1, ViewGroup arg2) {
 		Log.d("PrL1bug", "getView");
-		a0 = arg0;
 		if(arg1 == null){
 			arg1 = li.inflate(R.layout.custom_setting_list_view, arg2, false);
 		}
@@ -95,7 +93,7 @@ public class SettingAdapter extends BaseAdapter {
 			
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				SettingDialog sd = new SettingDialog(ctxt,(EnumSettings)database.get(a0)[0]);
+				SettingDialog sd = new SettingDialog(ctxt,(EnumSettings)database.get(arg0)[0]);
 				sd.show();
 				return false;
 			}
