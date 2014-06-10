@@ -37,19 +37,23 @@ public final class R {
         public static final int geerbutton_focused=0x7f02000b;
         public static final int geerbutton_pressed=0x7f02000c;
         public static final int glowing_light_bulb=0x7f02000d;
-        public static final int gold_wire=0x7f02000e;
-        public static final int ic_launcher=0x7f02000f;
-        public static final int light_bulb=0x7f020010;
-        public static final int resistor=0x7f020011;
-        public static final int selector=0x7f020012;
-        public static final int selector_config=0x7f020013;
-        public static final int special_selector_geer_button=0x7f020014;
-        public static final int star=0x7f020015;
-        public static final int swift=0x7f020016;
-        public static final int transistor=0x7f020017;
-        public static final int unswiftable_obstacle=0x7f020018;
-        public static final int wallsave=0x7f020019;
-        public static final int wiretocog=0x7f02001a;
+        public static final int glowing_light_bulb_focused=0x7f02000e;
+        public static final int gold_wire=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
+        public static final int light_bulb=0x7f020011;
+        public static final int light_bulb_focused=0x7f020012;
+        public static final int resistor=0x7f020013;
+        public static final int resistor_focused=0x7f020014;
+        public static final int selector=0x7f020015;
+        public static final int selector_config=0x7f020016;
+        public static final int special_selector_geer_button=0x7f020017;
+        public static final int star=0x7f020018;
+        public static final int swift=0x7f020019;
+        public static final int transistor=0x7f02001a;
+        public static final int transistor_focused=0x7f02001b;
+        public static final int unswiftable_obstacle=0x7f02001c;
+        public static final int wallsave=0x7f02001d;
+        public static final int wiretocog=0x7f02001e;
     }
     public static final class id {
         public static final int BtnPref=0x7f080004;

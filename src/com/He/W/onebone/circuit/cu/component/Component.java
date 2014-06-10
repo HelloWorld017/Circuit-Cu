@@ -13,12 +13,13 @@ abstract public class Component extends ImageView{
 	private float x, y;
 	private float electrified;
 	private boolean isFocused;
+	private EnumComponentType type;
 	private CircuitBoard board;
 	private BoardComponentManager manager;
 	private LinkedList<Integer> connected;
 	private LinkedList<Integer> ableConnecting;
 	
-	public Component(Context context, Drawable drawable, float x, float y, float rotation){
+	public Component(Context context, Drawable drawable, float x, float y, float rotation, EnumComponentType type){
 		super(context);
 		this.x = x;
 		this.y = y;
@@ -27,6 +28,7 @@ abstract public class Component extends ImageView{
 		setX(x);
 		setY(y);
 		
+		this.type = type;
 		this.ableConnecting = new LinkedList<Integer>();
 		this.connected = new LinkedList<Integer>();
 		this.board = CircuitBoard.getInstance();
@@ -42,7 +44,7 @@ abstract public class Component extends ImageView{
 		});
 	}
 	
-	public Component(Context context, int resourceId, float x, float y, int rotation){
+	public Component(Context context, int resourceId, float x, float y, int rotation, EnumComponentType type){
 		super(context);
 		this.x = x;
 		this.y = y;
@@ -50,6 +52,8 @@ abstract public class Component extends ImageView{
 		setImageResource(resourceId);
 		setX(x);
 		setY(y);
+		
+		this.type = type;
 		this.ableConnecting = new LinkedList<Integer>();
 		this.board = CircuitBoard.getInstance();
 		this.manager = board.getManager();
@@ -75,6 +79,40 @@ abstract public class Component extends ImageView{
 			board.notifyComponentUnfocused();
 		}
 		isFocused = focus;
+		switch(this.type){ // TODO list all of it!!
+		case COMPONENT_RESISTOR:
+			//((focus == true) ? this.setImageResource(R.drawable.resistor_focused) : this.setImageResource(R.drawable.resistor));
+			if(focus){
+				this.setImageResource(R.drawable.resistor_focused);
+			}else{
+				this.setImageResource(R.drawable.resistor);
+			}
+			break;
+		case COMPONENT_TRANSISTOR:
+			if(focus){
+				this.setImageResource(R.drawable.transistor_focused);
+			}else{
+				this.setImageResource(R.drawable.transistor);
+			}
+			break;
+		case COMPONENT_LIGHT_BULB:
+			if(this.electrified > 0){ // Check if it's light is on
+				if(focus){
+					this.setImageResource(R.drawable.glowing_light_bulb_focused);
+				}else{
+					this.setImageResource(R.drawable.glowing_light_bulb);
+				}
+			}else{
+				if(focus){
+					this.setImageResource(R.drawable.light_bulb_focused);
+				}else{
+					this.setImageResource(R.drawable.light_bulb);
+				}
+			}
+			break;
+			default:
+				return;
+		}
 	}
 	
 	public boolean isFocused(){
@@ -124,20 +162,26 @@ abstract public class Component extends ImageView{
 		if(electrified < 0){
 			return false;
 		}
+		float current = this.electrified;
 		this.electrified = electrified;
-		if(this.electrified == 0){
+		
+		if(current > electrified){
 			this.electricityUnreleased();
+		}else{
+			this.electricityReleased();
 		}
 		return true;
 	}
 	
 	public final boolean addElectrified(float amount){
-		if(this.electrified - amount < 0){
+		if(this.electrified - amount < 0 || amount == 0){
 			return false;
 		}
 		this.electrified += amount;
-		if(this.electrified == 0){
+		if(amount < 0){
 			this.electricityUnreleased();
+		}else{
+			this.electricityReleased();
 		}
 		return true;
 	}

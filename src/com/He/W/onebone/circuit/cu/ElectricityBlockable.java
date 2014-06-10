@@ -9,13 +9,13 @@ public abstract class ElectricityBlockable extends Component{
 
 	private float blockElectricity;
 	
-	public ElectricityBlockable(Context ctx, Drawable drawable, float x, float y, int rotation, float blockElectricity) {
-		super(ctx, drawable, x, y, rotation);
+	public ElectricityBlockable(Context ctx, Drawable drawable, float x, float y, int rotation, float blockElectricity, EnumComponentType type) {
+		super(ctx, drawable, x, y, rotation, type);
 		this.blockElectricity = blockElectricity;
 	}
 	
-	public ElectricityBlockable(Context ctx, int resId, float x, float y, int rotation, int blockElectricity){
-		super(ctx, resId, x, y, rotation);
+	public ElectricityBlockable(Context ctx, int resId, float x, float y, int rotation, int blockElectricity, EnumComponentType type){
+		super(ctx, resId, x, y, rotation, type);
 		this.blockElectricity = blockElectricity;
 	}
 	

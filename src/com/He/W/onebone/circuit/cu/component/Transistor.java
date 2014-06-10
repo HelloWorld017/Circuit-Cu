@@ -10,7 +10,7 @@ public class Transistor extends Component{
 	private CircuitBoard board;
 
 	public Transistor(CircuitBoard board, float x, float y, int rotation) {
-		super(board.getContext(), com.He.W.onebone.circuit.cu.R.drawable.transistor, x, y, rotation);
+		super(board.getContext(), com.He.W.onebone.circuit.cu.R.drawable.transistor, x, y, rotation, EnumComponentType.COMPONENT_TRANSISTOR);
 		this.board = board;
 	}
 

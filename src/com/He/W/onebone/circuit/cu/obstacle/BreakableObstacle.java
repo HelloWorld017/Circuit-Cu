@@ -1,6 +1,8 @@
 package com.He.W.onebone.circuit.cu.obstacle;
 
-public class BreakableObstacle {
+import com.He.W.onebone.circuit.cu.ElectricityBlockable;
+
+public class BreakableObstacle{
 	private int gotElectricity;
 	private int max;
 	private boolean broken;

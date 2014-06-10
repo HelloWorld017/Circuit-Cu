@@ -9,7 +9,7 @@ import android.widget.ImageView;
 public class Resistor extends ElectricityBlockable{
 	
 	public Resistor(CircuitBoard board, float x, float y, int rotation, int blockElectricity){
-		super(board.getContext(), R.drawable.resistor, x, y, rotation, blockElectricity);
+		super(board.getContext(), R.drawable.resistor, x, y, rotation, blockElectricity, EnumComponentType.COMPONENT_RESISTOR);
 	}
 	
 	private int errorRange;
