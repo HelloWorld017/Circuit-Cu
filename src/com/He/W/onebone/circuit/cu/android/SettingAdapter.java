@@ -79,29 +79,31 @@ public class SettingAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int arg0, View arg1, ViewGroup arg2) {
-		Log.d("PrL1bug", "getView");
+		//Log.d("PrL1bug", "getView");
 		if(arg1 == null){
 			arg1 = li.inflate(R.layout.custom_setting_list_view, arg2, false);
 		}
 
-		TextView SettingName = (TextView) arg1.findViewById(R.id.lblSettingName);
-		TextView SettingDesc = (TextView) arg1.findViewById(R.id.lblSettingDesc);
-		Button Modify = (Button) arg1.findViewById(R.id.btnModify);
-		SettingName.setText(String.valueOf(database.get(arg0)[7]));
-		SettingDesc.setText(String.valueOf(database.get(arg0)[2]));
-		Modify.setOnTouchListener(new View.OnTouchListener() {
+		TextView settingName = (TextView) arg1.findViewById(R.id.lblSettingName);
+		TextView settingDesc = (TextView) arg1.findViewById(R.id.lblSettingDesc);
+		Button modify = (Button) arg1.findViewById(R.id.btnModify);
+		settingName.setText(String.valueOf(database.get(arg0)[7]));
+		settingDesc.setText(String.valueOf(database.get(arg0)[2]));
+		modify.setOnTouchListener(new View.OnTouchListener() {
 			
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				SettingDialog sd = new SettingDialog(ctxt,(EnumSettings)database.get(arg0)[0]);
-				sd.show();
+			public boolean onTouch(View v, MotionEvent me) {
+				if(me.getAction() == MotionEvent.ACTION_UP){
+					SettingDialog sd = new SettingDialog(ctxt,(EnumSettings)database.get(arg0)[0]);
+					sd.show();
+				}
 				return false;
 			}
 		});
 		Typeface tf = (Typeface) Setting.getPrefix(0);
-		SettingName.setTypeface(tf);
-		SettingDesc.setTypeface(tf);
-		Modify.setTypeface(tf);
+		settingName.setTypeface(tf);
+		settingDesc.setTypeface(tf);
+		modify.setTypeface(tf);
 		return arg1;
 	}
 
