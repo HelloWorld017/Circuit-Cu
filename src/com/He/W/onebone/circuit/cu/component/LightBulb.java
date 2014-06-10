@@ -5,7 +5,7 @@ import com.He.W.onebone.circuit.cu.*;
 public class LightBulb extends ElectricityBlockable{
 
 	public LightBulb(CircuitBoard board, float x, float y, int rotation, int blockElectricity) {
-		super(board.getContext(), R.drawable.light_bulb, x, y, rotation, blockElectricity); // TODO Insert image 
+		super(board.getContext(), R.drawable.light_bulb, x, y, rotation, blockElectricity);
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class LightBulb extends ElectricityBlockable{
 
 	@Override
 	public void electricityUnreleased() {
-		
+		this.setImageResource(R.drawable.light_bulb);
 	}
 	
 }

@@ -9,9 +9,9 @@ import android.widget.ImageView;
 public class Resistor extends ElectricityBlockable{
 	
 	public Resistor(CircuitBoard board, float x, float y, int rotation, int blockElectricity){
-		super(board.getContext(), R.drawable.resistor, x, y, rotation, blockElectricity); // TODO Insert image
+		super(board.getContext(), R.drawable.resistor, x, y, rotation, blockElectricity);
 	}
-
+	
 	private int errorRange;
 	
 	public static final String UNIT = "\u8486";
@@ -31,19 +31,6 @@ public class Resistor extends ElectricityBlockable{
 		public static final float SILVER = 10;
 		public static final float NONE = 20;
 	}
-	
-	/*public static class number{
-		public static final int BLACK = 0;
-		public static final int BROWN = 1;
-		public static final int RED = 2;
-		public static final int ORANGE = 3;
-		public static final int YELLOW = 4;
-		public static final int GREEN = 5;
-		public static final int BLUE = 6;
-		public static final int PURPLE = 7;
-		public static final int GRAY = 8;
-		public static final int WHITE = 9;
-	}*/
 	
 	public static enum number{
 		BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, GRAY, WHITE

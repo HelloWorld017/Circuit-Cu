@@ -16,6 +16,7 @@ abstract public class Component extends ImageView{
 	private CircuitBoard board;
 	private BoardComponentManager manager;
 	private LinkedList<Integer> connected;
+	private LinkedList<Integer> ableConnecting;
 	
 	public Component(Context context, Drawable drawable, float x, float y, float rotation){
 		super(context);
@@ -26,6 +27,7 @@ abstract public class Component extends ImageView{
 		setX(x);
 		setY(y);
 		
+		this.ableConnecting = new LinkedList<Integer>();
 		this.connected = new LinkedList<Integer>();
 		this.board = CircuitBoard.getInstance();
 		this.electrified = 0;
@@ -48,9 +50,22 @@ abstract public class Component extends ImageView{
 		setImageResource(resourceId);
 		setX(x);
 		setY(y);
+		this.ableConnecting = new LinkedList<Integer>();
 		this.board = CircuitBoard.getInstance();
 		this.manager = board.getManager();
 		manager.addComponent(this);
+	}
+	
+	public void addAbleConnecting(int id){
+		ableConnecting.add(id);
+	}
+	
+	public void removeAbleConnecting(int id){
+		ableConnecting.remove(id);
+	}
+	
+	public LinkedList<Integer> getAbleConnecting(){
+		return ableConnecting;
 	}
 	
 	public void setFocused(boolean focus){ // TODO Showing focus status
