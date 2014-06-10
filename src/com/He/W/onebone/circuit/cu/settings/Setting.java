@@ -4,20 +4,25 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Locale;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 public class Setting {
 	private static Object[] prefix;
 	private static Context ctxt;
 	private static HashMap<EnumSettings, Integer> flags;
+	private static boolean isSettingChanged;
 	/*
 	 * 프리픽스는 일종의 저장공간 같은 곳
 	 * prefix id
@@ -38,45 +43,55 @@ public class Setting {
 	}
 	
 	public static void writeSettings(EnumSettings es, int value){
-		try {
-			BufferedReader br;
-			InputStreamReader isr;
-			FileInputStream fis;
-			String path = FirstStartingHelper.SettingPath;
-			File f = new File(path);
-			String s = "";
-			fis = new FileInputStream(f);
-			isr = new InputStreamReader(fis, "UTF-8");
-			br = new BufferedReader(isr);
-			for(int aa = 0;(s = br.readLine())!= null;aa++){
-				String[] settinglist = s.split(",");
-				try{
-				EnumSettings v = EnumSettings.valueOf(settinglist[0]);
-				if(v.equals(es)){
-					BufferedWriter bw;
-					OutputStreamWriter osw;
-					FileOutputStream fos;
-					fos = new FileOutputStream(f);
-					osw = new OutputStreamWriter(fos, "UTF-8");
-					bw = new BufferedWriter(osw);
-					//TODO write script
-				}
-				}catch(Exception e){
-					Toast.makeText(ctxt, e.getStackTrace().toString(), Toast.LENGTH_LONG).show();
-					return;
-				}
-				
-				br.close();
-				isr.close();
-				fis.close();
+		flags.remove(es);
+		flags.put(es, value);
+		setChanged();
+	}
+	
+	public static void setChanged(){
+		isSettingChanged = true;
+	}
+	
+	public static void destroyHelper(){
+		if(isSettingChanged){
+			try{
+			writeAllSettings();
+			}catch(Exception e){
+				Log.d("Bug on Setting", e.getStackTrace().toString());
 			}
-			br.close();
-			isr.close();
-			fis.close();
-		}catch(Exception e){
-			
 		}
 	}
+	
+	public static void writeAllSettings() throws IOException{
+		//Declaration part
+		EnumSettings[] eslist;
+		String T2W;
+		BufferedWriter bw;
+		OutputStreamWriter osw;
+		FileOutputStream fos;
+		File f;
+		String path;
+		path = FirstStartingHelper.SettingPath;
+		f = new File(path);
+		fos = new FileOutputStream(f);
+		osw = new OutputStreamWriter(fos, "UTF-8");
+		bw = new BufferedWriter(osw);
+		eslist = EnumSettings.values();
+		
+		//Writing part
+			for(int a = 0; a < flags.size();a++){
+				T2W = eslist[a] + "," + flags.get(eslist[a]);
+				bw.write(T2W);
+			}
+			
+		//End part
+			bw.flush();
+			bw.close();
+			osw.close();
+			fos.close();
+		
+	}
+	
 	public static Context getContext(){
 		return ctxt;
 	}
