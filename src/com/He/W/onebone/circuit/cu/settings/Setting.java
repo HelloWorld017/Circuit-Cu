@@ -74,7 +74,7 @@ public class Setting {
 		FileOutputStream fos;
 		File f;
 		String path;
-		path = FirstStartingHelper.SettingPath;
+		path = FirstStartingHelper.settingPath;
 		f = new File(path);
 		fos = new FileOutputStream(f);
 		osw = new OutputStreamWriter(fos, "UTF-8");
@@ -110,7 +110,7 @@ public class Setting {
 		BufferedReader br;
 		InputStreamReader isr;
 		FileInputStream fis;
-		String path = FirstStartingHelper.SettingPath;
+		String path = FirstStartingHelper.settingPath;
 		File f = new File(path);
 		if(!f.exists()){
 			Toast.makeText(ctxt, "Error occurred during starting Circuit CU! : Setting not exists", Toast.LENGTH_LONG);
