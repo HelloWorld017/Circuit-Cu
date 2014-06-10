@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
+import com.He.W.onebone.circuit.cu.settings.FirstStartingHelper;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
 import de.keyboardsurfer.android.widget.crouton.*;
@@ -25,6 +26,7 @@ public class MainActivity extends android.app.Activity {
 	protected void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		FirstStartingHelper.isFirstStart();
 		Setting.initSettings(this);
 		
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);

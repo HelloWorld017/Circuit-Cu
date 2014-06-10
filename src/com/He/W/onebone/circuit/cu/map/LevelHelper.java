@@ -31,7 +31,7 @@ public class LevelHelper{
 		ctxt = c;
 	}
 	public static ArrayList<String>  readAllLevels(){
-		File ccpfolder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "CircuitCu/");
+		File ccpfolder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/");
 		File[] fs = ccpfolder.listFiles(new FilenameFilter(){
 
 			@Override
@@ -48,7 +48,7 @@ public class LevelHelper{
 	}
 	
 	public static Level readLevels(String mapFileName){
-		return decode(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "CircuitCu/" + mapFileName + ".cc"));
+		return decode(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/" + mapFileName + ".cc"));
 	}
 	
 	public static Level decode(File f){

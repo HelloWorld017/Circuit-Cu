@@ -13,6 +13,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Locale;
 
+import com.He.W.onebone.circuit.cu.StackTraceToString;
+
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
@@ -35,11 +37,12 @@ public class Setting {
 	
 	public static void initSettings(Context ctx){
 		ctxt = ctx;
-		if(!readAllSettings(ctx)){
-			FirstStartingHelper.writeScript(EnumScript.setting, FirstStartingHelper.SettingPath);
-		}
 		prefix = new Object[1];
 		flags = new HashMap<EnumSettings, Integer>();
+		if(!readAllSettings(ctx)){
+			//FirstStartingHelper.writeScript(EnumScript.setting, FirstStartingHelper.SettingPath);
+		}
+		
 	}
 	
 	public static void writeSettings(EnumSettings es, int value){
@@ -82,6 +85,7 @@ public class Setting {
 			for(int a = 0; a < flags.size();a++){
 				T2W = eslist[a] + "," + flags.get(eslist[a]);
 				bw.write(T2W);
+				bw.newLine();
 			}
 			
 		//End part
@@ -121,10 +125,12 @@ public class Setting {
 			for(;(s = br.readLine())!= null;){
 				String[] settinglist = s.split(",");
 				try{
-				EnumSettings es = EnumSettings.valueOf(settinglist[0].toLowerCase(Locale.ENGLISH));
+				EnumSettings es = EnumSettings.valueOf(settinglist[0]);
 				flags.put(es, Integer.valueOf(settinglist[1]));
 				}catch(Exception e){
-					Toast.makeText(ctxt, "There is error on Settings.cc. Please delete Settings.cc to write new Settings.", Toast.LENGTH_LONG).show();
+					Toast.makeText(ctxt, "There is error on Settings.cc. Settings has been rewritten.", Toast.LENGTH_LONG).show();
+					Log.d("PrLbug3", StackTraceToString.convert(e));
+					Log.d("PrLbug3", "data : " + settinglist[0]+ ", " + settinglist[1] + ", "  + s);
 					br.close();
 					isr.close();
 					fis.close();
@@ -135,7 +141,7 @@ public class Setting {
 			isr.close();
 			fis.close();
 		}catch(Exception e){
-			
+			return false;
 		}
 		return true;
 	}
