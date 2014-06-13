@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -77,11 +78,25 @@ public class RankingHelper {
 	public static void destroyHelper(){
 		
 	}
-	public static boolean compareRanking(Object[] first, Object[] second){
-		/*
-		 * false = second°¡ ÂªÀ½
-		 * true = first°¡ ÂªÀ½
-		 */
+	@SuppressWarnings("unchecked")
+	//TODO unchecked
+	public static void adjust(HashMap<Integer, Object[]> hm){
+		ArrayList<Object[]> raws = new ArrayList<Object[]>();
+		Iterator<Object[]> rankingItr;
+		rankingItr = hm.values().iterator();
+		while(rankingItr.hasNext()){
+			raws.add(rankingItr.next());
+		}
+		RankingTimeComparator rtc = new RankingTimeComparator();
+		Arrays.sort(raws.toArray(), rtc );
+		//TODO write script
+		
+	}
+	/*public static boolean compareRanking(Object[] first, Object[] second){
+		
+		// false = second°¡ ÂªÀ½
+		//  true = first°¡ ÂªÀ½
+		 
 		return false;
 	}
 	public static HashMap<Integer, Object[]> adjustRanking(HashMap<Integer, Object[]> hm){
@@ -95,7 +110,7 @@ public class RankingHelper {
 		Object[] CompareTarget = raws.get(0);
 		//TODO write script
 		return null;
-	}
+	}*/
 	public static void writeAllRankings(){
 		
 	}
