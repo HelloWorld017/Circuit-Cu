@@ -33,6 +33,8 @@
          <item>The cake is a lie</item>
          <item>Hello, Circuit World!</item>
          <item>Visit our homepage, http://localhost.</item>
+         <item>Visit our homepage, http://127.0.0.1</item>
          <item>Uguuuuu</item>
+         <item>Noob noob noob nooob</item>
      </string-array>
 </resources>

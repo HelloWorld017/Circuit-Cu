@@ -11,6 +11,7 @@ import android.util.Log;
 
 public class FirstStartingHelper {
 	public static String settingPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/Settings.cc";
+	public static String rankingPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/Ranking.cc";
 	public static boolean isFirstStart(){
 		//TODO 실행에 필요한 파일이 다는 없지만 (0~전체 - 1)개만 있으면 파일 생성, 다 있으면 팻스 그리고 리턴은 처음 시작이였는지
 		String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/";
@@ -24,12 +25,17 @@ public class FirstStartingHelper {
 		if(!setting.exists()){
 			writeScript(EnumScript.setting, path);
 		}
+		path = rankingPath;
+		File ranking = new File(path);
+		if(!ranking.exists()){
+			writeScript(EnumScript.ranking, path);
+		}
 		return false;
 	}
 	
 	public static void writeScript(EnumScript es, String path){
 		switch(es){
-		case ranking:break;
+		case ranking:File f = new File(path);try {f.createNewFile();} catch (IOException e) {Log.d("error",StackTraceToString.convert(e));}break;
 
 		case setting:SettingScripting(path);break;
 			

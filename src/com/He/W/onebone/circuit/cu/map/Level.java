@@ -64,11 +64,13 @@ public class Level{
 		default: return -1;
 		}
 	}
+	@Deprecated
 	public float getXCoord(int Index){
 		//TODO Write Script
 		return 0F;
 		
 	}
+	@Deprecated
 	public float getYCoord(int Index){
 		return 0F;
 	}
