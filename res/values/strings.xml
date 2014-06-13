@@ -32,6 +32,7 @@
     <string name="layout_map_name">Map Name:</string>
     <string name="layout_time_record">Time Record:</string>
     <string name="layout_modify_value">Modify</string>
+    <string name="layout_original_value">Original Value : </string>
     <string name="title_activity_tutorial">Tutorial</string>
     <string name="tutorial_a">Welcome to Circuit Cu!</string>
     <string name="tutorial_b">Do you want to learn this game?</string>
@@ -42,6 +43,6 @@
     <string name="tutorial_g">You have just learned this game.</string>
     <string name="tutorial_h">You will learn left things during playing this game.</string>
     <string name="title_activity_preference">PreferenceActivity</string>
-    <string name="version_code">a201406100006</string>
+    <string name="version_code">a201406100007</string>
 
 </resources>

@@ -6,7 +6,7 @@
         <!-- first argument is Setting id -->
         <item>0</item>
         <!-- Second argument is need restart -->
-        <item>1</item>
+        <item>0</item>
         <!-- Third argument is visibility -->
         <item>1</item>
     </integer-array>
@@ -32,7 +32,7 @@
         <item>1</item>
     </integer-array>
     
-    <string name="resistor_always_same">저항의 줄이 언제나 같습니다. 저항이 깨져보이거나 화면이 작거나 성능이 좋지 않는 디바이스에서의 설정을 추천합니다.</string>
+    <string name="resistor_always_same">저항의 줄이 언제나 같습니다. 저항이 깨져보이거나 화면이 작거나 성능이 좋지 않은 디바이스에서의 설정을 추천합니다.</string>
 	
 	<string-array name="resistor_always_same_str">
         <item >Look &amp; Feel</item>

@@ -20,8 +20,8 @@
         style="@android:style/Widget.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/GeerButtonEdit"
         android:layout_below="@+id/GeerButtonEdit"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
         android:background="@drawable/selector"
         android:text="@string/layout_geerbutton_tutorial" />
@@ -31,7 +31,8 @@
         style="@android:style/Widget.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/GeerButtonStart"
+        android:layout_alignLeft="@+id/GeerButtonHTP"
+        android:layout_alignRight="@+id/GeerButtonHTP"
         android:layout_centerVertical="true"
         android:background="@drawable/selector"
         android:text="@string/layout_geerbutton_edit" />
@@ -42,6 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/GeerButtonEdit"
+        android:layout_alignLeft="@+id/GeerButtonHTP"
+        android:layout_alignRight="@+id/GeerButtonHTP"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="36dp"
         android:background="@drawable/selector"

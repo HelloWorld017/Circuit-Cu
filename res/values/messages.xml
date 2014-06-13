@@ -2,10 +2,12 @@
 
  <resources>
      <string-array name="messages">
+        <!-- 41 messages will be shown at main activity.  -->
          <item>Circuiting Excitement!</item>
          <item>Welcome to Circuit-Cu!</item>
          <item>Pzzzz....... BOOM!!!!</item>
          <item>Ring ring ring ring RING RING</item>
+         <item>Ring ring ring ring ring Banana phone</item>
          <item>Dokdo is Korean territory</item>
          <item>Whoa! I hate bug and I hate bugs!</item>
          <item>Airplane on the airplane!</item>
@@ -14,5 +16,23 @@
          <item>Nyang Passu!</item>
          <item>한국 안녕하세요!</item>
          <item>日本こんにちは！</item>
+         <item>Gotcha!</item>
+         <item>Finger lickin good</item>
+         <item>Dies barrel rolls.... was type-o... was bad English. Typo is correct.</item>
+         <item>Birds! Birds! Birds! Birds!</item>
+         <item>And Ive been a potatooo.</item>
+         <item>Do you want to exit game? Click here NOT to exit.</item>
+         <item>NOT!!! Auto-generated method stub</item>         
+         <item>Antonym of Wiki is kiwi or mixi.</item>
+         <item>on (sweet)Arm processor</item>
+         <item>Cookiezi</item>
+         <item>Banjai!!</item>
+         <item>onebone too op.</item>
+         <item>Is He.W a baka?</item>
+         <item>public static void main is deprecated.</item>
+         <item>The cake is a lie</item>
+         <item>Hello, Circuit World!</item>
+         <item>Visit our homepage, http://localhost.</item>
+         <item>Uguuuuu</item>
      </string-array>
 </resources>

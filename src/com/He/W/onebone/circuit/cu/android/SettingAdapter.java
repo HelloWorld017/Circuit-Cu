@@ -90,7 +90,7 @@ public class SettingAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(final int arg0, View arg1, ViewGroup arg2) {
-		//Log.d("PrL1bug", "getView");
+		Log.d("PrL1bug", "getView");
 		if(arg1 == null){
 			arg1 = li.inflate(R.layout.custom_setting_list_view, arg2, false);
 		}
@@ -100,8 +100,8 @@ public class SettingAdapter extends BaseAdapter {
 		TextView settingDesc = (TextView) arg1.findViewById(R.id.lblSettingDesc);
 		Button modify = (Button) arg1.findViewById(R.id.btnModify);
 		if(((Boolean)database.get(arg0)[8]).booleanValue()){
-			settingDesc.setVisibility(View.INVISIBLE);
-			modify.setVisibility(View.INVISIBLE);
+			settingDesc.setVisibility(View.GONE);
+			modify.setVisibility(View.GONE);
 			String s = "";
 			switch((EnumSettingParents)database.get(arg0)[0]){
 			case LooknFeel:s = "Look & Feel";break;
@@ -121,6 +121,7 @@ public class SettingAdapter extends BaseAdapter {
 			public boolean onTouch(View v, MotionEvent me) {
 				if(me.getAction() == MotionEvent.ACTION_UP){
 					SettingDialog sd = new SettingDialog(ctxt,(EnumSettings)database.get(arg0)[0]);
+					sd.setTitle(R.string.layout_modify_value);
 					sd.show();
 				}
 				return false;

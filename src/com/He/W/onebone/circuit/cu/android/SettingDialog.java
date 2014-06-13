@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class SettingDialog extends Dialog{
 	private EnumSettings namae;
@@ -34,11 +35,15 @@ public class SettingDialog extends Dialog{
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.custom_setting_dialog);
+		setContentView(R.layout.custom_setting_dialog);	
+		SettingSpefHelper ssh = new SettingSpefHelper(ctxt);
+		TextView OrgV = (TextView) findViewById(R.id.txtOriginalValue);
+		String v = ssh.getValueAvailable(namae, ssh.getValue(namae) + 1);
+		OrgV.setText(ctxt.getString(R.string.layout_original_value) + v);
 		Spinner sp;
 		sp = (Spinner)findViewById(R.id.lstSettingList);
 		ArrayList<String> values = new ArrayList<String>();
-		SettingSpefHelper ssh = new SettingSpefHelper(ctxt);
+
 		int a;
 		if(namae != null){
 			a = ssh.getValueAmount(namae);
@@ -87,6 +92,7 @@ public class SettingDialog extends Dialog{
 				dismiss();
 			}
 		});
+
 		
 		
 	}

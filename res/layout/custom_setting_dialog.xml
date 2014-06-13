@@ -2,13 +2,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Spinner
-        android:id="@+id/lstSettingList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
-
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
@@ -29,5 +22,20 @@
             android:text="@android:string/ok" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtOriginalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="" />
+
+    <Spinner
+        android:id="@+id/lstSettingList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtOriginalValue" />
 
 </RelativeLayout>

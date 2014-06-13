@@ -26,6 +26,7 @@
     <string name="layout_map_name">맵 이름:</string>
     <string name="layout_time_record">걸린 시간:</string>
     <string name="layout_modify_value">변경</string>
+    <string name="layout_original_value">원래 값:</string>
 	<string name="tutorial_a">Circuit Cu에 오신것을 환영합니다!</string>
 	<string name="tutorial_b">게임을 배우기 위해서 오셨다고요?</string>
 	<string name="tutorial_c">이 게임은 매우 쉬워요.</string>
