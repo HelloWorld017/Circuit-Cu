@@ -109,7 +109,6 @@ public class MainActivity extends android.app.Activity {
 	@Override
 	protected void onDestroy(){
 		super.onDestroy();
-		Setting.destroyHelper();
 		AudioHelper.stopMusic();
 		Crouton.cancelAllCroutons();
 		Crouton.clearCroutonsForActivity(this);

@@ -37,6 +37,11 @@ public class PreferenceActivity extends Activity {
 		Log.d("PrL1bug", "ListView Declare");
 		lv.setAdapter(new SettingAdapter(this));
 	}
+	@Override
+	protected void onDestroy(){
+		super.onDestroy();
+		Setting.destroyHelper();
+	}
 
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
