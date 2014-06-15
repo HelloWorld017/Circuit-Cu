@@ -20,7 +20,7 @@ public class ComponentAdapter extends BaseAdapter {
 	private Integer[] counts;
 	private Drawable[] drawables;
 	private Context ctx;
-
+	
 	public ComponentAdapter(Context ctx, ArrayList<EnumComponentType> al_data,Integer[] ari_cts, Drawable[] ard_dbs){
 		this.ctx = ctx;
 		al_items = al_data;

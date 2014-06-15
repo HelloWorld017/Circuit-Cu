@@ -1,23 +1,51 @@
 package com.He.W.onebone.circuit.cu.map;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.He.W.onebone.circuit.cu.component.*;
 
 public class Level{
-	ArrayList<String> al_mapdata;
+	private ArrayList<Integer> itemData;
+	private String author, name;
+	private int difficulty, start, end;
+	
+	public Level(ArrayList<String> mapData, ArrayList<Integer> itemData){
+		author = mapData.get(0);
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public String getAuthor(){
+		return author;
+	}
+	
+	public int getDifficulty(){
+		return difficulty;
+	}
+	
+	public int getStart(){
+		return start;
+	}
+	
+	public int getEnd(){
+		return end;
+	}
+	
+	/*ArrayList<String> al_mapdata;
 	ArrayList<Integer> al_itemdata;
 	ArrayList<int[]> al_componentdata;
 	int it_successtime;
 	
 	//Constructor
-	public Level(ArrayList<String> MapData, ArrayList<Integer> ItemData, ArrayList<int[]> ComponentData, int SuccessTime){
-		al_mapdata = MapData;	al_itemdata = ItemData; al_componentdata = ComponentData; it_successtime = SuccessTime;
+	public Level(ArrayList<String> mapData, ArrayList<Integer> itemData, ArrayList<int[]> componentData, int successTime){
+		al_mapdata = mapData;	al_itemdata = itemData; al_componentdata = componentData; it_successtime = successTime;
 	}
 	
 	public String getMapName(){
 		return al_mapdata.get(0);
-		
 	}
 	
 	public String getAuthor(){
@@ -42,8 +70,6 @@ public class Level{
 			return EnumMapType.Wire;
 		}else if(al_mapdata.get(4).equals("Cogs")){
 			return EnumMapType.Cogs;
-		}else if(al_mapdata.get(4).equals("Mixed")){
-			return EnumMapType.Mixed;
 		}else{
 			return EnumMapType.Mixed;
 		}
@@ -64,17 +90,25 @@ public class Level{
 		default: return -1;
 		}
 	}
+	
 	@Deprecated
-	public float getXCoord(int Index){
+	public float getXCoord(int index){
 		//TODO Write Script
 		return 0F;
-		
 	}
+	
 	@Deprecated
-	public float getYCoord(int Index){
+	public float getYCoord(int index){
 		return 0F;
 	}
-	public Integer[] getAllIndexWithComponentType(EnumComponentType CT){
-		return null;
-	}
+	
+	public List<Integer> getAllIndexByComponentType(EnumComponentType CT){
+		ArrayList<Integer> ret = new ArrayList<Integer>();
+		for(int i = 0; i < al_itemdata.size(); i++){
+			if(CT.ordinal() == al_itemdata.get(i)){
+				ret.add(i);
+			}
+		}
+		return ret;
+	}*/
 }

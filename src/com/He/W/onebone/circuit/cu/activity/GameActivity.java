@@ -1,5 +1,7 @@
 package com.He.W.onebone.circuit.cu.activity;
 
+import android.app.Activity;
+
 import com.He.W.onebone.circuit.cu.CircuitBoard;
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.achievement.Achievement;
@@ -7,7 +9,7 @@ import com.He.W.onebone.circuit.cu.map.Level;
 
 import de.keyboardsurfer.android.widget.crouton.*;
 
-public class GameActivity extends SlidingActivity{
+public class GameActivity extends Activity{ //SlidingActivity{
 	
 	private Level level;
 	private CircuitBoard board;

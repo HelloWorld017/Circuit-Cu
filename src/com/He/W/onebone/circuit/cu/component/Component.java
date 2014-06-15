@@ -41,6 +41,7 @@ abstract public class Component extends ImageView{
 			public void onClick(View v) {
 				setFocused(true);
 			}
+			
 		});
 	}
 	

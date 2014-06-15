@@ -34,7 +34,7 @@ public class MainActivity extends android.app.Activity {
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
 		TextView tv2 = (TextView)findViewById(R.id.message_textview);
 		Button startBtn = (Button)findViewById(R.id.GeerButtonStart);
-	
+		
 		Button editBtn = (Button)findViewById(R.id.GeerButtonEdit);
 		Button htpBtn = (Button)findViewById(R.id.GeerButtonHTP);
 		Button prefBtn = (Button)findViewById(R.id.BtnPref);
@@ -79,6 +79,7 @@ public class MainActivity extends android.app.Activity {
 		case 1: f = Typeface.createFromAsset(getAssets(), "font/Ubuntu.ttf");break;
 		case 2: f = Typeface.createFromAsset(getAssets(), "font/SegoeUI.ttf");break;
 		}
+		
 		startBtn.setTypeface(f);
 		editBtn.setTypeface(f);
 		htpBtn.setTypeface(f);
@@ -90,7 +91,7 @@ public class MainActivity extends android.app.Activity {
 		String[] strArr = getResources().getStringArray(R.array.messages);
 		Random r = new Random();
 		String str = strArr[r.nextInt(strArr.length - 1)];
-		final Crouton crt =  Crouton.makeText(this, str, Style.INFO).setConfiguration(new Configuration.Builder().setDuration(Configuration.DURATION_SHORT).build());
+		/*final Crouton crt =  Crouton.makeText(this, str, Style.INFO).setConfiguration(new Configuration.Builder().setDuration(Configuration.DURATION_SHORT).build());
 		crt.setOnClickListener(new View.OnClickListener(){
 
 			@Override
@@ -101,7 +102,7 @@ public class MainActivity extends android.app.Activity {
 			}
 			
 		});
-		crt.show();
+		crt.show();*/
 		tv2.setText(str);
 		Setting.setPrefix(0,f);
 	}

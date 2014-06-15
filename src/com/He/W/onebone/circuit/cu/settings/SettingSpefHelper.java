@@ -7,9 +7,6 @@ import android.util.Log;
 
 import com.He.W.onebone.circuit.cu.R;
 
-
-
-
 public class SettingSpefHelper {
 	public HashMap<EnumSettings, int[]> spec;
 	public HashMap<EnumSettings, String> tips;
