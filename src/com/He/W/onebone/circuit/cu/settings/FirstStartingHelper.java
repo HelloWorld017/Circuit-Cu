@@ -16,21 +16,25 @@ public class FirstStartingHelper {
 		//TODO 실행에 필요한 파일이 다는 없지만 (0~전체 - 1)개만 있으면 파일 생성, 다 있으면 팻스 그리고 리턴은 처음 시작이였는지
 		String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/";
 		Log.d("FsRTerror", path);
+		boolean iFS = true;
 		File CCdir = new File(path);
 		if(!CCdir.exists()){
 			CCdir.mkdir();
+			iFS = false;
 		}
 		path = settingPath;
 		File setting = new File(path);
 		if(!setting.exists()){
 			writeScript(EnumScript.setting, path);
+			iFS = false;
 		}
 		path = rankingPath;
 		File ranking = new File(path);
 		if(!ranking.exists()){
 			writeScript(EnumScript.ranking, path);
+			iFS = false;
 		}
-		return false;
+		return iFS;
 	}
 	
 	public static void writeScript(EnumScript es, String path){
