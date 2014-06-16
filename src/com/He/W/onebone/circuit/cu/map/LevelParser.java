@@ -7,18 +7,13 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.He.W.onebone.circuit.cu.component.Component;
+import com.He.W.onebone.circuit.cu.exception.LevelParseException;
 
 public class LevelParser {
-	public static final int NO_FILE = -2;
-	public static final int WRONG_FILE = -1;
-	public static final int UNKNOWN = 0;
-	public static final int SUCCESS = 1;
-	//enum으로 변환시키는 것은 에러를 줄여줍니다.
-	//TODO RETURN AS LEVEL
-	public static int parseLevel(File file){
+	
+	public static Level parseLevel(File file) throws LevelParseException{
 		if(!file.isFile()){
-			return NO_FILE;
+			return new LevelParseException(LevelParseException.NO_FILE);
 		}
 		try{
 			FileInputStream fis = new FileInputStream(file);
@@ -27,43 +22,64 @@ public class LevelParser {
 			String content = new String(buffer);
 			fis.close();
 			TreeMap<String, String> mapData = new TreeMap<String, String>();
-			TreeMap<String, String> componentData = new TreeMap<String, String>();
+			ArrayList<TreeMap<String, Object>> componentData = new ArrayList<TreeMap<String, Object>>();
 			
 			Pattern startPattern = Pattern.compile("(\\[)([a-zA-Z0-9]{1,}+)(\\])"); // [something]
 			Matcher startMatcher = startPattern.matcher(content);
 			
-			Pattern endPattern = Pattern.compile("(\\[/)([a-zA-Z0-9]{1,}+)(\\])"); // [/something]
+			Pattern endPattern = Pattern.compile("\\[/\\]"); // [/]
 			Matcher endMatcher = endPattern.matcher(content);
 			
-			Pattern itemDataPattern = Pattern.compile("(\n)([a-zA-Z0-9]{1,}+)=([a-zA-Z0-9]{1,}+)"); // something=data
+			Pattern itemDataPattern = Pattern.compile("([a-zA-Z0-9]{1,}+)=([a-zA-Z0-9]{1,}+)"); // something=data
 			while(startMatcher.find()){
+				int curIndex = componentData.size() - 1;
+				
 				int start = startMatcher.start();
 				int end = startMatcher.end();
-				int thisStart = endMatcher.start();
-				int thisEnd = endMatcher.end();
-				String item = content.substring(end, thisStart);
+				
+				String tag = content.substring(start, end).substring(1, content.length() - 1);
+				if(tag.equals("MAP")){
+					endMatcher.find();
+					int start2 = endMatcher.start();
+					String item = content.substring(end, start2);
+					Matcher matcher = itemDataPattern.matcher(item);
+					while(matcher.find()){
+						int dataStart = matcher.start();
+						int dataEnd = matcher.end();
+						String dataStr = item.substring(dataStart, dataEnd);
+						String[] data = dataStr.split("=");
+						
+						mapData.put(data[0], data[1]);
+					}
+					continue;
+				}
+				
+				endMatcher.find();
+				int start2 = endMatcher.start();
+				String item = content.substring(end, start2);
 				Matcher matcher = itemDataPattern.matcher(item);
 				while(matcher.find()){
 					int dataStart = matcher.start();
 					int dataEnd = matcher.end();
 					String dataStr = item.substring(dataStart, dataEnd);
 					String[] data = dataStr.split("=");
-					componentData.put(data[0], data[1]);
+					
+					componentData.get(curIndex).put(data[0], data[1]);
 				}
 			}
+			return new Level(mapData, componentData);
 		}catch(IllegalStateException e){
-			return WRONG_FILE;
+			throw new LevelParseException(LevelParseException.WRONG_FILE);
 		}catch(StringIndexOutOfBoundsException e){
-			return WRONG_FILE;
+			throw new LevelParseException(LevelParseException.WRONG_FILE);
 		}catch(ArrayIndexOutOfBoundsException e){
-			return WRONG_FILE;
+			throw new LevelParseException(LevelParseException.WRONG_FILE);
 		}catch(Exception e){
-			return UNKNOWN;
+			throw new LevelParseException(LevelParseException.UNKNOWN, e.toString());
 		}
-		return SUCCESS;
 	}
-
-	public static int parseLevel(String file){
+	
+	public static Level parseLevel(String file) throws LevelParseException{
 		return parseLevel(new File(file));
 	}
 }

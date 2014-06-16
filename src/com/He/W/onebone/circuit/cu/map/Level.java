@@ -2,23 +2,36 @@ package com.He.W.onebone.circuit.cu.map;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.TreeMap;
 
-import com.He.W.onebone.circuit.cu.component.*;
 
 public class Level{
-	private ArrayList<Integer> itemData;
+	private ArrayList<TreeMap<String, Object>> itemData;
 	private String author, name;
-	private int difficulty, start, end;
+	private int difficulty, startX, endX, startY, endY;
 	private String filePath;
 	
+	public static final int MAX_DIFFICULTY = 10;
+	
 	//Needs ArrayList[<int[]> componentData and Object[] successTime. successTime is at RankingHelper
-	public Level(ArrayList<String> mapData, ArrayList<Integer> itemData){
-		author = mapData.get(0);
+	public Level(TreeMap<String, String> mapData, ArrayList<TreeMap<String, Object>> itemData){
+		author = mapData.get("author");
+		name = mapData.get("name");
+		
+		startX = Integer.parseInt(mapData.get("startX"));
+		startY = Integer.parseInt(mapData.get("startY"));
+		endX = Integer.parseInt(mapData.get("endX"));
+		endY = Integer.parseInt(mapData.get("endY"));
+		difficulty = Integer.parseInt(mapData.get("difficulty")) & MAX_DIFFICULTY;
+		this.itemData = itemData;
 	}
 	
 	public String getName(){
 		return name;
+	}
+	
+	public ArrayList<TreeMap<String, Object>> getItemData(){
+		return itemData;
 	}
 	
 	public String getAuthor(){
@@ -29,15 +42,39 @@ public class Level{
 		return difficulty;
 	}
 	
-	public int getStart(){
-		return start;
+	public int getStartX(){
+		return startX;
 	}
+	
+	public int getStartY(){
+		return startY;
+	}
+	
+	public int getEndX(){
+		return endX;
+	}
+	
+	public int getEndY(){
+		return endY;
+	}
+	
+	/*public int getStart(){
+		return start;
+	}*/
+	
+	public File getFile(){
+		return new File(filePath);
+	}
+	
+	/*public int getEnd(){
+=======
 	public File getFile(){
 		return new File(filePath);
 	}
 	public int getEnd(){
+>>>>>>> 94087fb0626561fda559dc7c15be78f7ddfdb306
 		return end;
-	}
+	}*/
 	
 	/*ArrayList<String> al_mapdata;
 	ArrayList<Integer> al_itemdata;
