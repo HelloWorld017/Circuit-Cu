@@ -97,6 +97,9 @@ public class RankingHelper {
 	public static Object[] getRanking(int index, File map){
 		return rankingsForAllMap.get(map).get(index);
 	}
+	public static ArrayList<Object[]> getRankingList(File map){
+		return rankingsForAllMap.get(map);
+	}
 	public static void writeRanking(String time, File map){
 		String splited[] = time.split(".");
 		int minute = Integer.valueOf(splited[0]);

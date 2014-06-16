@@ -104,19 +104,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tvTimeRecord"
-        android:src="@drawable/star"
-        android:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/tvTimeRecord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/star10"
         android:layout_below="@+id/tvAuthor"
-        android:gravity="right"
-        android:text="@string/layout_time_record"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:src="@drawable/star"
         android:visibility="invisible" />
 
     <TextView
@@ -124,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvMapName"
-        android:layout_toLeftOf="@+id/listView1"
+        android:layout_toLeftOf="@+id/levelList"
         android:text="@string/layout_author"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:visibility="invisible" />
@@ -156,5 +145,15 @@
         android:layout_alignRight="@+id/star10"
         android:background="@drawable/selector"
         android:text="@string/layout_geerbutton_play" />
+
+    <ListView
+        android:id="@+id/rankingList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/star1"
+        android:layout_toLeftOf="@+id/levelList" >
+
+    </ListView>
 
 </RelativeLayout>

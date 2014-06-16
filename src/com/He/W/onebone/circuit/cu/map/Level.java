@@ -1,5 +1,6 @@
 package com.He.W.onebone.circuit.cu.map;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ public class Level{
 	private ArrayList<Integer> itemData;
 	private String author, name;
 	private int difficulty, start, end;
+	private String filePath;
 	
 	//Needs ArrayList[<int[]> componentData and Object[] successTime. successTime is at RankingHelper
 	public Level(ArrayList<String> mapData, ArrayList<Integer> itemData){
@@ -30,7 +32,9 @@ public class Level{
 	public int getStart(){
 		return start;
 	}
-	
+	public File getFile(){
+		return new File(filePath);
+	}
 	public int getEnd(){
 		return end;
 	}

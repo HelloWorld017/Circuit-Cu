@@ -30,6 +30,7 @@ public class LevelHelper{
 	public LevelHelper(Context c){
 		ctxt = c;
 	}
+	//Stay this method. This is not like an spaghetti and it is needed.
 	public static ArrayList<String>  readAllLevels(){
 		File ccpfolder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/");
 		File[] fs = ccpfolder.listFiles(new FilenameFilter(){

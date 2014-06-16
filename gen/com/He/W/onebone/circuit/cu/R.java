@@ -77,17 +77,17 @@ public final class R {
         public static final int btnModify=0x7f08001c;
         public static final int btnOK=0x7f080019;
         public static final int btnSettingToMainMenu=0x7f080008;
-        public static final int button1=0x7f080036;
-        public static final int button2=0x7f080037;
+        public static final int button1=0x7f080034;
+        public static final int button2=0x7f080035;
         public static final int lblSettingDesc=0x7f08001d;
         public static final int lblSettingName=0x7f08001b;
         public static final int levelList=0x7f080027;
         public static final int linearLayout1=0x7f080016;
-        public static final int listView1=0x7f080035;
         public static final int lstSettingList=0x7f080017;
         public static final int lstSettings=0x7f080007;
-        public static final int menu_settings=0x7f080038;
+        public static final int menu_settings=0x7f080037;
         public static final int message_textview=0x7f080005;
+        public static final int rankingList=0x7f080036;
         public static final int star1=0x7f08002a;
         public static final int star10=0x7f080028;
         public static final int star2=0x7f080029;
@@ -109,9 +109,8 @@ public final class R {
         public static final int tutorial6=0x7f08000e;
         public static final int tutorial7=0x7f080010;
         public static final int tutorial8=0x7f080011;
-        public static final int tvAuthor=0x7f080033;
-        public static final int tvMapName=0x7f080034;
-        public static final int tvTimeRecord=0x7f080032;
+        public static final int tvAuthor=0x7f080032;
+        public static final int tvMapName=0x7f080033;
         public static final int txtOriginalValue=0x7f08001a;
     }
     public static final class layout {
@@ -125,6 +124,7 @@ public final class R {
         public static final int custom_transistor_dialog=0x7f030007;
         public static final int custom_wire_dialog=0x7f030008;
         public static final int level_selector=0x7f030009;
+        public static final int simple_text=0x7f03000a;
     }
     public static final class menu {
         public static final int activity_main=0x7f070000;
