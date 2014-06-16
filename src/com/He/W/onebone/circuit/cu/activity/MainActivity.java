@@ -28,7 +28,7 @@ public class MainActivity extends android.app.Activity {
 		setContentView(R.layout.activity_main);
 		FirstStartingHelper.isFirstStart();
 		Setting.initSettings(this);
-		
+		AudioHelper.addEffect(MainActivity.this, R.raw.button_click, 0);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
@@ -43,6 +43,7 @@ public class MainActivity extends android.app.Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				AudioHelper.playEffect(MainActivity.this, 0);
 				Intent intent = new Intent(MainActivity.this, PreferenceActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				startActivity(intent);
@@ -51,6 +52,7 @@ public class MainActivity extends android.app.Activity {
 		startBtn.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
+				AudioHelper.playEffect(MainActivity.this, 0);
 				Intent intent = new Intent(MainActivity.this, LevelSelector.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				startActivity(intent);
@@ -60,6 +62,7 @@ public class MainActivity extends android.app.Activity {
 			
 			@Override
 			public void onClick(View v) {
+				AudioHelper.playEffect(MainActivity.this, 0);
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this, Tutorial.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -97,6 +100,7 @@ public class MainActivity extends android.app.Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				AudioHelper.playEffect(MainActivity.this, 0);
 				crt.hide();
 				
 			}

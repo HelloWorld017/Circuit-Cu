@@ -1,6 +1,7 @@
 package com.He.W.onebone.circuit.cu.activity;
 
 import com.He.W.onebone.circuit.cu.R;
+import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
 import android.os.Bundle;
@@ -48,6 +49,7 @@ public class Tutorial extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				AudioHelper.playEffect(Tutorial.this, 0);
 				Intent it = new Intent(Tutorial.this, MainActivity.class);
 				it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

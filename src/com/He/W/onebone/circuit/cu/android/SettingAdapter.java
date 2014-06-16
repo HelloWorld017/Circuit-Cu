@@ -3,6 +3,8 @@ package com.He.W.onebone.circuit.cu.android;
 import java.util.ArrayList;
 
 import com.He.W.onebone.circuit.cu.R;
+import com.He.W.onebone.circuit.cu.activity.LevelSelector;
+import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettingParents;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
@@ -120,6 +122,7 @@ public class SettingAdapter extends BaseAdapter {
 			@Override
 			public boolean onTouch(View v, MotionEvent me) {
 				if(me.getAction() == MotionEvent.ACTION_UP){
+					AudioHelper.playEffect(ctxt, 0);
 					SettingDialog sd = new SettingDialog(ctxt,(EnumSettings)database.get(arg0)[0]);
 					sd.setTitle(R.string.layout_modify_value);
 					sd.show();

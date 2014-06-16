@@ -129,7 +129,7 @@
         android:visibility="invisible" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btnMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -138,7 +138,7 @@
         android:text="@string/layout_to_main_menu" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

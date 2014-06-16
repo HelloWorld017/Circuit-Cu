@@ -2,6 +2,7 @@ package com.He.W.onebone.circuit.cu.activity;
 
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.android.SettingAdapter;
+import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class PreferenceActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				AudioHelper.playEffect(PreferenceActivity.this, 0);
 				Intent intent = new Intent(PreferenceActivity.this, MainActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

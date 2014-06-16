@@ -2,18 +2,38 @@ package com.He.W.onebone.circuit.cu.map;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.os.Environment;
+
 import com.He.W.onebone.circuit.cu.exception.LevelParseException;
 
 public class LevelParser {
 	
+	public static ArrayList<String>  readAllLevels(){
+		File ccpfolder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/");
+		File[] fs = ccpfolder.listFiles(new FilenameFilter(){
+
+			@Override
+			public boolean accept(File arg0, String arg1) {
+				return arg1.endsWith(".cc");
+			}
+			
+		});
+		ArrayList<String> maps = new ArrayList<String>();
+		for(int a = 0; a < fs.length;a++){
+			maps.add(fs[a].getName().replace(".cc", ""));
+		}
+		return maps;
+	}
+	
 	public static Level parseLevel(File file) throws LevelParseException{
 		if(!file.isFile()){
-			return new LevelParseException(LevelParseException.NO_FILE);
+			throw new LevelParseException(LevelParseException.NO_FILE);
 		}
 		try{
 			FileInputStream fis = new FileInputStream(file);

@@ -3,6 +3,8 @@ package com.He.W.onebone.circuit.cu.android;
 import java.util.ArrayList;
 
 import com.He.W.onebone.circuit.cu.R;
+import com.He.W.onebone.circuit.cu.activity.LevelSelector;
+import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 import com.He.W.onebone.circuit.cu.settings.SettingSpefHelper;
@@ -62,6 +64,7 @@ public class SettingDialog extends Dialog{
 		sp.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+				AudioHelper.playEffect(ctxt, 0);
 				value = position;
 			}
 
@@ -80,6 +83,7 @@ public class SettingDialog extends Dialog{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				AudioHelper.playEffect(ctxt, 0);
 				Setting.writeSettings(namae, value);
 				dismiss();
 			}
@@ -88,6 +92,7 @@ public class SettingDialog extends Dialog{
 			
 			@Override
 			public void onClick(View v) {
+				AudioHelper.playEffect(ctxt, 0);
 				// TODO Auto-generated method stub
 				dismiss();
 			}
