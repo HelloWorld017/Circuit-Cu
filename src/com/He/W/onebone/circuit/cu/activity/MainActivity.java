@@ -91,7 +91,7 @@ public class MainActivity extends android.app.Activity {
 		String[] strArr = getResources().getStringArray(R.array.messages);
 		Random r = new Random();
 		String str = strArr[r.nextInt(strArr.length - 1)];
-		/*final Crouton crt =  Crouton.makeText(this, str, Style.INFO).setConfiguration(new Configuration.Builder().setDuration(Configuration.DURATION_SHORT).build());
+		final Crouton crt =  Crouton.makeText(this, str, Style.INFO).setConfiguration(new Configuration.Builder().setDuration(Configuration.DURATION_SHORT).build());
 		crt.setOnClickListener(new View.OnClickListener(){
 
 			@Override
@@ -102,7 +102,7 @@ public class MainActivity extends android.app.Activity {
 			}
 			
 		});
-		crt.show();*/
+		crt.show();
 		tv2.setText(str);
 		Setting.setPrefix(0,f);
 	}

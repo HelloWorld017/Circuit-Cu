@@ -49,7 +49,7 @@
         android:layout_marginBottom="36dp"
         android:background="@drawable/selector"
         android:text="@string/layout_geerbutton_play" />
-
+	<!-- 스타일을 바꾸는것이 무엇이 의미가 있나요? 결국엔 똑같은데 ;;;; -->
     <Button
         android:id="@+id/BtnPref"
         android:layout_width="wrap_content"
@@ -72,10 +72,14 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/GeerButtonStart"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentLeft="true"
         android:text="@string/version_code"
         android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+    <!-- android:layout_alignParentTop="true"
+           android:layout_alignRight="@+id/GeerButtonStart" 
+           눈에 띄지 않으므로 위의 방법이 좀 더 좋다고 나는 생각함.-->
+
 
 </RelativeLayout>

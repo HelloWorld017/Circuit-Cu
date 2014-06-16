@@ -14,6 +14,7 @@ public class LevelParser {
 	public static final int WRONG_FILE = -1;
 	public static final int UNKNOWN = 0;
 	public static final int SUCCESS = 1;
+	//enum으로 변환시키는 것은 에러를 줄여줍니다.
 	
 	public static int parseLevel(File file){
 		if(!file.isFile()){

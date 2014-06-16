@@ -23,7 +23,7 @@ import android.widget.Toast;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
+@Deprecated
 public class LevelHelper{
 	public HashMap<String, Level> levels = new HashMap<String, Level>();
 	private static Context ctxt = null;
@@ -269,7 +269,8 @@ public class LevelHelper{
 						br.close();
 						isr.close();
 						fis.close();
-						return new Level(al_mapdata, al_itemdata, al_componentdata, it_successdata);
+						return null;
+						//return new Level(al_mapdata, al_itemdata, al_componentdata, it_successdata);
 					}
 				
 			//Error Handling

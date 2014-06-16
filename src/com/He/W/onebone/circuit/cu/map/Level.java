@@ -10,6 +10,7 @@ public class Level{
 	private String author, name;
 	private int difficulty, start, end;
 	
+	//Needs ArrayList[<int[]> componentData and Object[] successTime. successTime is at RankingHelper
 	public Level(ArrayList<String> mapData, ArrayList<Integer> itemData){
 		author = mapData.get(0);
 	}
