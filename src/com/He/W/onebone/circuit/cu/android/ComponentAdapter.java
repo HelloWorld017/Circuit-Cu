@@ -85,6 +85,7 @@ public class ComponentAdapter extends BaseAdapter {
 				hm.remove(values[a]);
 			}
 		}
+		this.notifyDataSetChanged();
 	}
 	
 	//TODO if bug occures
