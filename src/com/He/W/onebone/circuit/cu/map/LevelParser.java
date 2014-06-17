@@ -15,20 +15,20 @@ import com.He.W.onebone.circuit.cu.exception.LevelParseException;
 public class LevelParser {
 	
 	public static ArrayList<String>  readAllLevels(){
+		final ArrayList<String> result = new ArrayList<String>();
 		File ccpfolder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/");
-		File[] fs = ccpfolder.listFiles(new FilenameFilter(){
+		ccpfolder.list(new FilenameFilter(){
 
 			@Override
 			public boolean accept(File arg0, String arg1) {
-				return arg1.endsWith(".cc");
+				if(arg1.endsWith(".cc")){
+					result.add(arg1);
+				}
+				return false;
 			}
 			
 		});
-		ArrayList<String> maps = new ArrayList<String>();
-		for(int a = 0; a < fs.length;a++){
-			maps.add(fs[a].getName().replace(".cc", ""));
-		}
-		return maps;
+		return result;
 	}
 	
 	public static Level parseLevel(File file) throws LevelParseException{

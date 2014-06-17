@@ -4,25 +4,33 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import android.util.Log;
+
 
 public class Level{
 	private ArrayList<TreeMap<String, Object>> itemData;
 	private String author, name;
-	private int difficulty, startX, endX, startY, endY;
+	private int difficulty, startX, endX, startY, endY, divideX, divideY;
 	private String filePath;
 	
 	public static final int MAX_DIFFICULTY = 10;
 	
 	//Needs ArrayList[<int[]> componentData and Object[] successTime. successTime is at RankingHelper
 	public Level(TreeMap<String, String> mapData, ArrayList<TreeMap<String, Object>> itemData){
-		author = mapData.get("author");
-		name = mapData.get("name");
-		
-		startX = Integer.parseInt(mapData.get("startX"));
-		startY = Integer.parseInt(mapData.get("startY"));
-		endX = Integer.parseInt(mapData.get("endX"));
-		endY = Integer.parseInt(mapData.get("endY"));
-		difficulty = Integer.parseInt(mapData.get("difficulty")) & MAX_DIFFICULTY;
+		try{
+			author = mapData.get("author");
+			name = mapData.get("name");
+			
+			startX = Integer.parseInt(mapData.get("startX"));
+			startY = Integer.parseInt(mapData.get("startY"));
+			endX = Integer.parseInt(mapData.get("endX"));
+			endY = Integer.parseInt(mapData.get("endY"));
+			divideX = Integer.parseInt(mapData.get("divideX"));
+			divideY = Integer.parseInt(mapData.get("divideY"));
+			difficulty = Integer.parseInt(mapData.get("difficulty")) & MAX_DIFFICULTY;
+		}catch(Exception e){
+			Log.d("Level", e.getMessage());
+		}
 		this.itemData = itemData;
 	}
 	
@@ -56,6 +64,14 @@ public class Level{
 	
 	public int getEndY(){
 		return endY;
+	}
+	
+	public int getDivideX(){
+		return divideX;
+	}
+	
+	public int getDivideY(){
+		return divideY;
 	}
 	
 	/*public int getStart(){
