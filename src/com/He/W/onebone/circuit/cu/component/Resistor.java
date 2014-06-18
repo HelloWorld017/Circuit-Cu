@@ -6,10 +6,18 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.widget.ImageView;
 
-public class Resistor extends ElectricityBlockable{
+public class Resistor extends Component implements ElectricityBlockable{
+	
+	private float blockElectricity;
 	
 	public Resistor(CircuitBoard board, float x, float y, int rotation, int blockElectricity){
-		super(board.getContext(), R.drawable.resistor, x, y, rotation, blockElectricity, EnumComponentType.COMPONENT_RESISTOR);
+		this(board, x, y, rotation, blockElectricity, 20);
+		//this.blockElectricity = blockElectricity;
+	}
+	
+	public Resistor(CircuitBoard board, float x, float y, int rotation, int blockElectricity, int require){
+		super(board.getContext(), R.drawable.resistor, x, y, rotation, EnumComponentType.COMPONENT_RESISTOR, require);
+		this.blockElectricity = blockElectricity;
 	}
 	
 	private int errorRange;
@@ -36,30 +44,42 @@ public class Resistor extends ElectricityBlockable{
 		BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, GRAY, WHITE
 	}
 	
-	public void drawLine(int color, int lineId){ // TODO Inserting line which identifies the information of resister
+	/*public void drawLine(int color, int lineId){ // TODO Inserting line which identifies the information of resister
 		Canvas canvas = new Canvas();
 		Paint paint = new Paint();
 		
-	}
+	}*/
 	
 	public int getErrorRange(){
 		return errorRange;
 	}
 
 	@Override
-	public void electricityReleased() {
+	public synchronized void electricityReleased() {
+		this.setImageResource(R.drawable.resistor_released);
 		this.addBlockElectricity(1);
 	}
 
 	@Override
-	public void electricityUnreleased() {
+	public synchronized void electricityUnreleased() {
+		if(this.getElectrified() <= 0){
+			this.setImageResource(R.drawable.resistor_unreleased);
+		}
 		this.addBlockElectricity(-1);
 	}
-	
-	/*public Resister(MainActivity activity){
-		resource = activity.getResources();
-		img = resource.getDrawable(R.drawable.resister); // TODO Insert image!!
+
+	@Override
+	public float getBlockingElectricty() {
+		return blockElectricity;
 	}
-	
-	*/
+
+	@Override
+	public void addBlockElectricity(int value) {
+		blockElectricity += value;
+	}
+
+	@Override
+	public void setBlockElectricity(int value) {
+		blockElectricity = value;
+	}
 }

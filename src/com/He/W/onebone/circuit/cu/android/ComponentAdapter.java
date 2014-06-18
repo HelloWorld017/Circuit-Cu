@@ -57,13 +57,14 @@ public class ComponentAdapter extends BaseAdapter {
 		return arg0;
 	}
 
-	public void addItemToInventory(EnumComponentType AddingItem, int AddingCount){
-		Integer item = hm.get(AddingItem);
-		if(item == null){
-			hm.put(AddingItem, AddingCount);
+	public void addItemToInventory(EnumComponentType addingItem, int addingCount){
+		/*Integer item = hm.get(addingItem);
+		if(item == null){*/
+		if(hm.containsKey(addingItem)){
+			hm.put(addingItem, addingCount);
 		}else{
-			hm.remove(AddingItem);
-			hm.put(AddingItem, item + AddingCount);
+			hm.remove(addingItem);
+			hm.put(addingItem, hm.get(addingItem) + addingCount);
 		}
 		this.notifyDataSetChanged();
 	}

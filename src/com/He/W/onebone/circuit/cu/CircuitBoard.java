@@ -17,14 +17,14 @@ import android.widget.ImageView;
 public class CircuitBoard extends ImageView{
 	private static CircuitBoard obj;
 	private BoardComponentManager manager;
-	private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
+	//private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
 	private int focused = -1;
 	
 	private CircuitBoard(Context context) {
 		super(context);
 		obj = this;
 		manager = new BoardComponentManager(this);
-		connectedComponent = new TreeMap<Integer, LinkedList<Integer>>();
+		//connectedComponent = new TreeMap<Integer, LinkedList<Integer>>();
 		this.setOnTouchListener(new View.OnTouchListener(){
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
@@ -130,8 +130,10 @@ public class CircuitBoard extends ImageView{
 		LinkedList<Integer> list = component.getConnected();
 		for(int cmtId:list){
 			Component cmt = manager.getComponentById(cmtId);
-			if(cmt.getElectrified() > 0){ // If the component has electricity
-				cmt.setElectrified(0); // Block its electricity
+			if(cmt.getElectrified() > 0){ // If the component has electricit
+				try{
+					cmt.setElectrified(0); // Block its electricity
+				}catch(Exception e){}
 				electricityUnreleasedTo(cmtId);
 			}
 		}

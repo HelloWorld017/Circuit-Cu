@@ -3,6 +3,7 @@ package com.He.W.onebone.circuit.cu.component;
 import java.util.LinkedList;
 
 import com.He.W.onebone.circuit.cu.*;
+import com.He.W.onebone.circuit.cu.exception.OverElectricityException;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -18,8 +19,19 @@ abstract public class Component extends ImageView{
 	private BoardComponentManager manager;
 	private LinkedList<Integer> connected;
 	private LinkedList<Integer> ableConnecting;
+	private float requireElec;
 	
-	public Component(Context context, Drawable drawable, float x, float y, float rotation, EnumComponentType type){
+	protected int maxElectricity;
+	
+	public Component(Context context, Drawable drawable, float x, float y, float rotation, EnumComponentType type, float requireElec){
+		this(context, drawable, x, y, rotation, type, Integer.MAX_VALUE, requireElec);
+	}
+	
+	public Component(Context context, int resourceId, float x, float y, float rotation, EnumComponentType type, float requireElec){
+		this(context, context.getResources().getDrawable(resourceId), x, y, rotation, type, Integer.MAX_VALUE, requireElec);
+	}
+	
+	public Component(Context context, Drawable drawable, float x, float y, float rotation, EnumComponentType type, int maxElectricity, float requireElec){
 		super(context);
 		this.x = x;
 		this.y = y;
@@ -34,6 +46,7 @@ abstract public class Component extends ImageView{
 		this.board = CircuitBoard.getInstance();
 		this.electrified = 0;
 		this.manager = board.getManager();
+		this.maxElectricity = maxElectricity;
 		manager.addComponent(this);
 		
 		this.setOnClickListener(new View.OnClickListener(){
@@ -45,20 +58,8 @@ abstract public class Component extends ImageView{
 		});
 	}
 	
-	public Component(Context context, int resourceId, float x, float y, int rotation, EnumComponentType type){
-		super(context);
-		this.x = x;
-		this.y = y;
-		this.setRotation(rotation);
-		setImageResource(resourceId);
-		setX(x);
-		setY(y);
-		
-		this.type = type;
-		this.ableConnecting = new LinkedList<Integer>();
-		this.board = CircuitBoard.getInstance();
-		this.manager = board.getManager();
-		manager.addComponent(this);
+	public float getRequireElectricity(){
+		return this.requireElec;
 	}
 	
 	public void addAbleConnecting(int id){
@@ -159,7 +160,7 @@ abstract public class Component extends ImageView{
 		return electrified;
 	}
 	
-	public final boolean setElectrified(float electrified){
+	public final boolean setElectrified(float electrified) throws OverElectricityException{
 		if(electrified < 0){
 			return false;
 		}
@@ -169,12 +170,15 @@ abstract public class Component extends ImageView{
 		if(current > electrified){
 			this.electricityUnreleased();
 		}else{
+			if(this.maxElectricity <= this.electrified){
+				throw new OverElectricityException(this.electrified, this.maxElectricity);
+			}
 			this.electricityReleased();
 		}
 		return true;
 	}
 	
-	public final boolean addElectrified(float amount){
+	public final boolean addElectrified(float amount) throws OverElectricityException{
 		if(this.electrified - amount < 0 || amount == 0){
 			return false;
 		}
@@ -182,6 +186,9 @@ abstract public class Component extends ImageView{
 		if(amount < 0){
 			this.electricityUnreleased();
 		}else{
+			if(this.maxElectricity <= this.electrified){
+				throw new OverElectricityException(this.electrified, this.maxElectricity);
+			}
 			this.electricityReleased();
 		}
 		return true;
