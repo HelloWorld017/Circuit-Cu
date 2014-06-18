@@ -59,15 +59,6 @@
         android:text="@string/tutorial_f"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Button
-        android:id="@+id/GearButtonMainMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/selector"
-        android:text="@string/layout_to_main_menu" />
-
     <TextView
         android:id="@+id/tutorial7"
         android:layout_width="wrap_content"
@@ -85,5 +76,23 @@
         android:layout_centerHorizontal="true"
         android:text="@string/tutorial_h"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/GearButtonMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/selector"
+        android:text="@string/layout_to_main_menu" />
+
+    <Button
+        android:id="@+id/btnCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/selector"
+        android:text="@string/layout_credit" />
 
 </RelativeLayout>

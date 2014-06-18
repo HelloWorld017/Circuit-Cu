@@ -113,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvMapName"
-        android:layout_toLeftOf="@+id/levelList"
+        android:layout_alignParentLeft="true"
         android:text="@string/layout_author"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:visibility="invisible" />
@@ -122,8 +122,8 @@
         android:id="@+id/tvMapName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/star8"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:text="@string/layout_map_name"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:visibility="invisible" />
@@ -150,10 +150,20 @@
         android:id="@+id/rankingList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+		android:layout_above="@+id/btnGetMap"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/star1"
         android:layout_toLeftOf="@+id/levelList" >
 
     </ListView>
+
+    <Button
+        android:id="@+id/btnGetMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+		android:layout_above="@+id/btnPlay"
+		android:background="@drawable/selector"
+        android:text="@string/layout_get_maps" />
 
 </RelativeLayout>
