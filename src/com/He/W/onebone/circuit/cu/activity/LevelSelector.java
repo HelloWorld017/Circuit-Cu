@@ -62,9 +62,14 @@ public class LevelSelector extends android.app.Activity{
 				name.setText(lv.getName());
 				author.setText(lv.getAuthor());
 				ArrayList<String> al = new ArrayList<String>();
-				Iterator<Object[]> i = RankingHelper.getRankingList(lv.getFile()).iterator();
+				ArrayList<Object[]> rankingr =RankingHelper.getRankingList(lv.getFile());
+				if(rankingr != null){
+				Iterator<Object[]> i = rankingr.iterator();
 				while(i.hasNext()){
 					al.add((String) i.next()[0]);
+				}
+				}else{
+					al.add("No record :(");
 				}
 				timeRecord.setAdapter(new ArrayAdapterWithTypeface<String>(ctxt,al,tf));
 				ImageView iv;

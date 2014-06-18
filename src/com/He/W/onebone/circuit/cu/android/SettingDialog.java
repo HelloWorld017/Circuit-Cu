@@ -3,7 +3,6 @@ package com.He.W.onebone.circuit.cu.android;
 import java.util.ArrayList;
 
 import com.He.W.onebone.circuit.cu.R;
-import com.He.W.onebone.circuit.cu.activity.LevelSelector;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;

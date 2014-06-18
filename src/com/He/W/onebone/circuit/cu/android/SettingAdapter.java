@@ -3,7 +3,6 @@ package com.He.W.onebone.circuit.cu.android;
 import java.util.ArrayList;
 
 import com.He.W.onebone.circuit.cu.R;
-import com.He.W.onebone.circuit.cu.activity.LevelSelector;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.EnumSettingParents;
 import com.He.W.onebone.circuit.cu.settings.EnumSettings;
@@ -13,7 +12,6 @@ import com.He.W.onebone.circuit.cu.settings.SettingSpefHelper;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;

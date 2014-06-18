@@ -25,7 +25,7 @@
         <item>0</item>
         <item>1</item>
     </integer-array>
-    <string name="resistor_always_same">Stripe on resistor is always same. Recommended on a device that has broken resistor image, small display or bad specification.</string>
+    <string name="resistor_always_same">Stripe on resistor is always same. Recommended on a device that has broken resistor image, small display or bad specification. This setting is deprecated from a201406180009</string>
     
     <string-array name="resistor_always_same_str">
         <item >Look &amp; Feel</item>
@@ -37,5 +37,21 @@
         <item>false</item>
     </string-array>
     
+     <integer-array name="play_bgm">
+	        <item >2</item>
+	        <item >0</item>
+	        <item >1</item>
+	    </integer-array>
+	    <string name="play_bgm">Play BGM</string>
+	    <string-array name="play_bgm_str">
+	        <item >Sound</item>
+	        <item >Play BGM</item>
+	    </string-array>
+	    
+	    <string-array name="play_bgm_values">
+	        <item>2</item>
+	        <item >true</item>
+	        <item >false</item>
+	    </string-array>
     
 </resources>

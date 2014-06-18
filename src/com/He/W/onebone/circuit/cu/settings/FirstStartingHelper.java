@@ -53,7 +53,7 @@ public class FirstStartingHelper {
 			f.createNewFile();
 			FileOutputStream fos = new FileOutputStream(f);
 			String content = "";
-			content = "fonttype,0" + "\n" + "resistor_always_same,0";
+			content = "fonttype,0" + "\n" + "resistor_always_same,0" + "\n" + "play_bgm,0";
 			fos.write(content.getBytes());
 			fos.flush();
 			fos.close();

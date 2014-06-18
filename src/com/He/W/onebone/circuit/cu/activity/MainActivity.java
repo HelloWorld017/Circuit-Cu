@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.AudioManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -28,8 +29,13 @@ public class MainActivity extends android.app.Activity {
 		setContentView(R.layout.activity_main);
 		FirstStartingHelper.isFirstStart();
 		Setting.initSettings(this);
-		AudioHelper.addEffect(MainActivity.this, R.raw.button_click, 0);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		Log.d("AhLbug2", "Data : " + Setting.readSettings(EnumSettings.play_bgm));
+		if(Setting.readSettings(EnumSettings.play_bgm) == 0){
+			AudioHelper.playBGM(this, R.raw.portal2_12_the_friendly_faith_plate, true);
+		}
+		AudioHelper.addEffect(MainActivity.this, R.raw.button_click, 0);
+		
 		
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
 		TextView tv2 = (TextView)findViewById(R.id.message_textview);

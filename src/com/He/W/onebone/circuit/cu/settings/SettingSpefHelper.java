@@ -33,6 +33,14 @@ public class SettingSpefHelper {
 				pnns.put(EnumSettings.resistor_always_same, ctxt.getResources().getStringArray(R.array.resistor_always_same_str));
 				values.put(EnumSettings.resistor_always_same, ctxt.getResources().getStringArray(R.array.resistor_always_same_values));
 				break;
+			case play_bgm:
+				spec.put(EnumSettings.play_bgm, ctxt.getResources().getIntArray(R.array.play_bgm));
+				tips.put(EnumSettings.play_bgm, ctxt.getString(R.string.play_bgm));
+				pnns.put(EnumSettings.play_bgm, ctxt.getResources().getStringArray(R.array.play_bgm_str));
+				values.put(EnumSettings.play_bgm, ctxt.getResources().getStringArray(R.array.play_bgm_values));
+				break;
+			default:
+				break;
 			}
 		}
 	}
