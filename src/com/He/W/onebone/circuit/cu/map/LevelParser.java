@@ -21,6 +21,9 @@ public class LevelParser {
 
 			@Override
 			public boolean accept(File arg0, String arg1) {
+				if(arg1.equals("Settings.cc") || arg1.equals("Ranking.cc")){
+					return false;
+				}
 				if(arg1.endsWith(".cc")){
 					result.add(arg1);
 				}
