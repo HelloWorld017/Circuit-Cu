@@ -16,7 +16,7 @@ public class Transistor extends Component{
 	}
 
 	@Override
-	public void electricityReleased() {
+	public synchronized void electricityReleased() {
 	//	TreeMap<Integer, LinkedList<Integer>> list = CircuitBoard.getInstance().getConnectedList();
 		LinkedList<Integer> list = this.getAbleConnecting();
 		this.setImageResource(R.drawable.transistor_released);
@@ -30,7 +30,7 @@ public class Transistor extends Component{
 	}
 	
 	@Override
-	public void electricityUnreleased() {
+	public synchronized void electricityUnreleased() {
 		//TreeMap<Integer, LinkedList<Integer>> list = CircuitBoard.getInstance().getConnectedList();
 		LinkedList<Integer> list = this.getConnected();
 		if(this.getElectrified() <= 0){
