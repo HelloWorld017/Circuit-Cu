@@ -6,6 +6,7 @@ import java.util.Iterator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +39,7 @@ public class LevelSelector extends android.app.Activity{
 		final ListView timeRecord = (ListView)findViewById(R.id.rankingList);
 		Button MainMenu = (Button)findViewById(R.id.btnMainMenu);
 		Button Play = (Button)findViewById(R.id.btnPlay);
+		Button GetM = (Button)findViewById(R.id.btnGetMap);
 		MainMenu.setTypeface(tf);
 		Play.setTypeface(tf);
 		name.setTypeface(tf);
@@ -108,6 +110,19 @@ public class LevelSelector extends android.app.Activity{
 				AudioHelper.playEffect(LevelSelector.this, 0);
 				// TODO Auto-generated method stub
 				
+			}
+		});
+		GetM.setTypeface(tf);
+		GetM.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Uri uri = Uri.parse("https://www.dropbox.com/sh/d3ztdcecscm23oo/AABXwfKXH3XU-RBQH02vbB_za");
+				Intent intent = new Intent();
+				intent.setAction(Intent.ACTION_VIEW);
+				intent.setData(uri);
+				startActivity(intent);
 			}
 		});
 		

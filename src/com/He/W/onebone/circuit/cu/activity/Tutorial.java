@@ -19,14 +19,6 @@ public class Tutorial extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tutorial);
 		Button mainmenu = (Button)findViewById(R.id.GearButtonMainMenu);
-		/*TextView tutorial1 = (TextView)findViewById(R.id.tutorial1);
-		TextView tutorial2 = (TextView)findViewById(R.id.tutorial2);
-		TextView tutorial3 = (TextView)findViewById(R.id.tutorial3);
-		TextView tutorial4 = (TextView)findViewById(R.id.tutorial4);
-		TextView tutorial5 = (TextView)findViewById(R.id.tutorial5);
-		TextView tutorial6 = (TextView)findViewById(R.id.tutorial6);
-		TextView tutorial7 = (TextView)findViewById(R.id.tutorial7);
-		TextView tutorial8 = (TextView)findViewById(R.id.tutorial8);*/
 		Typeface tf = (Typeface)Setting.getPrefix(0);
 		mainmenu.setTypeface(tf);
 		int[] ids = new int[]{
@@ -36,14 +28,6 @@ public class Tutorial extends Activity {
 			TextView tv = (TextView)findViewById(id);
 			tv.setTypeface(tf);
 		}
-		/*tutorial1.setTypeface(tf);
-		tutorial2.setTypeface(tf);
-		tutorial3.setTypeface(tf);
-		tutorial4.setTypeface(tf);
-		tutorial5.setTypeface(tf);
-		tutorial6.setTypeface(tf);
-		tutorial7.setTypeface(tf);
-		tutorial8.setTypeface(tf);*/
 		mainmenu.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -55,6 +39,31 @@ public class Tutorial extends Activity {
 				it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(it);
 				
+			}
+		});
+		Button credit = (Button)findViewById(R.id.btnCredit);
+		credit.setTypeface(tf);
+		credit.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				TextView tv = (TextView)findViewById(R.id.tutorial1);
+				tv.setText("");
+				tv = (TextView)findViewById(R.id.tutorial2);
+				tv.setText("");
+				tv = (TextView)findViewById(R.id.tutorial3);
+				tv.setText("Developer : onebone & He.W");
+				tv = (TextView)findViewById(R.id.tutorial4);
+				tv.setText("Image by ciker.com, Lorc, simpleicon.com, walsave.com");
+				tv = (TextView)findViewById(R.id.tutorial5);
+				tv.setText("Font by Microsoft, Sandoll, Ubuntu, diezil tweeks");
+				tv = (TextView)findViewById(R.id.tutorial6);
+				tv.setText("Music by Portal 2");
+				tv = (TextView)findViewById(R.id.tutorial7);
+				tv.setText("Thank you for playing this game!");
+				tv = (TextView)findViewById(R.id.tutorial8);
+				tv.setText("https://github.com/HelloWorld017/Circuit-Cu");
 			}
 		});
 		
