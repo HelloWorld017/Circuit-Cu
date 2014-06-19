@@ -2,15 +2,13 @@ package com.He.W.onebone.circuit.cu.activity;
 
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
-import com.He.W.onebone.circuit.cu.settings.EnumSettings;
+
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
