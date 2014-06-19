@@ -72,11 +72,6 @@ public class PreferenceActivity extends Activity {
         	AudioHelper.playEffect(this, 0);
 			isgau = true;
 			MainActivity.isGGAW = true;
-			Intent it = new Intent(this, MainActivity.class);
-			it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-			it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(it);
-    		return false;
 
         }
         return true;

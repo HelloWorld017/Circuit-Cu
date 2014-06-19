@@ -34,14 +34,15 @@
         android:gravity="right" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtVersion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:text="@string/version_code"
-        android:textColor="#ffffff"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
     <!-- android:layout_alignParentTop="true"
            android:layout_alignRight="@+id/GeerButtonStart" 
            눈에 띄지 않으므로 위의 방법이 좀 더 좋다고 나는 생각함.-->

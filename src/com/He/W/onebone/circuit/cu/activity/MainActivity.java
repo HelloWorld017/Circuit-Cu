@@ -40,6 +40,7 @@ public class MainActivity extends android.app.Activity {
 		
 		TextView tv = (TextView) findViewById(R.id.textCircuitCU);
 		TextView tv2 = (TextView)findViewById(R.id.message_textview);
+		TextView tv3 = (TextView)findViewById(R.id.txtVersion);
 		Button startBtn = (Button)findViewById(R.id.GeerButtonStart);
 		
 		Button htpBtn = (Button)findViewById(R.id.GeerButtonHTP);
@@ -96,6 +97,8 @@ public class MainActivity extends android.app.Activity {
 		tv.setTypeface(f);
 		tv2.setTypeface(f);
 		tv2.setTextColor(Color.CYAN);
+		tv3.setTypeface(f);
+		tv3.setTextColor(Color.CYAN);
 		
 		obj = this;
 		String[] strArr = getResources().getStringArray(R.array.messages);
