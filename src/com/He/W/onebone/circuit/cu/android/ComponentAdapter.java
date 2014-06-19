@@ -61,10 +61,10 @@ public class ComponentAdapter extends BaseAdapter {
 		/*Integer item = hm.get(addingItem);
 		if(item == null){*/
 		if(hm.containsKey(addingItem)){
-			hm.put(addingItem, addingCount);
-		}else{
 			hm.remove(addingItem);
 			hm.put(addingItem, hm.get(addingItem) + addingCount);
+		}else{
+			hm.put(addingItem, addingCount);
 		}
 		this.notifyDataSetChanged();
 	}

@@ -2,18 +2,23 @@ package com.He.W.onebone.circuit.cu.activity;
 
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
+import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
+
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class Tutorial extends Activity {
-
+	public boolean isgaw = false;
+	public boolean isgau = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,6 +39,8 @@ public class Tutorial extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				AudioHelper.playEffect(Tutorial.this, 0);
+				isgau = true;
+				MainActivity.isGGAW = true;
 				Intent it = new Intent(Tutorial.this, MainActivity.class);
 				it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 				it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -49,15 +56,15 @@ public class Tutorial extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				TextView tv = (TextView)findViewById(R.id.tutorial1);
-				tv.setText("");
+				tv.setText("Developer : onebone & He.W");
 				tv = (TextView)findViewById(R.id.tutorial2);
 				tv.setText("");
 				tv = (TextView)findViewById(R.id.tutorial3);
-				tv.setText("Developer : onebone & He.W");
+				tv.setText("Crouton library by Benjamin Weiss (keyboardsurfer)");
 				tv = (TextView)findViewById(R.id.tutorial4);
-				tv.setText("Image by ciker.com, Lorc, simpleicon.com, walsave.com");
+				tv.setText("Image by ciker.com, Lorc, simpleicon.com, wallsave.com");
 				tv = (TextView)findViewById(R.id.tutorial5);
-				tv.setText("Font by Microsoft, Sandoll, Ubuntu, diezil tweeks");
+				tv.setText("Font by Microsoft, NHN and Sandoll, Ubuntu, diezil tweeks");
 				tv = (TextView)findViewById(R.id.tutorial6);
 				tv.setText("Music by Portal 2");
 				tv = (TextView)findViewById(R.id.tutorial7);
@@ -68,7 +75,39 @@ public class Tutorial extends Activity {
 		});
 		
 	}
+	@Override
+	protected void onPause(){
+		super.onPause();
+		isgaw = true;
+		if(!isgau){
+			AudioHelper.stopMusic();
+		}
+			
+		
+	}
+	@Override
+	protected void onResume(){
+		super.onResume();
+		Log.d("TmLbug1", "onResume");
+		if(isgaw && Setting.readSettings(EnumSettings.play_bgm) == 0){
+			AudioHelper.playBGM(this, R.raw.portal2_12_the_friendly_faith_plate, true);
+			isgaw = false;
+		}
+	}
+	public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { 
+        	AudioHelper.playEffect(this, 0);
+			isgau = true;
+			MainActivity.isGGAW = true;
+			Intent it = new Intent(this, MainActivity.class);
+			it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+			it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(it);
+    		return false;
 
+        }
+        return true;
+    }
 /*	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

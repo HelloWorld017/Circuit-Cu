@@ -22,6 +22,7 @@ import de.keyboardsurfer.android.widget.crouton.*;
 
 public class MainActivity extends android.app.Activity {
 	private static MainActivity obj;
+	public static boolean isGGAW = false;
 	
 	@Override @Deprecated
 	protected void onCreate(android.os.Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class MainActivity extends android.app.Activity {
 		Setting.initSettings(this);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		Log.d("AhLbug2", "Data : " + Setting.readSettings(EnumSettings.play_bgm));
-		if(Setting.readSettings(EnumSettings.play_bgm) == 0){
+		if(Setting.readSettings(EnumSettings.play_bgm) == 0 && (!isGGAW)){
 			AudioHelper.playBGM(this, R.raw.portal2_12_the_friendly_faith_plate, true);
 		}
 		AudioHelper.addEffect(MainActivity.this, R.raw.button_click, 0);
@@ -41,13 +42,13 @@ public class MainActivity extends android.app.Activity {
 		TextView tv2 = (TextView)findViewById(R.id.message_textview);
 		Button startBtn = (Button)findViewById(R.id.GeerButtonStart);
 		
-		Button editBtn = (Button)findViewById(R.id.GeerButtonEdit);
 		Button htpBtn = (Button)findViewById(R.id.GeerButtonHTP);
 		Button prefBtn = (Button)findViewById(R.id.BtnPref);
 		prefBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
+				isGGAW = true;
 				// TODO Auto-generated method stub
 				AudioHelper.playEffect(MainActivity.this, 0);
 				Intent intent = new Intent(MainActivity.this, PreferenceActivity.class);
@@ -68,6 +69,7 @@ public class MainActivity extends android.app.Activity {
 			
 			@Override
 			public void onClick(View v) {
+				isGGAW = true;
 				AudioHelper.playEffect(MainActivity.this, 0);
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this, Tutorial.class);
@@ -90,7 +92,6 @@ public class MainActivity extends android.app.Activity {
 		}
 		
 		startBtn.setTypeface(f);
-		editBtn.setTypeface(f);
 		htpBtn.setTypeface(f);
 		tv.setTypeface(f);
 		tv2.setTypeface(f);
@@ -120,7 +121,12 @@ public class MainActivity extends android.app.Activity {
 	@Override
 	protected void onDestroy(){
 		super.onDestroy();
-		AudioHelper.stopMusic();
+		Log.d("PmLbug1","onMainDestroy");
+		if(!isGGAW){
+			AudioHelper.stopMusic();
+			
+		}
+		isGGAW = false;
 		Crouton.cancelAllCroutons();
 		Crouton.clearCroutonsForActivity(this);
 	}
@@ -128,7 +134,12 @@ public class MainActivity extends android.app.Activity {
 	@Override
 	public void onPause(){
 		super.onPause();
-		AudioHelper.stopMusic();
+		if(!isGGAW){
+			Log.d("PmLbug1","onMainPause");
+			
+			AudioHelper.stopMusic();
+		}
+		isGGAW = false;
 	}
 	@Override
     public boolean dispatchKeyEvent(KeyEvent event) {

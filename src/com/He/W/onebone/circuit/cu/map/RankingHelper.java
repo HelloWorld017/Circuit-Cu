@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 import android.content.Context;
 import android.os.Environment;
@@ -174,7 +175,6 @@ public class RankingHelper {
 		//TODO write script
 		return null;
 	}*/
-	@SuppressWarnings("unchecked")
 	public static void writeAllRankings(){
 		//Declaration part
 		String path = FirstStartingHelper.rankingPath;
@@ -183,17 +183,25 @@ public class RankingHelper {
 			FileOutputStream fos = new FileOutputStream(f);
 			OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
 			BufferedWriter bw = new BufferedWriter(osw);
-			Iterator i = rankingsForAllMap.values().iterator();
-			ArrayList<ArrayList<Object[]>> rankingsFAM = new ArrayList<ArrayList<Object[]>>();
+			Iterator<Entry<File, ArrayList<Object[]>>> i =rankingsForAllMap.entrySet().iterator();
+			ArrayList<Entry<File, ArrayList<Object[]>>> allist = new ArrayList<Entry<File, ArrayList<Object[]>>>();
 			while(i.hasNext()){
-				rankingsFAM.add((ArrayList<Object[]>) i.next());
+				allist.add(i.next());
 			}
 			
 			//Writing part
-			
-			for(int a = 0; a < rankingsForAllMap.size();a++){
-				
+			for(int a = 0; a < allist.size();a++){
+				Entry<File, ArrayList<Object[]>> tentr = allist.get(a);
+				ArrayList<Object[]> ranking = tentr.getValue();
+				bw.write("/" + tentr.getKey().getName());
+				for(int b = 0;b < ranking.size();b++){
+					bw.write((String)(ranking.get(b)[0]));
+				}
 			}
+			bw.flush();
+			bw.close();
+			osw.close();
+			fos.close();
 			
 		}catch(IOException e){
 			Log.d("error", StackTraceToString.convert(e));

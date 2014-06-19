@@ -161,9 +161,10 @@
         android:id="@+id/btnGetMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btnPlay"
         android:layout_alignParentLeft="true"
-		android:layout_above="@+id/btnPlay"
-		android:background="@drawable/selector"
+        android:layout_alignRight="@+id/btnMainMenu"
+        android:background="@drawable/selector"
         android:text="@string/layout_get_maps" />
 
 </RelativeLayout>
