@@ -2,7 +2,7 @@
 
  <resources>
      <string-array name="messages">
-        <!-- 41 messages will be shown at main activity.  -->
+        <!-- x messages will be shown at main activity.  -->
          <item>Circuiting Excitement!</item>
          <item>Welcome to Circuit-Cu!</item>
          <item>Pzzzz....... BOOM!!!!</item>
@@ -46,5 +46,15 @@
          <item>Spaghetti code!!</item>
          <item>Logical Error!</item>
          <item>Hate you Kim Jong-un!</item>
+         <item>Over and over again!</item>
+         <item>If you want to debug, call cesco.</item>
+         <item>root(104765)/4 is wrong answer!</item>
+         <item>Spaaaaace!</item>
+         <item>Geronimo!</item>
+         <item>Don't hear 'nice boat'.</item>
+         <item>Blue vs Orange</item>
+         <item>Soba vs Udon? I'm Tonkotsu ramen! </item>
+         <item>Search wolframalpha a^2 + 2ab + b^2</item>
+         <item>Goo and gle or im.</item>
      </string-array>
 </resources>

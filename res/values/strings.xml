@@ -37,6 +37,7 @@
     <string name="layout_time_second">sec</string>
     <string name="layout_get_maps">Get Map!</string>
     <string name="layout_credit">Credit</string>
+    <string name="layout_needs_reboot">This needs restart.</string>
     <string name="title_activity_tutorial">Tutorial</string>
     <string name="tutorial_a">Welcome to Circuit Cu!</string>
     <string name="tutorial_b">Do you want to learn this game?</string>

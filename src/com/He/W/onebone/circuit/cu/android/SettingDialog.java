@@ -8,8 +8,10 @@ import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 import com.He.W.onebone.circuit.cu.settings.SettingSpefHelper;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +25,7 @@ public class SettingDialog extends Dialog{
 	private EnumSettings namae;
 	private Context ctxt;
 	private int value;
+	private boolean needsRestart;
 	public SettingDialog(Context context) {
 		super(context);
 		ctxt = context;
@@ -38,6 +41,7 @@ public class SettingDialog extends Dialog{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.custom_setting_dialog);	
 		SettingSpefHelper ssh = new SettingSpefHelper(ctxt);
+		 needsRestart = ssh.isNeededRestart(namae);
 		TextView OrgV = (TextView) findViewById(R.id.txtOriginalValue);
 		String v = ssh.getValueAvailable(namae, ssh.getValue(namae) + 1);
 		OrgV.setText(ctxt.getString(R.string.layout_original_value) + v);
@@ -84,6 +88,29 @@ public class SettingDialog extends Dialog{
 				// TODO Auto-generated method stub
 				AudioHelper.playEffect(ctxt, 0);
 				Setting.writeSettings(namae, value);
+				if(needsRestart){
+					AlertDialog.Builder ad = new AlertDialog.Builder(ctxt);
+					ad.setTitle("Restart");
+					ad.setMessage(R.string.layout_needs_reboot);
+					ad.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+							Setting.destroyHelper();
+							System.exit(0);
+						}
+					});
+					ad.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface arg0, int arg1) {
+							// TODO Auto-generated method stub
+							arg0.cancel();
+						}
+					});
+					ad.show();
+				}
 				dismiss();
 			}
 		});

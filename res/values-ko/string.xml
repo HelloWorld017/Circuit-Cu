@@ -29,6 +29,7 @@
     <string name="layout_original_value">원래 값:</string>
     <string name="layout_time_minute">분</string>
     <string name="layout_time_second">초</string>
+    <string name="layout_needs_reboot">이 설정은 게임 재시작을 필요로 합니다.</string>
 	<string name="tutorial_a">Circuit Cu에 오신것을 환영합니다!</string>
 	<string name="tutorial_b">게임을 배우기 위해서 오셨다고요?</string>
 	<string name="tutorial_c">이 게임은 매우 쉬워요.</string>

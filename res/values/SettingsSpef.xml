@@ -39,7 +39,7 @@
     
      <integer-array name="play_bgm">
 	        <item >2</item>
-	        <item >0</item>
+	        <item >1</item>
 	        <item >1</item>
 	    </integer-array>
 	    <string name="play_bgm">Play BGM</string>

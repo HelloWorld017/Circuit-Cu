@@ -124,6 +124,7 @@ public class SettingAdapter extends BaseAdapter {
 					SettingDialog sd = new SettingDialog(ctxt,(EnumSettings)database.get(arg0)[0]);
 					sd.setTitle(R.string.layout_modify_value);
 					sd.show();
+					
 				}
 				return false;
 			}

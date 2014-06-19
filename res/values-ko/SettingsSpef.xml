@@ -6,7 +6,7 @@
         <!-- first argument is Setting id -->
         <item>0</item>
         <!-- Second argument is need restart -->
-        <item>0</item>
+        <item>1</item>
         <!-- Third argument is visibility -->
         <item>1</item>
     </integer-array>
@@ -47,7 +47,7 @@
 	    
 	    <integer-array name="play_bgm">
 	        <item >2</item>
-	        <item >0</item>
+	        <item >1</item>
 	        <item >1</item>
 	    </integer-array>
 	    <string name="play_bgm">브금을 재생합니다.</string>
