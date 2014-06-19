@@ -13,9 +13,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 public class AudioHelper {
-	private static MediaPlayer mp = null;
-	private static SoundPool sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
-	private static ArrayList<Integer> effects = new ArrayList<Integer>();
+	public static MediaPlayer mp = null;
+	public static SoundPool sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
+	public static ArrayList<Integer> effects = new ArrayList<Integer>();
 	
 	public static void stopMusic(){
 		if(mp!=null){

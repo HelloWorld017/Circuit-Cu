@@ -17,8 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Tutorial extends Activity {
-	public boolean isgaw = false;
-	public boolean isgau = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,12 +38,7 @@ public class Tutorial extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				AudioHelper.playEffect(Tutorial.this, 0);
-				isgau = true;
-				MainActivity.isGGAW = true;
-				Intent it = new Intent(Tutorial.this, MainActivity.class);
-				it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-				it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(it);
+				finish();
 				
 			}
 		});
@@ -75,36 +69,10 @@ public class Tutorial extends Activity {
 		});
 		
 	}
-	@Override
-	protected void onPause(){
-		super.onPause();
-		isgaw = true;
-		if(!isgau){
-			AudioHelper.stopMusic();
-		}
-			
-		
-	}
-	@Override
-	protected void onResume(){
-		super.onResume();
-		Log.d("TmLbug1", "onResume");
-		if(isgaw && Setting.readSettings(EnumSettings.play_bgm) == 0){
-			AudioHelper.playBGM(this, R.raw.portal2_12_the_friendly_faith_plate, true);
-			isgaw = false;
-		}
-	}
+
 	public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { 
         	AudioHelper.playEffect(this, 0);
-			isgau = true;
-			MainActivity.isGGAW = true;
-			Intent it = new Intent(this, MainActivity.class);
-			it.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-			it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(it);
-    		return false;
-
         }
         return true;
     }
