@@ -18,7 +18,7 @@
          <item>日本こんにちは！</item>
          <item>Gotcha!</item>
          <item>Finger lickin good</item>
-         <item>Dies barrel rolls.... was type-o... was bad English. Typo is correct.</item>
+         <item>Dies barrel rolls.... was type-o... was broken English. Typo is correct.</item>
          <item>Birds! Birds! Birds! Birds!</item>
          <item>And Ive been a potatooo.</item>
          <item>Do you want to exit game? Click here NOT to exit.</item>
@@ -51,10 +51,23 @@
          <item>root(104765)/4 is wrong answer!</item>
          <item>Spaaaaace!</item>
          <item>Geronimo!</item>
-         <item>Don't hear 'nice boat'.</item>
+         <item>Do not say nice boat.</item>
          <item>Blue vs Orange</item>
-         <item>Soba vs Udon? I'm Tonkotsu ramen! </item>
-         <item>Search wolframalpha a^2 + 2ab + b^2</item>
+         <item>Soba vs Udon? I am Tonkotsu ramen! </item>
+         <item>Compute a^2 + 2ab + b^2 with wolframalpha.</item>
          <item>Goo and gle or im.</item>
+         <item>業務がばくはつ</item>
+         <item>A quick brown fox jumps over the lazy dog.</item>
+         <item>다람쥐 헌 쳇바퀴 타고파</item>
+         <item>GAME not OVER!</item>
+         <item>Yawnnn</item>
+         <item>Freedom dive!</item>
+         <item>Circuit-Cu.exe is 100%% virus! Circuit-Cu.apk is 40%% virus! Circuit-Cu on Google play is 0.000001%% virus.</item>
+         <item>Some quotes overflow the TextView. And this is the one of them.</item>
+         <item>Do not eat a BigMac. Eat BigLinux or BigUbuntu.</item>
+         <item>Next-Next-Next-Install-Finish is wrong installation that makes many adwares.</item>
+         <item>Do not use password or 123456789 for password.</item>
+         <item>OMG! Conflict on Github!</item>
+         <item>Nyan Cat!</item>
      </string-array>
 </resources>

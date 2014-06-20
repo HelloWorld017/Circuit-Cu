@@ -38,7 +38,13 @@
     <string name="layout_get_maps">Get Map!</string>
     <string name="layout_credit">Credit</string>
     <string name="layout_needs_reboot">This needs restart.</string>
+    <string name="layout_modify_component">Modify</string>
+    <string name="layout_delete_component">Delete</string>
+    <string name="layout_add_component">Add</string>
+    <string name="layout_reset_build_state">Reset</string>
+    <string name="layout_build">Build</string>
     <string name="title_activity_tutorial">Tutorial</string>
+    <string name="title_activity_game">Game</string>
     <string name="tutorial_a">Welcome to Circuit Cu!</string>
     <string name="tutorial_b">Do you want to learn this game?</string>
     <string name="tutorial_c">This game is extremely easy.</string>
