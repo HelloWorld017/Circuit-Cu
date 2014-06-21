@@ -30,7 +30,7 @@ public class LevelParser {
 		});
 		
 		result.remove("Settings.cc");
-		result.remove("Rankings.cc");
+		result.remove("Ranking.cc");
 		
 		return result;
 	}
