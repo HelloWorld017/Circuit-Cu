@@ -63,7 +63,7 @@ public class Resistor extends Component implements ElectricityBlockable{
 	@Override
 	public synchronized void electricityUnreleased() {
 		if(this.getElectrified() <= 0){
-			this.setImageResource(R.drawable.resistor_unreleased);
+			this.setImageResource(R.drawable.resistor);
 		}
 		this.addBlockElectricity(-1);
 	}

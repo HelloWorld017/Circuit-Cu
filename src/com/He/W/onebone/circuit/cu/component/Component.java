@@ -98,7 +98,7 @@ abstract public class Component extends ImageView{
 			}
 			break;
 		case COMPONENT_LIGHT_BULB:
-			if(this.electrified > 0){ // Check if it's light is on
+			/*if(this.electrified > 0){ // Check if it's light is on
 				if(focus){
 					this.setImageResource(R.drawable.glowing_light_bulb_focused);
 				}else{
@@ -111,7 +111,7 @@ abstract public class Component extends ImageView{
 					this.setImageResource(R.drawable.light_bulb);
 				}
 			}
-			break;
+			break;*/
 			default:
 				return;
 		}
