@@ -10,7 +10,7 @@ import android.util.Log;
 public class Level{
 	private ArrayList<TreeMap<String, Object>> itemData;
 	private String author, name;
-	private int difficulty, startX, endX, startY, endY, divideX, divideY;
+	private int difficulty, startX, endX, startY, endY, xLength, yLength;
 	private String filePath;
 	
 	public static final int MAX_DIFFICULTY = 10;
@@ -25,8 +25,8 @@ public class Level{
 			startY = Integer.parseInt(mapData.get("startY"));
 			endX = Integer.parseInt(mapData.get("endX"));
 			endY = Integer.parseInt(mapData.get("endY"));
-			divideX = Integer.parseInt(mapData.get("divideX"));
-			divideY = Integer.parseInt(mapData.get("divideY"));
+			xLength = Integer.parseInt(mapData.get("xLength"));
+			yLength = Integer.parseInt(mapData.get("yLength"));
 			difficulty = Integer.parseInt(mapData.get("difficulty")) & MAX_DIFFICULTY;
 		}catch(Exception e){
 			Log.d("Level", e.getMessage());
@@ -66,12 +66,12 @@ public class Level{
 		return endY;
 	}
 	
-	public int getDivideX(){
-		return divideX;
+	public int getXLength(){
+		return xLength;
 	}
 	
-	public int getDivideY(){
-		return divideY;
+	public int getYLength(){
+		return yLength;
 	}
 	
 	/*public int getStart(){

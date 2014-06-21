@@ -61,7 +61,6 @@ public class LevelParser {
 				int start = startMatcher.start();
 				int end = startMatcher.end();
 				
-				//String tag = content.substring(start, end).substring(1, content.length() - 1);
 				String tmp = content.substring(start, end);
 				String tag = tmp.substring(1, tmp.length() -1);
 				if(tag.equals("MAP")){
