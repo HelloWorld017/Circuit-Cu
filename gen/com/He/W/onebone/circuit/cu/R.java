@@ -152,11 +152,8 @@ public final class R {
     }
     public static final class raw {
         public static final int button_click=0x7f040000;
-        public static final int portal2_05_excursion_funnel=0x7f040001;
-        public static final int portal2_09_the_future_starts_with_you=0x7f040002;
-        public static final int portal2_12_the_friendly_faith_plate=0x7f040003;
-        public static final int portal2_18_adrenal_vapor=0x7f040004;
-        public static final int portal2_22_triple_laser_phase=0x7f040005;
+        public static final int portal2_09_the_future_starts_with_you=0x7f040001;
+        public static final int portal2_18_adrenal_vapor=0x7f040002;
     }
     public static final class string {
         public static final int achievement_granted=0x7f06000d;

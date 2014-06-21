@@ -5,6 +5,7 @@ import com.He.W.onebone.circuit.cu.android.SettingAdapter;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -15,11 +16,14 @@ import android.widget.Button;
 import android.widget.ListView;
 
 public class PreferenceActivity extends Activity {
+	private MediaPlayer prMP;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_preference);
-		AudioHelper.playBGM(this,R.raw.portal2_18_adrenal_vapor, true);
+		prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
+		prMP.setLooping(true);
+		prMP.start();
 		Button mm = (Button)findViewById(R.id.btnSettingToMainMenu);
 		mm.setOnClickListener(new View.OnClickListener() {
 			
@@ -40,6 +44,11 @@ public class PreferenceActivity extends Activity {
 	protected void onDestroy(){
 		super.onDestroy();
 		Setting.destroyHelper();
+		if(prMP != null){
+			prMP.stop();
+			prMP.reset();
+			prMP = null;
+		}
 	}
 
 
@@ -52,17 +61,18 @@ public class PreferenceActivity extends Activity {
 	@Override
 	protected void onPause(){
 		super.onPause();
-		AudioHelper.mp.stop();
+		prMP.stop();
+		prMP.reset();
+		prMP = null;
 	}
 	@Override
 	protected void onResume(){
 		super.onResume();
-		AudioHelper.mp.start();
-	}
-	@Override
-	protected void onStop(){
-		super.onStop();
-		AudioHelper.stopMusic();
+		if(prMP == null){
+			prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
+			prMP.setLooping(true);
+			prMP.start();
+		}
 	}
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
