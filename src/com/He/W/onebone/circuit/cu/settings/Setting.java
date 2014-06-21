@@ -96,10 +96,7 @@ public class Setting {
 		return ctxt;
 	}
 	public static int readSettings(EnumSettings es){
-		if(flags.containsKey(es)){
 			return flags.get(es);
-		}
-		return 0;
 	}
 	
 	public static boolean readAllSettings(Context ctxt){

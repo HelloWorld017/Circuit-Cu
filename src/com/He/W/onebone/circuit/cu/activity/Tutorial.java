@@ -3,6 +3,7 @@ package com.He.W.onebone.circuit.cu.activity;
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 
+import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
 
@@ -16,14 +17,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class Tutorial extends Activity {
-	private MediaPlayer prMP;
+	private MediaPlayer prMP = null;
+	private boolean playMusic = (Setting.readSettings(EnumSettings.play_bgm) == 0);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tutorial);
-		prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
-		prMP.setLooping(true);
-		prMP.start();
+		if(playMusic){
+					prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
+					prMP.setLooping(true);
+					prMP.start();
+		}
+
 		Button mainmenu = (Button)findViewById(R.id.GearButtonMainMenu);
 		Typeface tf = (Typeface)Setting.getPrefix(0);
 		mainmenu.setTypeface(tf);
@@ -81,9 +86,12 @@ public class Tutorial extends Activity {
 	@Override
 	protected void onPause(){
 		super.onPause();
-		prMP.stop();
-		prMP.reset();
-		prMP = null;
+		if(prMP != null){
+			prMP.stop();
+			prMP.reset();
+			prMP = null;
+		}
+		
 	}
 	@Override
 	protected void onResume(){
@@ -97,7 +105,7 @@ public class Tutorial extends Activity {
 	@Override
 	protected void onDestroy(){
 		super.onDestroy();
-		if(prMP != null){
+		if(prMP != null && playMusic){
 			prMP.stop();
 			prMP.reset();
 			prMP = null;
