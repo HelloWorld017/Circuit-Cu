@@ -3,6 +3,11 @@ package com.He.W.onebone.circuit.cu.activity;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.He.W.onebone.circuit.cu.CircuitBoard;
@@ -23,15 +28,50 @@ public class GameActivity extends Activity{ //SlidingActivity{
 	private HashMap<EnumComponentType, Integer> map;
 	
 	private ListView itemList;
+	private AlertDialog componentDialog = null;
 	
 	public GameActivity(Level level){
 		this.level = level;
+	}
+	
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_gaming);
+		
 		CircuitBoard.destroyBoard();
 		this.board = CircuitBoard.makeBoard(this);
 		map = new HashMap<EnumComponentType, Integer>();
 		adapter = new ComponentAdapter(this, map);
 		
-		// TODO Get ListView this#itemList from layout resource 
+		componentDialog.setOnDismissListener(new DialogInterface.OnDismissListener(){
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				componentDialog = null;
+			}
+		});
+		
+		((Button)findViewById(R.id.btnBuild)).setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				
+			}
+		});
+		
+		((Button)findViewById(R.id.btnAdd)).setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				if(componentDialog == null){
+					// TODO Add component insert dialog
+				}
+			}
+		});
+		
+		((Button)findViewById(R.id.btnCancel)).setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				
+			}
+		});
 		prepare();
 	}
 	
