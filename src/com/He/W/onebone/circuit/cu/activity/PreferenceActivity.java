@@ -19,6 +19,7 @@ public class PreferenceActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_preference);
+		AudioHelper.playBGM(this,R.raw.portal2_18_adrenal_vapor, true);
 		Button mm = (Button)findViewById(R.id.btnSettingToMainMenu);
 		mm.setOnClickListener(new View.OnClickListener() {
 			
@@ -48,6 +49,21 @@ public class PreferenceActivity extends Activity {
         }
         return true;
     }
+	@Override
+	protected void onPause(){
+		super.onPause();
+		AudioHelper.mp.stop();
+	}
+	@Override
+	protected void onResume(){
+		super.onResume();
+		AudioHelper.mp.start();
+	}
+	@Override
+	protected void onStop(){
+		super.onStop();
+		AudioHelper.stopMusic();
+	}
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

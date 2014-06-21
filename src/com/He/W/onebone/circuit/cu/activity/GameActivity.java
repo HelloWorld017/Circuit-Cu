@@ -15,6 +15,7 @@ import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.achievement.Achievement;
 import com.He.W.onebone.circuit.cu.android.ComponentAdapter;
 import com.He.W.onebone.circuit.cu.component.EnumComponentType;
+import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.map.Level;
 
 import de.keyboardsurfer.android.widget.crouton.*;
@@ -39,6 +40,7 @@ public class GameActivity extends Activity{ //SlidingActivity{
 		setContentView(R.layout.activity_gaming);
 		
 		CircuitBoard.destroyBoard();
+		AudioHelper.playBGM(this,R.raw.portal2_22_triple_laser_phase, true);
 		this.board = CircuitBoard.makeBoard(this);
 		map = new HashMap<EnumComponentType, Integer>();
 		adapter = new ComponentAdapter(this, map);

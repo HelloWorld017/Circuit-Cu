@@ -26,10 +26,10 @@ public class ComponentAdapter extends BaseAdapter {
 	
 	public ComponentAdapter(Context ctx, HashMap<EnumComponentType, Integer> hm){
 		li = (LayoutInflater)ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		drawable_record.put(EnumComponentType.COMPONENT_COPPER_WIRE, ctx.getResources().getDrawable(R.drawable.copper_wire));
-		drawable_record.put(EnumComponentType.COMPONENT_GOLD_WIRE, ctx.getResources().getDrawable(R.drawable.gold_wire));
-		drawable_record.put(EnumComponentType.COMPONENT_RESISTOR, ctx.getResources().getDrawable(R.drawable.resistor));
-		drawable_record.put(EnumComponentType.COMPONENT_TRANSISTOR, ctx.getResources().getDrawable(R.drawable.transistor));
+		drawable_record.put(EnumComponentType.COMPONENT_COPPER_WIRE, ctx.getResources().getDrawable(R.drawable.wire_landscape));
+		drawable_record.put(EnumComponentType.COMPONENT_GOLD_WIRE, ctx.getResources().getDrawable(R.drawable.gold_wire_landscape));
+		drawable_record.put(EnumComponentType.COMPONENT_RESISTOR, ctx.getResources().getDrawable(R.drawable.resistor_landscape));
+		drawable_record.put(EnumComponentType.COMPONENT_TRANSISTOR, ctx.getResources().getDrawable(R.drawable.transistor_landscape));
 		
 		this.hm = hm;
 	}

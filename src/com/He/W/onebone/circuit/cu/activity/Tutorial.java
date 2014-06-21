@@ -20,6 +20,7 @@ public class Tutorial extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tutorial);
+		AudioHelper.playBGM(this,R.raw.portal2_05_excursion_funnel, true);
 		Button mainmenu = (Button)findViewById(R.id.GearButtonMainMenu);
 		Typeface tf = (Typeface)Setting.getPrefix(0);
 		mainmenu.setTypeface(tf);
@@ -74,6 +75,21 @@ public class Tutorial extends Activity {
         }
         return true;
     }
+	@Override
+	protected void onPause(){
+		super.onPause();
+		AudioHelper.mp.stop();
+	}
+	@Override
+	protected void onResume(){
+		super.onResume();
+		AudioHelper.mp.start();
+	}
+	@Override
+	protected void onStop(){
+		super.onStop();
+		AudioHelper.stopMusic();
+	}
 /*	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

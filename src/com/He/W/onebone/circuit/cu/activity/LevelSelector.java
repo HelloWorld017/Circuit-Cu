@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -33,6 +34,7 @@ public class LevelSelector extends android.app.Activity{
 	public void onCreate(android.os.Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.level_selector);
+		AudioHelper.playBGM(this,R.raw.portal2_09_the_future_starts_with_you, true);
 		final Typeface tf = (Typeface)Setting.getPrefix(0);
 		final TextView name = (TextView)findViewById(R.id.tvMapName);
 		final TextView author = (TextView)findViewById(R.id.tvAuthor);
@@ -126,5 +128,26 @@ public class LevelSelector extends android.app.Activity{
 			}
 		});
 		
+	}
+	public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) { 
+        	AudioHelper.playEffect(this, 0);
+        }
+        return true;
+    }
+	@Override
+	protected void onPause(){
+		super.onPause();
+		AudioHelper.mp.stop();
+	}
+	@Override
+	protected void onResume(){
+		super.onResume();
+		AudioHelper.mp.start();
+	}
+	@Override
+	protected void onStop(){
+		super.onStop();
+		AudioHelper.stopMusic();
 	}
 }

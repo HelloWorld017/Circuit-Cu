@@ -88,6 +88,11 @@ public class RankingHelper {
 				rankingsForThisMap.add(a, obj);
 			}
 			
+			//Endpart
+			br.close();
+			isr.close();
+			fis.close();
+			
 		  
 		
 		} catch (IOException e) {
