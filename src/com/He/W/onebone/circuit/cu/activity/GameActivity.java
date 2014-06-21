@@ -14,6 +14,7 @@ import com.He.W.onebone.circuit.cu.CircuitBoard;
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.achievement.Achievement;
 import com.He.W.onebone.circuit.cu.android.ComponentAdapter;
+import com.He.W.onebone.circuit.cu.component.Component;
 import com.He.W.onebone.circuit.cu.component.EnumComponentType;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.map.Level;
@@ -28,7 +29,7 @@ public class GameActivity extends Activity{ //SlidingActivity{
 	private ComponentAdapter adapter;
 	private HashMap<EnumComponentType, Integer> map;
 	
-	private ListView itemList;
+	//private ListView itemList;
 	private AlertDialog componentDialog = null;
 	
 	public GameActivity(Level level){
@@ -52,6 +53,15 @@ public class GameActivity extends Activity{ //SlidingActivity{
 			}
 		});
 		
+		((Button)findViewById(R.id.btnDelete)).setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Component focused = board.getFocusedComponent();
+				board.getManager().removeComponent(focused);
+				adapter.addItemToInventory(EnumComponentType.valueOf(focused.getTypeId()), 1);
+			}
+		});
+		
 		((Button)findViewById(R.id.btnBuild)).setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
@@ -64,6 +74,9 @@ public class GameActivity extends Activity{ //SlidingActivity{
 			public void onClick(View v){
 				if(componentDialog == null){
 					// TODO Add component insert dialog
+					
+					componentDialog = new AlertDialog.Builder(GameActivity.this)
+					.show();
 				}
 			}
 		});

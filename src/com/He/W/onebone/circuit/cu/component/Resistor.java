@@ -82,4 +82,9 @@ public class Resistor extends Component implements ElectricityBlockable{
 	public void setBlockElectricity(int value) {
 		blockElectricity = value;
 	}
+	
+	@Override
+	public String getTypeId(){
+		return Component.RESISTOR;
+	}
 }

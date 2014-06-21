@@ -1,8 +1,14 @@
 package com.He.W.onebone.circuit.cu.map;
 
 import java.io.File;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.TreeMap;
+
+import com.He.W.onebone.circuit.cu.component.*;
+import com.He.W.onebone.circuit.cu.wire.*;
 
 import android.util.Log;
 
@@ -10,16 +16,21 @@ import android.util.Log;
 public class Level{
 	private ArrayList<TreeMap<String, Object>> itemData;
 	private String author, name;
-	private int difficulty, startX, endX, startY, endY, xLength, yLength;
+	private int difficulty, startX, endX, startY, endY, xLength, yLength, api;
 	private String filePath;
 	
 	public static final int MAX_DIFFICULTY = 10;
+	public static final int CURRENT_API = 0x01;
 	
 	//Needs ArrayList[<int[]> componentData and Object[] successTime. successTime is at RankingHelper
 	public Level(TreeMap<String, String> mapData, ArrayList<TreeMap<String, Object>> itemData){
 		try{
 			author = mapData.get("author");
 			name = mapData.get("name");
+			
+			if(mapData.containsKey("api")){
+				api = Integer.parseInt(mapData.get("api"));
+			}
 			
 			startX = Integer.parseInt(mapData.get("startX"));
 			startY = Integer.parseInt(mapData.get("startY"));
@@ -32,6 +43,30 @@ public class Level{
 			Log.d("Level", e.getMessage());
 		}
 		this.itemData = itemData;
+	}
+	
+	public Class<? extends Component> getComponentByName(String name){
+		name = name.toLowerCase(Locale.ENGLISH).replaceAll("[_-]", "");
+		if(name.equals("lightbulb")){
+			return LightBulb.class;
+		}else if(name.equals("resistor")){
+			return Resistor.class;
+		}else if(name.equals("transistor")){
+			return Transistor.class;
+		}else{
+			return null;
+		}
+	}
+	
+	public Class<? extends Wire> getWireByName(String name){
+		name = name.toLowerCase(Locale.ENGLISH).replaceAll("[_-]", "");
+		if(name.equals("copperwire")){
+			return CopperWire.class;
+		}else if(name.equals("goldwire")){
+			return GoldWire.class;
+		}else{
+			return null;
+		}
 	}
 	
 	public String getName(){
