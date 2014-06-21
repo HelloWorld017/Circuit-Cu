@@ -18,7 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SettingAdapter extends BaseAdapter {
 	ArrayList<Object[]> database;
@@ -133,6 +136,35 @@ public class SettingAdapter extends BaseAdapter {
 		settingName.setTypeface(tf);
 		settingDesc.setTypeface(tf);
 		modify.setTypeface(tf);
+		if(arg0 == 0){
+			settingName.setOnLongClickListener(new View.OnLongClickListener() {
+
+				@Override
+				public boolean onLongClick(View arg0) {
+					// TODO Auto-generated method stub
+					Toast e = Toast.makeText(ctxt, "", Toast.LENGTH_SHORT);
+					LinearLayout li = (LinearLayout)e.getView();
+					li.removeAllViews();
+					ImageView iv = new ImageView(ctxt);
+					
+					TextView HeW = new TextView(ctxt);
+					HeW.setText("He.W : 바카!");
+					TextView onebone = new TextView(ctxt);
+					onebone.setText("onebone : 안녕");
+					TextView HeW2 = new TextView(ctxt);
+					HeW2.setText("He.W : 컴포넌트 로테이션 만들어서 고멘네");
+					iv.setImageResource(R.drawable.egg);
+					li.addView(iv);
+					li.addView(onebone);
+					li.addView(HeW);
+					li.addView(HeW2);
+					
+					e.show();
+					return false;
+				}
+				
+			});
+		}
 		return arg1;
 	}
 
