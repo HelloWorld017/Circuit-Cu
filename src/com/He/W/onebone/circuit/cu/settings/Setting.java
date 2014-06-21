@@ -37,6 +37,7 @@ public class Setting {
 		flags = new HashMap<EnumSettings, Integer>();
 		if(!readAllSettings(ctx)){
 			FirstStartingHelper.writeScript(EnumScript.setting, FirstStartingHelper.settingPath);
+			readAllSettings(ctx);
 		}
 		
 	}

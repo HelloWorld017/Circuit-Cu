@@ -157,7 +157,7 @@ public class LevelSelector extends android.app.Activity{
 	@Override
 	protected void onResume(){
 		super.onResume();
-		if(prMP == null){
+		if(prMP == null && playMusic){
 			prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
 			prMP.setLooping(true);
 			prMP.start();
@@ -166,7 +166,7 @@ public class LevelSelector extends android.app.Activity{
 	@Override
 	protected void onDestroy(){
 		super.onDestroy();
-		if(prMP != null && playMusic){
+		if(prMP != null){
 			prMP.stop();
 			prMP.reset();
 			prMP = null;
