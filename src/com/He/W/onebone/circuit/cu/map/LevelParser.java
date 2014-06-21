@@ -30,7 +30,7 @@ public class LevelParser {
 		});
 		
 		result.remove("Settings.cc");
-		result.remove("Rankings.cc");
+		result.remove("Ranking.cc");
 		
 		return result;
 	}
@@ -54,7 +54,7 @@ public class LevelParser {
 			Pattern endPattern = Pattern.compile("\\[/\\]"); // [/]
 			Matcher endMatcher = endPattern.matcher(content);
 			
-			Pattern itemDataPattern = Pattern.compile("([a-zA-Z0-9]{1,}+)=([a-zA-Z0-9]{1,}+)"); // something=data
+			Pattern itemDataPattern = Pattern.compile("(.*{1,}+)=(.*{1,}+)"); // something=data
 			while(startMatcher.find()){
 				int curIndex = componentData.size() - 1;
 				
