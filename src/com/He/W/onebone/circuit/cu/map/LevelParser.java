@@ -48,13 +48,13 @@ public class LevelParser {
 			ArrayList<TreeMap<String, Object>> componentData = new ArrayList<TreeMap<String, Object>>();
 			TreeMap<String, Integer>  itemList = new TreeMap<String, Integer>();
 			
-			Pattern startPattern = Pattern.compile("(\\[)([a-zA-Z0-9]{1,}+)(\\])"); // [something]
+			Pattern startPattern = Pattern.compile("\\[([a-z0-9A-Z]{1,}+)\\]"); // [something]
 			Matcher startMatcher = startPattern.matcher(content);
-			
+
 			Pattern endPattern = Pattern.compile("\\[/\\]"); // [/]
 			Matcher endMatcher = endPattern.matcher(content);
 			
-			Pattern itemDataPattern = Pattern.compile("(.*{1,}+)=(.*{1,}+)"); // something=data
+			Pattern itemDataPattern = Pattern.compile("([a-z0-9A-Z]{1,}+)=([a-z0-9A-Z]{1,}+)"); // something=data
 			while(startMatcher.find()){
 				int curIndex = componentData.size() - 1;
 				
@@ -63,7 +63,8 @@ public class LevelParser {
 				
 				String tmp = content.substring(start, end);
 				String tag = tmp.substring(1, tmp.length() -1);
-				if(tag.toLowerCase(Locale.ENGLISH).equals("map")){
+				
+				if(tag.toLowerCase().equals("map")){
 					endMatcher.find();
 					int start2 = endMatcher.start();
 					String item = content.substring(end, start2);
@@ -72,7 +73,7 @@ public class LevelParser {
 						int dataStart = matcher.start();
 						int dataEnd = matcher.end();
 						String dataStr = item.substring(dataStart, dataEnd);
-						String[] data = dataStr.split("=", 1);
+						String[] data = dataStr.split("=");
 						
 						mapData.put(data[0], data[1]);
 					}
@@ -106,7 +107,7 @@ public class LevelParser {
 					componentData.get(curIndex).put(data[0], data[1]);
 				}
 			}
-			return new Level(mapData, componentData, itemList);
+			return new Level(mapData, componentData, itemList, file);
 		}catch(IllegalStateException e){
 			throw new LevelParseException(LevelParseException.WRONG_FILE);
 		}catch(StringIndexOutOfBoundsException e){

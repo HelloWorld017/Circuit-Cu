@@ -19,13 +19,14 @@ public class Level{
 	
 	private String author, name;
 	private int difficulty, startX, endX, startY, endY, xLength, yLength, api;
-	private String filePath;
+	private File file;
 	
 	public static final int MAX_DIFFICULTY = 10;
 	public static final int CURRENT_API = 0x01;
 	
 	//Needs ArrayList[<int[]> componentData and Object[] successTime. successTime is at RankingHelper
-	public Level(TreeMap<String, String> mapData, ArrayList<TreeMap<String, Object>> itemData, TreeMap<String, Integer> itemList){
+	public Level(TreeMap<String, String> mapData, ArrayList<TreeMap<String, Object>> itemData, TreeMap<String, Integer> itemList, File file){
+		Log.d("TREEMAP DUMP", mapData.toString());
 		try{
 			this.itemList = itemList;
 			
@@ -47,6 +48,7 @@ public class Level{
 			Log.d("Level", e.getMessage());
 		}
 		this.itemData = itemData;
+		this.file = file;
 	}
 	
 	public static Class<? extends Component> getComponentByName(String name){
@@ -118,7 +120,7 @@ public class Level{
 	}*/
 	
 	public File getFile(){
-		return new File(filePath);
+		return file;
 	}
 	
 	public int getAPI(){

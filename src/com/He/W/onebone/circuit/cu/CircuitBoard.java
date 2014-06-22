@@ -108,8 +108,9 @@ public class CircuitBoard extends ImageView{
 				return false;
 			}
 		});
-		setImageResource(R.drawable.circuit_board); // TODO Insert image!!
+		setImageResource(R.drawable.circuit_board);
 	}
+	
 	public Integer[] getClassRank(float tX, float tY) throws LevelParseException{
 		Level lv = LevelParser.parseLevel(file);
 		DrawGrid dg = new DrawGrid();

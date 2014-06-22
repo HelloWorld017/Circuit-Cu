@@ -142,6 +142,8 @@ public class GameActivity extends Activity{ //SlidingActivity{
 				}
 			}
 		}
+		
+		board.setVisibility(View.VISIBLE);
 	}
 	
 	public void showAchievementGranted(Achievement achievement){

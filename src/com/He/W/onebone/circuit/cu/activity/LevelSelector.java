@@ -34,6 +34,8 @@ public class LevelSelector extends android.app.Activity{
 	public Context ctxt = this;
 	private MediaPlayer prMP = null;
 	private boolean playMusic = (Setting.readSettings(EnumSettings.play_bgm) == 0);
+	private Level selectedLevel = null;
+	
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -48,13 +50,15 @@ public class LevelSelector extends android.app.Activity{
 		final TextView name = (TextView)findViewById(R.id.tvMapName);
 		final TextView author = (TextView)findViewById(R.id.tvAuthor);
 		final ListView timeRecord = (ListView)findViewById(R.id.rankingList);
-		Button MainMenu = (Button)findViewById(R.id.btnMainMenu);
-		Button Play = (Button)findViewById(R.id.btnPlay);
-		Button GetM = (Button)findViewById(R.id.btnGetMap);
-		MainMenu.setTypeface(tf);
-		Play.setTypeface(tf);
+		Button mainMenu = (Button)findViewById(R.id.btnMainMenu);
+		Button play = (Button)findViewById(R.id.btnPlay);
+		Button getM = (Button)findViewById(R.id.btnGetMap);
+		mainMenu.setTypeface(tf);
+		play.setTypeface(tf);
 		name.setTypeface(tf);
 		author.setTypeface(tf);
+		
+		
 		ListView levelList = (ListView)findViewById(R.id.levelList);
 		//ComponentAdapter adapter = new ComponentAdapter(this, new ArrayList<EnumComponentType>(), ); 
 		//THIS IS NOT A COMPONENT LISTVIEW!!!
@@ -65,17 +69,21 @@ public class LevelSelector extends android.app.Activity{
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				
 				AudioHelper.playEffect(LevelSelector.this, 0);
-				Level lv = null;
+				//Level lv = null;
 				try{
-				lv = 	LevelParser.parseLevel(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/" + LevelParser.readAllLevels().get(arg2) + ".cc");
+					selectedLevel = LevelParser.parseLevel(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/" + LevelParser.readAllLevels().get(arg2));
 				}catch(LevelParseException e){
 					Log.d("error", StackTraceToString.convert(e));
+					name.setText("WRONG MAP FILE");
+					author.setText("WRONG MAP FILE");
+					return;
 				}
-				name.setText(lv.getName());
-				author.setText(lv.getAuthor());
+				name.setText(selectedLevel.getName());
+				author.setText(selectedLevel.getAuthor());
 				ArrayList<String> al = new ArrayList<String>();
-				ArrayList<Object[]> rankingr =RankingHelper.getRankingList(lv.getFile());
+				ArrayList<Object[]> rankingr =RankingHelper.getRankingList(selectedLevel.getFile());
 				if(rankingr != null){
 				Iterator<Object[]> i = rankingr.iterator();
 				while(i.hasNext()){
@@ -85,24 +93,23 @@ public class LevelSelector extends android.app.Activity{
 					al.add("No record :(");
 				}
 				timeRecord.setAdapter(new ArrayAdapterWithTypeface<String>(ctxt,al,tf));
-				ImageView iv;
-				switch(lv.getDifficulty()){
-				case 10:iv =(ImageView) findViewById(R.id.star10);iv.setVisibility(View.VISIBLE);
-				case 9:iv =(ImageView) findViewById(R.id.star9);iv.setVisibility(View.VISIBLE);
-				case 8:iv =(ImageView) findViewById(R.id.star8);iv.setVisibility(View.VISIBLE);
-				case 7:iv =(ImageView) findViewById(R.id.star7);iv.setVisibility(View.VISIBLE);
-				case 6:iv =(ImageView) findViewById(R.id.star6);iv.setVisibility(View.VISIBLE);
-				case 5:iv =(ImageView) findViewById(R.id.star5);iv.setVisibility(View.VISIBLE);
-				case 4:iv =(ImageView) findViewById(R.id.star4);iv.setVisibility(View.VISIBLE);
-				case 3:iv =(ImageView) findViewById(R.id.star3);iv.setVisibility(View.VISIBLE);
-				case 2:iv =(ImageView) findViewById(R.id.star2);iv.setVisibility(View.VISIBLE);
-				case 1:iv =(ImageView) findViewById(R.id.star1);iv.setVisibility(View.VISIBLE);
+				switch(selectedLevel.getDifficulty()){
+				case 10:((ImageView) findViewById(R.id.star10)).setVisibility(View.VISIBLE);
+				case 9:((ImageView) findViewById(R.id.star9)).setVisibility(View.VISIBLE);
+				case 8:((ImageView) findViewById(R.id.star8)).setVisibility(View.VISIBLE);
+				case 7:((ImageView) findViewById(R.id.star7)).setVisibility(View.VISIBLE);
+				case 6:((ImageView) findViewById(R.id.star6)).setVisibility(View.VISIBLE);
+				case 5:((ImageView) findViewById(R.id.star5)).setVisibility(View.VISIBLE);
+				case 4:((ImageView) findViewById(R.id.star4)).setVisibility(View.VISIBLE);
+				case 3:((ImageView) findViewById(R.id.star3)).setVisibility(View.VISIBLE);
+				case 2:((ImageView) findViewById(R.id.star2)).setVisibility(View.VISIBLE);
+				case 1:((ImageView) findViewById(R.id.star1)).setVisibility(View.VISIBLE);
 				default:break;
 				}
 			}
 			
 		});
-		MainMenu.setOnClickListener(new View.OnClickListener() {
+		mainMenu.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
@@ -113,22 +120,23 @@ public class LevelSelector extends android.app.Activity{
 				startActivity(it);
 			}
 		});
-		Play.setOnClickListener(new View.OnClickListener() {
+		play.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 
 				AudioHelper.playEffect(LevelSelector.this, 0);
-				// TODO Auto-generated method stub
-				
+				if(selectedLevel == null) return;
+				GameActivity activity = new GameActivity(selectedLevel);
+				Intent intent = new Intent(LevelSelector.this, activity.getClass());
+				startActivity(intent);
 			}
 		});
-		GetM.setTypeface(tf);
-		GetM.setOnClickListener(new View.OnClickListener() {
+		getM.setTypeface(tf);
+		getM.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Uri uri = Uri.parse("https://www.dropbox.com/sh/d3ztdcecscm23oo/AABXwfKXH3XU-RBQH02vbB_za");
 				Intent intent = new Intent();
 				intent.setAction(Intent.ACTION_VIEW);
