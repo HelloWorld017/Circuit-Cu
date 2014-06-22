@@ -117,6 +117,9 @@ public class MainActivity extends android.app.Activity {
 		crt.show();
 		tv2.setText(str);
 		Setting.setPrefix(0,f);
+		Log.i("TEST","startBtn, X : " + startBtn.getWidth() + ", Y : " + startBtn.getHeight());
+		Log.i("TEST","htpBtn, X : " + htpBtn.getWidth() + ", Y : " + htpBtn.getHeight());
+		Log.i("TEST","prefBtn, X : " + prefBtn.getWidth() + ", Y : " + prefBtn.getHeight());
 	}
 	
 	@Override

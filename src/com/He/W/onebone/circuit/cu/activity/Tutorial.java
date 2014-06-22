@@ -63,7 +63,7 @@ public class Tutorial extends Activity {
 				tv = (TextView)findViewById(R.id.tutorial3);
 				tv.setText("Crouton library by Benjamin Weiss (keyboardsurfer)");
 				tv = (TextView)findViewById(R.id.tutorial4);
-				tv.setText("Image by ciker.com, Lorc, simpleicon.com, wallsave.com");
+				tv.setText("Image by ciker.com, Lorc, simpleicon.com, wallsave.com, He.W");
 				tv = (TextView)findViewById(R.id.tutorial5);
 				tv.setText("Font by Microsoft, NHN and Sandoll, Ubuntu, diezil tweeks");
 				tv = (TextView)findViewById(R.id.tutorial6);

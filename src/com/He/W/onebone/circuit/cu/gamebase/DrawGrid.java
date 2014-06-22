@@ -11,8 +11,8 @@ import android.widget.ImageView;
 public class DrawGrid {
 	public void drawGrid(int XgridCount, int YgridCount, ImageView iv){
 		//grid count는 x번 짜르는 것을 의미. 0부터 재지않음. ex) XgridCount가 2이면, x축을 2등분 하는것.
-		float xLength = iv.getX();
-		float yLength = iv.getY();
+		float xLength = iv.getWidth();
+		float yLength = iv.getHeight();
 		ArrayList<ArrayList<Float>> raws = ScissorXY(xLength, yLength, XgridCount, YgridCount);
 		ArrayList<Float> xT = raws.get(0);
 		ArrayList<Float> yT = raws.get(1);
@@ -52,5 +52,12 @@ public class DrawGrid {
 		ttr.add(0, xT);
 		ttr.add(0, yT);
 		return ttr;
+	}
+	public Float[] getSizeOfClass(float xL, float yL, int xC, int yC){
+		Float[] floatTachi = new Float[2];
+		floatTachi[0] = xL / xC;
+		floatTachi[1] = yL / yC;
+		return floatTachi;
+		
 	}
 }

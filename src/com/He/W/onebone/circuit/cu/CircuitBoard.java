@@ -1,17 +1,22 @@
 package com.He.W.onebone.circuit.cu;
 
-import com.He.W.onebone.circuit.cu.activity.MainActivity;
 import com.He.W.onebone.circuit.cu.component.*;
+import com.He.W.onebone.circuit.cu.exception.LevelParseException;
+import com.He.W.onebone.circuit.cu.gamebase.DrawGrid;
+import com.He.W.onebone.circuit.cu.map.Level;
+import com.He.W.onebone.circuit.cu.map.LevelParser;
+import com.He.W.onebone.circuit.cu.settings.Setting;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Set;
-import java.util.TreeMap;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.graphics.Typeface;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class CircuitBoard extends ImageView{
@@ -19,10 +24,59 @@ public class CircuitBoard extends ImageView{
 	private BoardComponentManager manager;
 	//private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
 	private int focused = -1;
+	private File file = null;
+	private Context ctxt;
 	
-	private CircuitBoard(Context context) {
+	private CircuitBoard(Context context){
 		super(context);
 		obj = this;
+		ctxt = context;
+		manager = new BoardComponentManager(this);
+		Button add = (Button)findViewById(R.id.btnAdd);
+		Button modify = (Button)findViewById(R.id.btnModify);
+		Button delete = (Button)findViewById(R.id.btnDelete);
+		Button build = (Button)findViewById(R.id.btnBuild);
+		Button buildReset = (Button)findViewById(R.id.btnReset);
+		Typeface tf = (Typeface) Setting.getPrefix(0);
+		add.setTypeface(tf);
+		modify.setTypeface(tf);
+		delete.setTypeface(tf);
+		build.setTypeface(tf);
+		buildReset.setTypeface(tf);
+		modify.setEnabled(false);
+		delete.setEnabled(false);
+		//connectedComponent = new TreeMap<Integer, LinkedList<Integer>>();
+		this.setOnTouchListener(new View.OnTouchListener(){
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				/*if(focused == -1) return false;
+				Component focusedCmt = manager.getComponentById(focused);
+				float x = event.getX();
+				float overBoard = MainActivity.getInstance().getResources().getDisplayMetrics().density / 4;
+				if(x < overBoard){
+					removeComponent(focused);
+					return false;
+				}
+				focusedCmt.moveTo(x, event.getY());
+				focusedCmt.setFocused(false);
+				return false;*/
+				try {
+					Integer[] raw = getClassRank(event.getX(), event.getY());
+				} catch (LevelParseException e) {
+					Log.d("error", StackTraceToString.convert(e));
+				}
+				
+				return false;
+			}
+		});
+		setImageResource(R.drawable.circuit_board); // TODO Insert image!!
+	}
+	
+	private CircuitBoard(Context context, File f) {
+		super(context);
+		obj = this;
+		ctxt = context;
+		file = f;
 		manager = new BoardComponentManager(this);
 		//connectedComponent = new TreeMap<Integer, LinkedList<Integer>>();
 		this.setOnTouchListener(new View.OnTouchListener(){
@@ -39,19 +93,44 @@ public class CircuitBoard extends ImageView{
 				focusedCmt.moveTo(x, event.getY());
 				focusedCmt.setFocused(false);
 				return false;*/
-				int maxY = CircuitBoard.this.getHeight();
+				try {
+					Integer[] raw = getClassRank(event.getX(), event.getY());
+				} catch (LevelParseException e) {
+					Log.d("error", StackTraceToString.convert(e));
+				}
 				
 				return false;
 			}
 		});
 		setImageResource(R.drawable.circuit_board); // TODO Insert image!!
 	}
+	public Integer[] getClassRank(float tX, float tY) throws LevelParseException{
+		Level lv = LevelParser.parseLevel(file);
+		DrawGrid dg = new DrawGrid();
+		float xL = this.getWidth();
+		float yL = this.getHeight();
+		Float[] fA = dg.getSizeOfClass(xL, yL, lv.getXLength(), lv.getYLength());
+		float xD = fA[0];
+		float yD = fA[1];
+		float cX = xL;
+		float cY = yL;
+		int Xcl = 0;
+		int Ycl = 0;
+		for(int a = 0;(cX -= xD) < xD; a++ ){
+			Xcl = a;
+		}
+		for(int a = 0;(cY -= yD) < yD; a++ ){
+			Ycl = a;
+		}
+		Integer[] it = {Xcl, Ycl};
+		return it;
+	}
 	
-	public static CircuitBoard makeBoard(Context context){
+	public static CircuitBoard makeBoard(Context context, File file){
 		if(obj instanceof CircuitBoard){
 			return obj;
 		}
-		return new CircuitBoard(context);
+		return new CircuitBoard(context, file);
 	}
 	
 	public static void destroyBoard(){
@@ -63,6 +142,10 @@ public class CircuitBoard extends ImageView{
 	
 	public static CircuitBoard getInstance(){
 		return obj;
+	}
+	
+	public void setLevel(Level lv){
+		file = lv.getFile();
 	}
 	
 	public BoardComponentManager getManager(){

@@ -49,7 +49,7 @@ public class GameActivity extends Activity{ //SlidingActivity{
 		setContentView(R.layout.activity_gaming);
 		
 		CircuitBoard.destroyBoard();
-		this.board = CircuitBoard.makeBoard(this);
+		this.board = CircuitBoard.makeBoard(this, level.getFile());
 		map = new HashMap<EnumComponentType, Integer>();
 		adapter = new ComponentAdapter(this, map);
 		
