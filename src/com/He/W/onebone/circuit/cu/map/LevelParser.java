@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.He.W.onebone.circuit.cu.map;
 
 import java.io.File;
