@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,7 +19,6 @@ public class LevelParser {
 		final ArrayList<String> result = new ArrayList<String>();
 		File ccpfolder = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/CircuitCu/");
 		ccpfolder.list(new FilenameFilter(){
-
 			@Override
 			public boolean accept(File arg0, String arg1) {
 				if(arg1.endsWith(".cc")){
@@ -26,7 +26,6 @@ public class LevelParser {
 				}
 				return false;
 			}
-			
 		});
 		
 		result.remove("Settings.cc");
@@ -47,6 +46,7 @@ public class LevelParser {
 			fis.close();
 			TreeMap<String, String> mapData = new TreeMap<String, String>();
 			ArrayList<TreeMap<String, Object>> componentData = new ArrayList<TreeMap<String, Object>>();
+			TreeMap<String, Integer>  itemList = new TreeMap<String, Integer>();
 			
 			Pattern startPattern = Pattern.compile("(\\[)([a-zA-Z0-9]{1,}+)(\\])"); // [something]
 			Matcher startMatcher = startPattern.matcher(content);
@@ -63,7 +63,21 @@ public class LevelParser {
 				
 				String tmp = content.substring(start, end);
 				String tag = tmp.substring(1, tmp.length() -1);
-				if(tag.equals("MAP")){
+				if(tag.toLowerCase(Locale.ENGLISH).equals("map")){
+					endMatcher.find();
+					int start2 = endMatcher.start();
+					String item = content.substring(end, start2);
+					Matcher matcher = itemDataPattern.matcher(item);
+					while(matcher.find()){
+						int dataStart = matcher.start();
+						int dataEnd = matcher.end();
+						String dataStr = item.substring(dataStart, dataEnd);
+						String[] data = dataStr.split("=", 1);
+						
+						mapData.put(data[0], data[1]);
+					}
+					continue;
+				}else if(tag.toLowerCase(Locale.ENGLISH).equals("items")){
 					endMatcher.find();
 					int start2 = endMatcher.start();
 					String item = content.substring(end, start2);
@@ -74,7 +88,7 @@ public class LevelParser {
 						String dataStr = item.substring(dataStart, dataEnd);
 						String[] data = dataStr.split("=");
 						
-						mapData.put(data[0], data[1]);
+						itemList.put(data[0], Integer.parseInt(data[1]));
 					}
 					continue;
 				}
@@ -92,12 +106,14 @@ public class LevelParser {
 					componentData.get(curIndex).put(data[0], data[1]);
 				}
 			}
-			return new Level(mapData, componentData);
+			return new Level(mapData, componentData, itemList);
 		}catch(IllegalStateException e){
 			throw new LevelParseException(LevelParseException.WRONG_FILE);
 		}catch(StringIndexOutOfBoundsException e){
 			throw new LevelParseException(LevelParseException.WRONG_FILE);
 		}catch(ArrayIndexOutOfBoundsException e){
+			throw new LevelParseException(LevelParseException.WRONG_FILE);
+		}catch(NumberFormatException e){
 			throw new LevelParseException(LevelParseException.WRONG_FILE);
 		}catch(Exception e){
 			throw new LevelParseException(LevelParseException.UNKNOWN, e.toString());

@@ -45,8 +45,7 @@ public class Transistor extends Component{
 		}
 	}
 	
-	@Override
-	public String getTypeId(){
+	public static String getTypeId(){
 		return Component.TRANSISTOR;
 	}
 }

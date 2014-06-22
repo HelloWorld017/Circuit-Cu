@@ -15,6 +15,8 @@ import android.util.Log;
 
 public class Level{
 	private ArrayList<TreeMap<String, Object>> itemData;
+	private TreeMap<String, Integer> itemList;
+	
 	private String author, name;
 	private int difficulty, startX, endX, startY, endY, xLength, yLength, api;
 	private String filePath;
@@ -23,8 +25,10 @@ public class Level{
 	public static final int CURRENT_API = 0x01;
 	
 	//Needs ArrayList[<int[]> componentData and Object[] successTime. successTime is at RankingHelper
-	public Level(TreeMap<String, String> mapData, ArrayList<TreeMap<String, Object>> itemData){
+	public Level(TreeMap<String, String> mapData, ArrayList<TreeMap<String, Object>> itemData, TreeMap<String, Integer> itemList){
 		try{
+			this.itemList = itemList;
+			
 			author = mapData.get("author");
 			name = mapData.get("name");
 			
@@ -45,7 +49,7 @@ public class Level{
 		this.itemData = itemData;
 	}
 	
-	public Class<? extends Component> getComponentByName(String name){
+	public static Class<? extends Component> getComponentByName(String name){
 		name = name.toLowerCase(Locale.ENGLISH).replaceAll("[_-]", "");
 		if(name.equals("lightbulb")){
 			return LightBulb.class;
@@ -58,7 +62,7 @@ public class Level{
 		}
 	}
 	
-	public Class<? extends Wire> getWireByName(String name){
+	public static Class<? extends Wire> getWireByName(String name){
 		name = name.toLowerCase(Locale.ENGLISH).replaceAll("[_-]", "");
 		if(name.equals("copperwire")){
 			return CopperWire.class;
@@ -115,6 +119,14 @@ public class Level{
 	
 	public File getFile(){
 		return new File(filePath);
+	}
+	
+	public int getAPI(){
+		return api;
+	}
+	
+	public TreeMap<String, Integer> getItemList(){
+		return itemList;
 	}
 	
 	/*public int getEnd(){

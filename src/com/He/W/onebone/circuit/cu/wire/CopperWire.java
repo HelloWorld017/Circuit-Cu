@@ -15,4 +15,8 @@ public class CopperWire extends Wire{
 		
 	}
 	
+	public static String getTypeId(){
+		return Wire.COPPER_WIRE;
+	}
+	
 }

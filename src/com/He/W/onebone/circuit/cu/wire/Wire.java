@@ -11,6 +11,9 @@ abstract public class Wire {
 	private double blockage;
 	private BoardComponentManager manager;
 	
+	public static final String GOLD_WIRE = "COMPONENT_GOLD_WIRE";
+	public static final String COPPER_WIRE = "COMPONENT_COPPER_WIRE";
+	
 	public Wire(Context context, Drawable drawable, float x, float y, int rotation, double blockage){
 		this.img = new ImageView(context);
 		this.img.setX(x);

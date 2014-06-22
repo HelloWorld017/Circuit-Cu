@@ -225,7 +225,10 @@ abstract public class Component extends ImageView{
 		return this.connected;
 	}
 	
-	abstract public String getTypeId();
+	public static String getTypeId(){
+		return null;
+	}
+	
 	abstract public void electricityReleased();
 	abstract public void electricityUnreleased();
 }

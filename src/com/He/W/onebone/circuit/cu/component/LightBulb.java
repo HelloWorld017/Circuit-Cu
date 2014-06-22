@@ -40,8 +40,7 @@ public class LightBulb extends Component implements ElectricityBlockable{
 		this.blockElectricity = value;
 	}
 	
-	@Override
-	public String getTypeId(){
+	public static String getTypeId(){
 		return Component.LIGHT_BULB;
 	}
 	

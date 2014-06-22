@@ -14,5 +14,9 @@ public class GoldWire extends Wire{
 	public void electricityReleased() {
 		
 	}
+	
+	public static String getTypeId(){
+		return Wire.GOLD_WIRE;
+	}
 
 }
