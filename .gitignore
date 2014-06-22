@@ -6,7 +6,7 @@
 .project
 .metadata
 bin/
-!bin/CircuitCu.apk
+#!bin/CircuitCu.apk
 tmp/
 *.tmp
 *.bak

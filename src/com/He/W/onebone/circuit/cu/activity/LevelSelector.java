@@ -6,6 +6,7 @@ import java.util.Iterator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
@@ -26,15 +27,23 @@ import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
 import com.He.W.onebone.circuit.cu.map.Level;
 import com.He.W.onebone.circuit.cu.map.LevelParser;
 import com.He.W.onebone.circuit.cu.map.RankingHelper;
+import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
 public class LevelSelector extends android.app.Activity{
 	public Context ctxt = this;
+	private MediaPlayer prMP = null;
+	private boolean playMusic = (Setting.readSettings(EnumSettings.play_bgm) == 0);
 	@Override
 	public void onCreate(android.os.Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.level_selector);
-		AudioHelper.playBGM(this,R.raw.portal2_09_the_future_starts_with_you, true);
+		if(playMusic){
+			prMP = MediaPlayer.create(this,R.raw.portal2_09_the_future_starts_with_you);
+			prMP.setLooping(true);
+			prMP.start();
+		}
+	
 		final Typeface tf = (Typeface)Setting.getPrefix(0);
 		final TextView name = (TextView)findViewById(R.id.tvMapName);
 		final TextView author = (TextView)findViewById(R.id.tvAuthor);
@@ -138,16 +147,30 @@ public class LevelSelector extends android.app.Activity{
 	@Override
 	protected void onPause(){
 		super.onPause();
-		AudioHelper.mp.stop();
+		if(prMP != null){
+			prMP.stop();
+			prMP.reset();
+			prMP = null;
+		}
+		
 	}
 	@Override
 	protected void onResume(){
 		super.onResume();
-		AudioHelper.mp.start();
+		if(prMP == null && playMusic){
+			prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
+			prMP.setLooping(true);
+			prMP.start();
+		}
 	}
 	@Override
-	protected void onStop(){
-		super.onStop();
-		AudioHelper.stopMusic();
+	protected void onDestroy(){
+		super.onDestroy();
+		if(prMP != null){
+			prMP.stop();
+			prMP.reset();
+			prMP = null;
+		}
+		
 	}
 }

@@ -30,9 +30,10 @@ public class MainActivity extends android.app.Activity {
 		FirstStartingHelper.isFirstStart();
 		Setting.initSettings(this);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
-		Log.d("AhLbug2", "Data : " + Setting.readSettings(EnumSettings.play_bgm));
-		if(Setting.readSettings(EnumSettings.play_bgm) == 0){
-			AudioHelper.playBGM(this, R.raw.portal2_12_the_friendly_faith_plate, true);
+		int bgm = Setting.readSettings(EnumSettings.play_bgm);
+		Log.d("AhLbug2", "Data : " + bgm);
+		if(0 == bgm){
+			AudioHelper.playBGM(this, R.raw.portal2_09_the_future_starts_with_you, true);
 		}
 		AudioHelper.addEffect(MainActivity.this, R.raw.button_click, 0);
 		
@@ -122,7 +123,10 @@ public class MainActivity extends android.app.Activity {
 	protected void onDestroy(){
 		super.onDestroy();
 		Log.d("PmLbug1","onMainDestroy");
-			AudioHelper.stopMusic();
+			if(AudioHelper.mp != null){
+				AudioHelper.mp.reset();
+				AudioHelper.mp = null;
+			}
 		Crouton.cancelAllCroutons();
 		Crouton.clearCroutonsForActivity(this);
 	}
@@ -131,13 +135,18 @@ public class MainActivity extends android.app.Activity {
 	public void onPause(){
 		super.onPause();
 			Log.d("PmLbug1","onMainPause");
+			if(AudioHelper.mp != null){
+				AudioHelper.mp.pause();
+			}
 			
-			AudioHelper.mp.stop();
 	}
 	@Override
 	public void onResume(){
 		super.onResume();
-		AudioHelper.playBGM(this, R.raw.portal2_12_the_friendly_faith_plate, true);
+		if(Setting.readSettings(EnumSettings.play_bgm) == 0 && AudioHelper.mp != null){
+			AudioHelper.mp.start();
+		}
+		
 	}
 	@Override
     public boolean dispatchKeyEvent(KeyEvent event) {

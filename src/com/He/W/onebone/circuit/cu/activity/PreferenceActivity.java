@@ -3,8 +3,10 @@ package com.He.W.onebone.circuit.cu.activity;
 import com.He.W.onebone.circuit.cu.R;
 import com.He.W.onebone.circuit.cu.android.SettingAdapter;
 import com.He.W.onebone.circuit.cu.gamebase.AudioHelper;
+import com.He.W.onebone.circuit.cu.settings.EnumSettings;
 import com.He.W.onebone.circuit.cu.settings.Setting;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -15,11 +17,21 @@ import android.widget.Button;
 import android.widget.ListView;
 
 public class PreferenceActivity extends Activity {
+	private MediaPlayer prMP = null;
+	private boolean playMusic = (Setting.readSettings(EnumSettings.play_bgm) == 0);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.d("prefLife", "onCreate");
+		Log.d("prefMue", "data : " +  playMusic);
+		Log.d("prefMue", "data : " + Setting.readSettings(EnumSettings.play_bgm));
 		setContentView(R.layout.activity_preference);
-		AudioHelper.playBGM(this,R.raw.portal2_18_adrenal_vapor, true);
+		if(playMusic){
+			prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
+			prMP.setLooping(true);
+			prMP.start();
+		}
+		
 		Button mm = (Button)findViewById(R.id.btnSettingToMainMenu);
 		mm.setOnClickListener(new View.OnClickListener() {
 			
@@ -39,7 +51,13 @@ public class PreferenceActivity extends Activity {
 	@Override
 	protected void onDestroy(){
 		super.onDestroy();
+		Log.d("prefLife", "onDestroy");
 		Setting.destroyHelper();
+		if(prMP != null){
+			prMP.stop();
+			prMP.reset();
+			prMP = null;
+		}
 	}
 
 
@@ -52,17 +70,23 @@ public class PreferenceActivity extends Activity {
 	@Override
 	protected void onPause(){
 		super.onPause();
-		AudioHelper.mp.stop();
+		Log.d("prefLife", "onPause");
+		if(prMP != null){
+			prMP.stop();
+			prMP.reset();
+			prMP = null;
+		}
+		
 	}
 	@Override
 	protected void onResume(){
 		super.onResume();
-		AudioHelper.mp.start();
-	}
-	@Override
-	protected void onStop(){
-		super.onStop();
-		AudioHelper.stopMusic();
+		Log.d("prefLife", "onResume");
+		if(prMP == null && playMusic){
+			prMP = MediaPlayer.create(this,R.raw.portal2_18_adrenal_vapor);
+			prMP.setLooping(true);
+			prMP.start();
+		}
 	}
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

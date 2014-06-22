@@ -49,7 +49,6 @@ public class GameActivity extends Activity{ //SlidingActivity{
 		setContentView(R.layout.activity_gaming);
 		
 		CircuitBoard.destroyBoard();
-		AudioHelper.playBGM(this,R.raw.portal2_22_triple_laser_phase, true);
 		this.board = CircuitBoard.makeBoard(this);
 		map = new HashMap<EnumComponentType, Integer>();
 		adapter = new ComponentAdapter(this, map);
