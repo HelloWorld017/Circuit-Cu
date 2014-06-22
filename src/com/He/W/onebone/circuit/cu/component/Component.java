@@ -23,6 +23,12 @@ abstract public class Component extends ImageView{
 	
 	protected int maxElectricity;
 	
+	public boolean closed = false;
+	
+	public static final String LIGHT_BULB = "COMPONENT_LIGHT_BULB";
+	public static final String RESISTOR = "COMPONENT_RESISTOR";
+	public static final String TRANSISTOR = "COMPONENT_TRANSISTOR";
+	
 	public Component(Context context, Drawable drawable, float x, float y, float rotation, EnumComponentType type, float requireElec){
 		this(context, drawable, x, y, rotation, type, Integer.MAX_VALUE, requireElec);
 	}
@@ -72,6 +78,11 @@ abstract public class Component extends ImageView{
 	
 	public LinkedList<Integer> getAbleConnecting(){
 		return ableConnecting;
+	}
+	
+	public void close(){
+		this.setVisibility(View.GONE);
+		this.closed = true;
 	}
 	
 	public void setFocused(boolean focus){ // TODO Showing focus status
@@ -214,6 +225,7 @@ abstract public class Component extends ImageView{
 		return this.connected;
 	}
 	
+	abstract public String getTypeId();
 	abstract public void electricityReleased();
 	abstract public void electricityUnreleased();
 }

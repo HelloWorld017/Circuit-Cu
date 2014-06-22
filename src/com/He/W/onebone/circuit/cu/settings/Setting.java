@@ -96,6 +96,7 @@ public class Setting {
 	public static Context getContext(){
 		return ctxt;
 	}
+	
 	public static int readSettings(EnumSettings es){
 			return flags.get(es);
 	}

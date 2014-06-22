@@ -28,7 +28,7 @@ public class CircuitBoard extends ImageView{
 		this.setOnTouchListener(new View.OnTouchListener(){
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				if(focused == -1) return false;
+				/*if(focused == -1) return false;
 				Component focusedCmt = manager.getComponentById(focused);
 				float x = event.getX();
 				float overBoard = MainActivity.getInstance().getResources().getDisplayMetrics().density / 4;
@@ -38,6 +38,9 @@ public class CircuitBoard extends ImageView{
 				}
 				focusedCmt.moveTo(x, event.getY());
 				focusedCmt.setFocused(false);
+				return false;*/
+				int maxY = CircuitBoard.this.getHeight();
+				
 				return false;
 			}
 		});
@@ -46,7 +49,7 @@ public class CircuitBoard extends ImageView{
 	
 	public static CircuitBoard makeBoard(Context context){
 		if(obj instanceof CircuitBoard){
-			return null;
+			return obj;
 		}
 		return new CircuitBoard(context);
 	}
@@ -74,6 +77,14 @@ public class CircuitBoard extends ImageView{
 	
 	public void notifyComponentUnfocused(){
 		focused = -1;
+	}
+	
+	public Component getFocusedComponent(){
+		return manager.getComponentById(focused);
+	}
+	
+	public int getFocused(){
+		return focused;
 	}
 	
 	public void removeComponent(int id){

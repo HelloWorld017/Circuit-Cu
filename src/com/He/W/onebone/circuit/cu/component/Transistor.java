@@ -44,4 +44,9 @@ public class Transistor extends Component{
 			}catch(Exception e){}
 		}
 	}
+	
+	@Override
+	public String getTypeId(){
+		return Component.TRANSISTOR;
+	}
 }

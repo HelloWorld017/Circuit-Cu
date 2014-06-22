@@ -65,6 +65,7 @@ public class BoardComponentManager {
 			int next = iterator.next();
 			Component c = componentList.get(next);
 			if(c.equals(component)){
+				c.close();
 				componentList.remove(next);
 				return true;
 			}
