@@ -26,17 +26,22 @@ public class CircuitBoard extends ImageView{
 	private int focused = -1;
 	private File file = null;
 	private Context ctxt;
+	private Button add;
+	private Button modify;
+	private Button delete;
+	private Button build;
+	private Button buildReset;
 	
 	private CircuitBoard(Context context){
 		super(context);
 		obj = this;
 		ctxt = context;
 		manager = new BoardComponentManager(this);
-		Button add = (Button)findViewById(R.id.btnAdd);
-		Button modify = (Button)findViewById(R.id.btnModify);
-		Button delete = (Button)findViewById(R.id.btnDelete);
-		Button build = (Button)findViewById(R.id.btnBuild);
-		Button buildReset = (Button)findViewById(R.id.btnReset);
+		add = (Button)findViewById(R.id.btnAdd);
+		modify = (Button)findViewById(R.id.btnModify);
+		delete = (Button)findViewById(R.id.btnDelete);
+		build = (Button)findViewById(R.id.btnBuild);
+		buildReset = (Button)findViewById(R.id.btnReset);
 		Typeface tf = (Typeface) Setting.getPrefix(0);
 		add.setTypeface(tf);
 		modify.setTypeface(tf);
@@ -62,6 +67,7 @@ public class CircuitBoard extends ImageView{
 				return false;*/
 				try {
 					Integer[] raw = getClassRank(event.getX(), event.getY());
+					
 				} catch (LevelParseException e) {
 					Log.d("error", StackTraceToString.convert(e));
 				}
@@ -155,6 +161,8 @@ public class CircuitBoard extends ImageView{
 	public void notifyComponentFocused(int id){
 		Component focusedCmt = manager.getComponentById(id);
 		focusedCmt.setFocused(false);
+		modify.setEnabled(true);
+		delete.setEnabled(true);
 		focused = id;
 	}
 	
