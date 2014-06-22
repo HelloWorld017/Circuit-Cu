@@ -123,7 +123,10 @@ public class MainActivity extends android.app.Activity {
 	protected void onDestroy(){
 		super.onDestroy();
 		Log.d("PmLbug1","onMainDestroy");
-			AudioHelper.stopMusic();
+			if(AudioHelper.mp != null){
+				AudioHelper.mp.reset();
+				AudioHelper.mp = null;
+			}
 		Crouton.cancelAllCroutons();
 		Crouton.clearCroutonsForActivity(this);
 	}
@@ -132,14 +135,16 @@ public class MainActivity extends android.app.Activity {
 	public void onPause(){
 		super.onPause();
 			Log.d("PmLbug1","onMainPause");
+			if(AudioHelper.mp != null){
+				AudioHelper.mp.pause();
+			}
 			
-			AudioHelper.mp.stop();
 	}
 	@Override
 	public void onResume(){
 		super.onResume();
-		if(Setting.readSettings(EnumSettings.play_bgm) == 0){
-			AudioHelper.playBGM(this, R.raw.portal2_09_the_future_starts_with_you, true);
+		if(Setting.readSettings(EnumSettings.play_bgm) == 0 && AudioHelper.mp != null){
+			AudioHelper.mp.start();
 		}
 		
 	}
