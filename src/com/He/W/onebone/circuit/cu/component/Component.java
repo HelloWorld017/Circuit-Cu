@@ -4,16 +4,19 @@ import java.util.LinkedList;
 
 import com.He.W.onebone.circuit.cu.*;
 import com.He.W.onebone.circuit.cu.exception.OverElectricityException;
+import com.He.W.onebone.circuit.cu.gamebase.EnumRotation;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.ImageView;
 
-abstract public class Component extends ImageView{
-	private float x, y;
+abstract public class Component{
+	private int x, y;
 	private float electrified;
 	private boolean isFocused;
+	private Drawable drawable;
+	private Context ctxt;
 	private EnumComponentType type;
 	private CircuitBoard board;
 	private BoardComponentManager manager;
@@ -29,23 +32,20 @@ abstract public class Component extends ImageView{
 	public static final String RESISTOR = "COMPONENT_RESISTOR";
 	public static final String TRANSISTOR = "COMPONENT_TRANSISTOR";
 	
-	public Component(Context context, Drawable drawable, float x, float y, float rotation, EnumComponentType type, float requireElec){
+	public Component(Context context, Drawable drawable, int x, int y, EnumRotation rotation, EnumComponentType type, float requireElec){
 		this(context, drawable, x, y, rotation, type, Integer.MAX_VALUE, requireElec);
 	}
 	
-	public Component(Context context, int resourceId, float x, float y, float rotation, EnumComponentType type, float requireElec){
+	public Component(Context context, int resourceId, int x, int y, EnumRotation rotation, EnumComponentType type, float requireElec){
 		this(context, context.getResources().getDrawable(resourceId), x, y, rotation, type, Integer.MAX_VALUE, requireElec);
 	}
 	
-	public Component(Context context, Drawable drawable, float x, float y, float rotation, EnumComponentType type, int maxElectricity, float requireElec){
-		super(context);
+	public Component(Context context, Drawable drawable, int x, int y, EnumRotation rotation, EnumComponentType type, int maxElectricity, float requireElec){
+		ctxt = context;
 		this.x = x;
 		this.y = y;
 		this.setRotation(rotation);
-		setImageDrawable(drawable);
-		setX(x);
-		setY(y);
-		
+		setImageDrawable(drawable);	
 		this.type = type;
 		this.ableConnecting = new LinkedList<Integer>();
 		this.connected = new LinkedList<Integer>();
@@ -54,16 +54,10 @@ abstract public class Component extends ImageView{
 		this.manager = board.getManager();
 		this.maxElectricity = maxElectricity;
 		manager.addComponent(this);
-		
-		this.setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v) {
-				setFocused(true);
-			}
-			
-		});
 	}
-	
+	public void setImageDrawable(Drawable d){
+		drawable = d;
+	}
 	public float getRequireElectricity(){
 		return this.requireElec;
 	}
@@ -81,7 +75,7 @@ abstract public class Component extends ImageView{
 	}
 	
 	public void close(){
-		this.setVisibility(View.GONE);
+		this.setComponentVisibility(View.GONE);
 		this.closed = true;
 	}
 	
@@ -108,7 +102,7 @@ abstract public class Component extends ImageView{
 				this.setImageResource(R.drawable.transistor);
 			}
 			break;
-		case COMPONENT_LIGHT_BULB:
+		//case COMPONENT_LIGHT_BULB:
 			/*if(this.electrified > 0){ // Check if it's light is on
 				if(focus){
 					this.setImageResource(R.drawable.glowing_light_bulb_focused);
@@ -128,6 +122,12 @@ abstract public class Component extends ImageView{
 		}
 	}
 	
+	private void setImageResource(int resid) {
+		// TODO Auto-generated method stub
+		setImageDrawable(ctxt.getResources().getDrawable(resid));
+		
+	}
+
 	public boolean isFocused(){
 		return isFocused;
 	}
@@ -137,11 +137,11 @@ abstract public class Component extends ImageView{
 	}
 	
 	public void setComponentVisibility(int visibility){
-		setVisibility(visibility);
+		setComponentVisibility(visibility);
 	}
 	
-	public ImageView getComponentImage(){
-		return this;
+	public Drawable getComponentImage(){
+		return drawable;
 	}
 	
 	public final float getX(){
@@ -152,17 +152,12 @@ abstract public class Component extends ImageView{
 		return y;
 	}
 	
-	public void setRotation(float rotation){
-		setRotation(rotation);
+	public void setRotation(EnumRotation rotation){
+		
 	}
 	
-	public final int getRotationId(){
-		return (int)Math.ceil((getRotation() / 90));
-	}
 	
-	public final void moveTo(float x, float y){
-		setX(x);
-		setY(y);
+	public final void moveTo(int x, int y){
 		this.x = x;
 		this.y = y;
 	}
