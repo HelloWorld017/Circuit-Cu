@@ -12,6 +12,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -129,6 +130,9 @@ public class CircuitBoard extends ImageView{
 		}
 		obj = null;
 	}
+	public static Canvas drawCircuitBoard(){
+		return null;
+	}
 	
 	public static CircuitBoard getInstance(){
 		return obj;
@@ -151,7 +155,9 @@ public class CircuitBoard extends ImageView{
 	public void notifyComponentUnfocused(){
 		focused = -1;
 	}
-	
+	public void notifyDrawableChanged(){
+		
+	}
 	public Component getFocusedComponent(){
 		return manager.getComponentById(focused);
 	}
@@ -161,13 +167,10 @@ public class CircuitBoard extends ImageView{
 	}
 	
 	public void removeComponent(int id){
-		Component component = manager.getComponentById(id);
-		component.setVisibility(View.INVISIBLE);
 		manager.removeComponent(id);
 	}
 	
 	public void removeComponent(Component component){
-		component.setVisibility(View.INVISIBLE);
 		manager.removeComponent(component);
 		Iterator<Integer> keys = manager.getAll().keySet().iterator();
 		while(keys.hasNext()){

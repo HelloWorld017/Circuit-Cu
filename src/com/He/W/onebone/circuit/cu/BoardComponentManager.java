@@ -25,7 +25,7 @@ public class BoardComponentManager {
 		return componentList.get(id);
 	}
 	
-	public BoardComponentManager moveComponent(int id, float x, float y){
+	public BoardComponentManager moveComponent(int id, int x, int y){
 		componentList.get(id).moveTo(x, y);
 		return this;
 	}

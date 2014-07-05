@@ -57,6 +57,7 @@ abstract public class Component{
 	}
 	public void setImageDrawable(Drawable d){
 		drawable = d;
+		board.notifyDrawableChanged();
 	}
 	public float getRequireElectricity(){
 		return this.requireElec;
@@ -156,6 +157,11 @@ abstract public class Component{
 		
 	}
 	
+	public void setVisibility(boolean isVisible){
+		if(!isVisible){
+			board.removeComponent(this);
+		}
+	}
 	
 	public final void moveTo(int x, int y){
 		this.x = x;
