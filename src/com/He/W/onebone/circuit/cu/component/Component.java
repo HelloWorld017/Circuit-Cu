@@ -65,10 +65,14 @@ abstract public class Component extends ImageView{
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public void setImageDrawable(Drawable d){
 		drawable = d;
 		board.notifyDrawableChanged();
 	}
+=======
+	
+>>>>>>> parent of 424fb50... updated Component
 =======
 	
 >>>>>>> parent of 424fb50... updated Component
@@ -169,10 +173,15 @@ abstract public class Component extends ImageView{
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	public void setVisibility(boolean isVisible){
 		if(!isVisible){
 			board.removeComponent(this);
 		}
+=======
+	public final int getRotationId(){
+		return (int)Math.ceil((getRotation() / 90));
+>>>>>>> parent of 424fb50... updated Component
 =======
 	public final int getRotationId(){
 		return (int)Math.ceil((getRotation() / 90));
