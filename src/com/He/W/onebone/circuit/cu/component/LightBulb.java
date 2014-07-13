@@ -1,17 +1,18 @@
 package com.He.W.onebone.circuit.cu.component;
 
 import com.He.W.onebone.circuit.cu.*;
+import com.He.W.onebone.circuit.cu.gamebase.EnumRotation;
 
 public class LightBulb extends Component implements ElectricityBlockable{
 	
 	private float blockElectricity;
 
-	public LightBulb(CircuitBoard board, float x, float y, int rotation, int blockElectricity) {
-		this(board, x, y, rotation, blockElectricity, 20);
+	public LightBulb(CircuitBoard board, int x, int y, EnumRotation rotation, int blockElectricity) {
+		this(board, x, y, rotation, blockElectricity, 40, 50);
 	}
 	
-	public LightBulb(CircuitBoard board, float x, float y, int rotation, int blockElectricity, int requireElec) {
-		super(board.getContext(), R.drawable.light_bulb, x, y, rotation, EnumComponentType.COMPONENT_LIGHT_BULB, requireElec);
+	public LightBulb(CircuitBoard board, int x, int y, EnumRotation rotation, int blockElectricity, int requireElec, int maxElectricity) {
+		super(board.getContext(), x, y, rotation, EnumComponentType.COMPONENT_LIGHT_BULB, requireElec, maxElectricity);
 	}
 
 	@Override
@@ -40,8 +41,8 @@ public class LightBulb extends Component implements ElectricityBlockable{
 		this.blockElectricity = value;
 	}
 	
-	public static String getTypeId(){
-		return Component.LIGHT_BULB;
+	public static EnumComponentType getTypeId(){
+		return EnumComponentType.COMPONENT_LIGHT_BULB;
 	}
 	
 }

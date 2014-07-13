@@ -41,7 +41,7 @@ public final class R {
         public static final int glowing_light_bulb=0x7f02000c;
         public static final int gold_wire=0x7f02000d;
         public static final int gold_wire_curve=0x7f02000e;
-        public static final int gold_wire_curved_focused=0x7f02000f;
+        public static final int gold_wire_curve_focused=0x7f02000f;
         public static final int gold_wire_focused=0x7f020010;
         public static final int ic_launcher=0x7f020011;
         public static final int light_bulb=0x7f020012;

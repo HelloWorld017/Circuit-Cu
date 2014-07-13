@@ -159,15 +159,18 @@ public class CircuitBoard extends ImageView{
 	public int getFocused(){
 		return focused;
 	}
+	public void redraw(){
+		
+	}
 	
 	public void removeComponent(int id){
 		Component component = manager.getComponentById(id);
-		component.setVisibility(View.INVISIBLE);
+		component.setComponentVisibility(false);
 		manager.removeComponent(id);
 	}
 	
 	public void removeComponent(Component component){
-		component.setVisibility(View.INVISIBLE);
+		component.setComponentVisibility(false);
 		manager.removeComponent(component);
 		Iterator<Integer> keys = manager.getAll().keySet().iterator();
 		while(keys.hasNext()){
@@ -187,8 +190,7 @@ public class CircuitBoard extends ImageView{
 	}
 	
 	public int putComponentTo(Component component, int locationId){
-		ImageView img = component.getComponentImage();
-		img.setVisibility(View.VISIBLE);
+		//img.setVisibility(View.VISIBLE);
 		return manager.addComponent(component);
 	}
 	
