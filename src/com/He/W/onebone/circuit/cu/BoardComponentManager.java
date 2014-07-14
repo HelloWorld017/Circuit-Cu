@@ -18,6 +18,7 @@ public class BoardComponentManager {
 	
 	public int addComponent(Component component){
 		componentList.put(id, component);
+		board.redraw();
 		return id++;
 	}
 	
@@ -25,12 +26,12 @@ public class BoardComponentManager {
 		return componentList.get(id);
 	}
 	
-	public BoardComponentManager moveComponent(int id, float x, float y){
+	public BoardComponentManager moveComponent(int id, int x, int y){
 		componentList.get(id).moveTo(x, y);
 		return this;
 	}
 	
-	public Component findComponentByLocation(float x, float y){
+	/*public Component findComponentByLocation(int x, int y){
 		Set<Integer> key = componentList.descendingKeySet();
 		Iterator<Integer> iterator = key.iterator();
 		while(iterator.hasNext()){
@@ -56,8 +57,19 @@ public class BoardComponentManager {
 			}
 		}
 		return null;
-	}
+	}*/
 	
+	public Component findComponentByLocation(int x, int y){
+		int size = componentList.size();
+		for(int o = 0; o < size; o++){
+			Component temp = componentList.get(o);
+			Integer[] obj ={ temp.getX(), temp.getY()};
+			if(obj[1].equals(x) && obj[2].equals(y)){
+				return temp;
+			}
+		}
+		return null;
+	}
 	public boolean removeComponent(Component component){
 		Set<Integer> key = componentList.descendingKeySet();
 		Iterator<Integer> iterator = key.iterator();
@@ -67,6 +79,7 @@ public class BoardComponentManager {
 			if(c.equals(component)){
 				c.close();
 				componentList.remove(next);
+				board.redraw();
 				return true;
 			}
 		}
@@ -76,6 +89,7 @@ public class BoardComponentManager {
 	public boolean removeComponent(int id){
 		if(componentList.containsKey(id)){
 			componentList.remove(id);
+			board.redraw();
 		}
 		return false;
 	}
@@ -127,16 +141,7 @@ public class BoardComponentManager {
 		}
 	}
 	
-	public Component findComponentByLocation(int x, int y){
-		int size = componentList.size();
-		for(int o = 0; o < size; o++){
-			Object[] obj = componentList.get(o);
-			if(obj[1].equals(x) && obj[2].equals(y)){
-				return (Component)obj[0];
-			}
-		}
-		return null;
-	}
+	
 	
 	public Component findComponentByLocation(int x, int y, int errorRange){
 		int size = componentList.size();

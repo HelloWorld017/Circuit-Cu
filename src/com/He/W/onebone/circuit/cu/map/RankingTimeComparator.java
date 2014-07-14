@@ -2,6 +2,8 @@ package com.He.W.onebone.circuit.cu.map;
 
 import java.util.Comparator;
 
+@SuppressWarnings("rawtypes")
+//TODO Suppress Warnings rawtypes
 public class RankingTimeComparator implements Comparator{
 
 	@Override

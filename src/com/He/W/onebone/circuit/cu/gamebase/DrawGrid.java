@@ -6,13 +6,10 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.widget.ImageView;
 
 public class DrawGrid {
-	public void drawGrid(int XgridCount, int YgridCount, ImageView iv){
+	public Canvas drawGrid(int XgridCount, int YgridCount, float xLength, float yLength){
 		//grid count는 x번 짜르는 것을 의미. 0부터 재지않음. ex) XgridCount가 2이면, x축을 2등분 하는것.
-		float xLength = iv.getWidth();
-		float yLength = iv.getHeight();
 		ArrayList<ArrayList<Float>> raws = ScissorXY(xLength, yLength, XgridCount, YgridCount);
 		ArrayList<Float> xT = raws.get(0);
 		ArrayList<Float> yT = raws.get(1);
@@ -30,7 +27,7 @@ public class DrawGrid {
 			
 			canvas.drawLine(0, nY, xLength, nY, blackPaint);
 		}
-		iv.setImageBitmap(bitmap);
+		return canvas;
 	}
 	
 	public ArrayList<ArrayList<Float>> ScissorXY(float xL, float yL, int xC, int yC){

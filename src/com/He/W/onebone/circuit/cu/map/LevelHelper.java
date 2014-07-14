@@ -112,7 +112,7 @@ public class LevelHelper{
 				 * 					arg[1] = X coordinate
 				 * 					arg[2] = Y coordinate
 				 */
-				int it_successdata = -1;
+				//int it_successdata = -1;
 				ArrayList<String> Fullmap = new ArrayList<String>();
 				int msl = -1; //Mapdata Start Line
 				int mel = -1; //Mapdata End Line
@@ -255,7 +255,7 @@ public class LevelHelper{
 							if(ssl != -1 && sel != -1){
 								if(ssl < a && sel < a){
 									try{
-										it_successdata = Integer.parseInt(Fullmap.get(a));
+										//it_successdata = Integer.parseInt(Fullmap.get(a));
 									}catch(NumberFormatException e){
 										Toast.makeText(ctxt, "Broken Level : SuccessData is not Integer", Toast.LENGTH_LONG).show();
 										br.close();

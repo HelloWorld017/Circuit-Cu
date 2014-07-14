@@ -5,18 +5,18 @@ import com.He.W.onebone.circuit.cu.exception.LevelParseException;
 import com.He.W.onebone.circuit.cu.gamebase.DrawGrid;
 import com.He.W.onebone.circuit.cu.map.Level;
 import com.He.W.onebone.circuit.cu.map.LevelParser;
-import com.He.W.onebone.circuit.cu.settings.Setting;
+//import com.He.W.onebone.circuit.cu.settings.Setting;
 
 import java.io.File;
 import java.util.Iterator;
 import java.util.LinkedList;
 
 import android.content.Context;
-import android.graphics.Typeface;
+//import android.graphics.Typeface;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+//import android.widget.Button;
 import android.widget.ImageView;
 
 public class CircuitBoard extends ImageView{
@@ -24,6 +24,7 @@ public class CircuitBoard extends ImageView{
 	private BoardComponentManager manager;
 	//private TreeMap<Integer, LinkedList<Integer>> connectedComponent;
 	private int focused = -1;
+	private int[] focusedCoord;
 	private File file = null;
 	private Context ctxt;
 	
@@ -48,7 +49,7 @@ public class CircuitBoard extends ImageView{
 				focusedCmt.setFocused(false);
 				return false;*/
 				try {
-					Integer[] raw = getClassRank(event.getX(), event.getY());
+					int[] raw = getClassRank(event.getX(), event.getY());
 					
 				} catch (LevelParseException e) {
 					Log.d("error", StackTraceToString.convert(e));
@@ -70,6 +71,8 @@ public class CircuitBoard extends ImageView{
 		this.setOnTouchListener(new View.OnTouchListener(){
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
+				notifyComponentUnfocused();
+				
 				/*if(focused == -1) return false;
 				Component focusedCmt = manager.getComponentById(focused);
 				float x = event.getX();
@@ -82,8 +85,14 @@ public class CircuitBoard extends ImageView{
 				focusedCmt.setFocused(false);
 				return false;*/
 				try {
-					Integer[] raw = getClassRank(event.getX(), event.getY());
-					
+					int[] raw = getClassRank(event.getX(), event.getY());
+					focusedCoord = raw;
+					Component c = manager.findComponentByLocation(raw[0], raw[1]);
+					if(c != null){
+						c.setFocused(true);
+					}else{
+						focused = -2;
+					}
 				} catch (LevelParseException e) {
 					Log.d("error", StackTraceToString.convert(e));
 				}
@@ -94,7 +103,7 @@ public class CircuitBoard extends ImageView{
 		setImageResource(R.drawable.circuit_board);
 	}
 	
-	public Integer[] getClassRank(float tX, float tY) throws LevelParseException{
+	public int[] getClassRank(float tX, float tY) throws LevelParseException{
 		Level lv = LevelParser.parseLevel(file);
 		DrawGrid dg = new DrawGrid();
 		float xL = this.getWidth();
@@ -112,7 +121,7 @@ public class CircuitBoard extends ImageView{
 		for(int a = 0;(cY -= yD) < yD; a++ ){
 			Ycl = a;
 		}
-		Integer[] it = {Xcl, Ycl};
+		int[] it = {Xcl, Ycl};
 		return it;
 	}
 	
@@ -144,7 +153,7 @@ public class CircuitBoard extends ImageView{
 	
 	public void notifyComponentFocused(int id){
 		Component focusedCmt = manager.getComponentById(id);
-		focusedCmt.setFocused(false);
+		focusedCmt.setFocused(true);
 		focused = id;
 	}
 	
@@ -153,7 +162,12 @@ public class CircuitBoard extends ImageView{
 	}
 	
 	public Component getFocusedComponent(){
-		return manager.getComponentById(focused);
+		if(focused != -1 && focused != -2){
+			return manager.getComponentById(focused);
+		}else{
+			return null;
+		}
+		
 	}
 	
 	public int getFocused(){

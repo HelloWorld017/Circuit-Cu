@@ -80,11 +80,11 @@ abstract public class Component {
 	}
 
 	public void setFocused(boolean focus) { // TODO Showing focus status
-		if(focus){
-			board.notifyComponentFocused(manager.getComponentId(this));
-		}else{
-			board.notifyComponentUnfocused();
-		}
+	//	if(focus){
+		//	board.notifyComponentFocused(manager.getComponentId(this));
+	//	}else{
+	//		board.notifyComponentUnfocused();
+	//	} : notifyComponentFocused -> Component.setFocused -> notifyComponentFocused -> Component.setFocused ... : StackOverFlowException
 		isFocused = focus;
 	//	switch(this.type){ // TODO list all of it!!
 	//	case COMPONENT_RESISTOR:
