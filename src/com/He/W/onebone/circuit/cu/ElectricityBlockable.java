@@ -1,9 +1,5 @@
 package com.He.W.onebone.circuit.cu;
 
-import com.He.W.onebone.circuit.cu.component.*;
-
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 
 public interface ElectricityBlockable{
 	public float getBlockingElectricty();

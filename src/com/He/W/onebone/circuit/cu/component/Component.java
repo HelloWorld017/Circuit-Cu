@@ -31,6 +31,7 @@ abstract public class Component {
 	private float requireElec;
 	private boolean isElectricityFlowing = false;
 	protected int maxElectricity;
+	private boolean isParent = false;
 
 	public boolean closed = false;
 
@@ -344,4 +345,12 @@ abstract public class Component {
 	abstract public void electricityReleased();
 
 	abstract public void electricityUnreleased();
+
+	public boolean isParentComponent(){
+		return isParent;
+	}
+
+	public void setParent(boolean isParent){
+		this.isParent = isParent;
+	}
 }

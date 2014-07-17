@@ -27,7 +27,7 @@ public class CircuitBoard extends ImageView{
 	private int[] focusedCoord;
 	private File file = null;
 	private Context ctxt;
-	
+	private boolean isBuilding = false;
 	private CircuitBoard(Context context){
 		super(context);
 		obj = this;
@@ -152,9 +152,17 @@ public class CircuitBoard extends ImageView{
 	}
 	
 	public void notifyComponentFocused(int id){
-		Component focusedCmt = manager.getComponentById(id);
-		focusedCmt.setFocused(true);
-		focused = id;
+		if(!isBuilding){
+			Component focusedCmt = manager.getComponentById(id);
+			if(focusedCmt.isParentComponent()){
+				focusedCmt.setFocused(true);
+				focused = id;
+			}else{
+				focused = -1;
+			}
+			
+		}
+		
 	}
 	
 	public void notifyComponentUnfocused(){
@@ -176,6 +184,11 @@ public class CircuitBoard extends ImageView{
 	public void redraw(){
 		
 	}
+	public void build(){
+		focused = -1;
+		isBuilding = true;
+		//TODO JNI part
+	}
 	
 	public void removeComponent(int id){
 		Component component = manager.getComponentById(id);
@@ -194,6 +207,7 @@ public class CircuitBoard extends ImageView{
 				return;
 			}
 		}
+		redraw();
 	}
 	
 	public void removeAllComponents(){
@@ -201,6 +215,7 @@ public class CircuitBoard extends ImageView{
 		while(key.hasNext()){
 			this.removeComponent(manager.getComponentById(key.next()));
 		}
+		redraw();
 	}
 	
 	public int putComponentTo(Component component, int locationId){
