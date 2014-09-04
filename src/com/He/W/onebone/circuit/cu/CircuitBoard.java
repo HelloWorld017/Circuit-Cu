@@ -50,7 +50,13 @@ public class CircuitBoard extends ImageView{
 				return false;*/
 				try {
 					int[] raw = getClassRank(event.getX(), event.getY());
-					
+					focusedCoord = raw;
+					Component c = manager.findComponentByLocation(raw[0], raw[1]);
+					if(c != null){
+						c.setFocused(true);
+					}else{
+						focused = -2;
+					}
 				} catch (LevelParseException e) {
 					Log.d("error", StackTraceToString.convert(e));
 				}
